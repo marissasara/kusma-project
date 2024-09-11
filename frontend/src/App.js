@@ -8,6 +8,8 @@ import LoginPage from './views/pages/LoginPage';
 import DashboardPage from './views/pages/DashboardPage';
 import AdminPage from './views/pages/AdminPage';
 
+import './App.css'
+
 function App() {
   return (
     <Router>

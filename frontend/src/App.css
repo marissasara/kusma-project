@@ -1,0 +1,15 @@
+.bg-guest {
+  background-color: lightskyblue;
+}
+
+.bg-admin {
+  background-color: lightgoldenrodyellow;
+}
+
+.bg-user {
+  background-color: lightseagreen;
+}
+
+.text-dark-custom {
+  color: black;
+}
