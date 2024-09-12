@@ -78,7 +78,7 @@ function Register() {
 
                 <Row className='mb-4'>
                     <InputText 
-                        type='email'
+                        type='text'
                         fieldName='email' 
                         placeholder='Valid email address'  
                         icon='bi-envelope'
@@ -108,11 +108,6 @@ function Register() {
                 </Row>
             </Row>
 
-        
-
-   
-
-         
             <Button variant="primary" type="submit">
             Submit
             </Button>
