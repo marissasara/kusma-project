@@ -1,21 +1,42 @@
-import { useState } from 'react';
-import { Col, Button, Form } from 'react-bootstrap';
+import { useState, useEffect } from 'react';
+import { Row, Col, Button, Form } from 'react-bootstrap';
 import axios from 'axios';
-
+import useStore from '../../../store';
+import { appendFormData, InputText } from '../../../FormInput';
 function Register() {
+    const store = useStore()
+
+    const [isLoading, setIsLoading] = useState(false);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState('');
 
+    useEffect(() => {
+        // Code to run when the component is loaded (similar to window.onload)
+        console.log("Page has loaded!");
+        store.emptyData() // clear all previous data
+
+        // Optionally, you can return a cleanup function to run when the component is unmounted
+        return () => {
+            console.log("Component is unmounting!");
+        };
+    }, []); // Empty dependency array means this runs only once, when the component loads
+
+
     const handleSubmit = (e) => {
         e.preventDefault();
         
-        // If no errors, proceed with form submission or further logic
         const formData = new FormData();
-        formData.append('name', name);
-        formData.append('email', email);
-        formData.append('password', password);
+        const dataArray = [
+            { key: 'name', value: store.getValue('name') },
+            { key: 'email', value: store.getValue('email') }, 
+            { key: 'password', value: store.getValue('password') }, 
+            { key: 'password_confirm', value: store.getValue('password_confirm') },
+        ];
+        
+        appendFormData(formData, dataArray);
+
 
         axios({
             method: 'post',
@@ -30,66 +51,73 @@ function Register() {
             console.log('Form submitted successfully!');
         })
         .catch(error => {
-            console.error('There was a problem with the axios request:', error.response ? error.response.data : error.message);
+   
+
+            if( error.response?.status == 422 ){ // detect 422 errors by Laravel
+                console.log(error.response.data.errors)
+                store.setValue('errors', error.response.data.errors ) // set the errors to store
+            }
         });
     };
 
     return (
-        <Col className='col-6 border border-1 p-4 rounded'>
+        <Row className='ms-4 col-8 border border-1 p-4 rounded'>
         <h1>Register</h1>
         <Form onSubmit={handleSubmit}>
 
-            <Form.Group className="mb-3" controlId="name">
-                <Form.Label>Your Name</Form.Label>
-                <Form.Control
-                    type="text"
-                    placeholder="Enter fullname"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    isInvalid={!!errors.name} // Apply is-invalid if there's an error
-                />
-                <Form.Control.Feedback type="invalid">
-                    {errors.name}
-                </Form.Control.Feedback>
-            </Form.Group>
-            
-            <Form.Group className="mb-3" controlId="email">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control
-                    type="email"
-                    placeholder="Enter email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    isInvalid={!!errors.email} // Apply is-invalid if there's an error
-                />
-                <Form.Control.Feedback type="invalid">
-                    {errors.email}
-                </Form.Control.Feedback>
+            <Row>
+                <Row className='mb-4'>
+               
+                    <InputText 
+                        fieldName='name' 
+                        placeholder='Your name'  
+                        icon='bi-people'
+                        isLoading={isLoading}
+                    />
+                </Row>
 
-                <Form.Text className="text-muted">
-                    We'll never share your email with anyone else.
-                </Form.Text>
-            </Form.Group>
+                <Row className='mb-4'>
+                    <InputText 
+                        type='email'
+                        fieldName='email' 
+                        placeholder='Valid email address'  
+                        icon='bi-envelope'
+                        isLoading={isLoading}
+                    />
+                </Row>
 
-            <Form.Group className="mb-3" controlId="password">
-                <Form.Label>Password</Form.Label>
-                <Form.Control
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    isInvalid={!!errors.password} // Apply is-invalid if there's an error
-                />
-                <Form.Control.Feedback type="invalid">
-                    {errors.password}
-                </Form.Control.Feedback>
-            </Form.Group>
+                <Row className='mb-4'>
+                    <InputText 
+                        type='password'
+                        fieldName='password' 
+                        placeholder='Password'  
+                        icon='bi-lock'
+                        isLoading={isLoading}
+                    />
+                </Row>
 
+                <Row className='mb-4'>
+                    <InputText 
+                        type='password'
+                        password='password_confirm'
+                        fieldName='password_confirm' 
+                        placeholder='Confirm Password'  
+                        icon='bi-lock'
+                        isLoading={isLoading}
+                    />
+                </Row>
+            </Row>
+
+        
+
+   
+
+         
             <Button variant="primary" type="submit">
             Submit
             </Button>
         </Form>
-        </Col>
+        </Row>
     );
 }
 
