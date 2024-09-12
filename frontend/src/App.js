@@ -9,6 +9,10 @@ import DashboardPage from './views/pages/DashboardPage';
 import AdminPage from './views/pages/AdminPage';
 
 import './App.css'
+import AboutUs from './views/pages/Guest/AboutUs';
+import SignIn from './views/pages/Guest/SignIn';
+import Register from './views/pages/Guest/Register';
+import ContactUs from './views/pages/Guest/ContactUs';
 
 function App() {
   return (
@@ -16,8 +20,13 @@ function App() {
       <Routes>
         {/* Guest Layout */}
         <Route element={<GuestLayout />}>
-          <Route path="/login" element={<LoginPage />} />
           <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/logout" element={<LoginPage />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/register" element={<Register />} />
         </Route>
 
         {/* User Layout */}
