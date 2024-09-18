@@ -28,7 +28,7 @@ const SideBar = () => {
                 </li>
 
                 <li className="nav-item">
-                    <Link to="/contact-us" className="nav-link text-dark-custom px-sm-0 px-2">
+                    <Link to="/sign-in" className="nav-link text-dark-custom px-sm-0 px-2">
                         <i className="fs-5 bi-box-arrow-in-right"></i><span className="ms-1 d-none d-sm-inline">Sign In</span>
                     </Link>
                 </li>

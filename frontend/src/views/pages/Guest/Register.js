@@ -32,7 +32,7 @@ function Register() {
             { key: 'name', value: store.getValue('name') },
             { key: 'email', value: store.getValue('email') }, 
             { key: 'password', value: store.getValue('password') }, 
-            { key: 'password_confirm', value: store.getValue('password_confirm') },
+            { key: 'password_confirmation', value: store.getValue('password_confirmation') },
         ];
         
         appendFormData(formData, dataArray);
@@ -99,8 +99,8 @@ function Register() {
                 <Row className='mb-4'>
                     <InputText 
                         type='password'
-                        password='password_confirm'
-                        fieldName='password_confirm' 
+                        password='password_confirmation'
+                        fieldName='password_confirmation' 
                         placeholder='Confirm Password'  
                         icon='bi-lock'
                         isLoading={isLoading}
