@@ -8,11 +8,7 @@ import { Navigate,Link } from 'react-router-dom'
 function SignIn() {
     const store = useStore()
     
-
     const [isLoading, setIsLoading] = useState(false);
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
     const [errors, setErrors] = useState('');
     
 
@@ -33,6 +29,7 @@ function SignIn() {
 
     // handle form submission
     const handleSubmit = (e) => {
+        store.setValue('errors', null ) // reset the error when form is submitting
         setIsLoading(true)
         e.preventDefault();
         
@@ -72,9 +69,9 @@ function SignIn() {
     };
 
     // handle redirect after login
-    if( store.getValue('authenticated') === true) {
-        return <Navigate to='/dashboard' replace />
-    }
+    // if( store.getValue('authenticated') === true) {
+    //     return <Navigate to='/dashboard' replace />
+    // }
 
     return (
         <Row className='ms-4 col-8 border border-1 p-4 rounded'  style={{ backgroundColor: isLoading ? '#eaeaea' : 'transparent' }} >
