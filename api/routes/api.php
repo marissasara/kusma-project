@@ -20,3 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/frontend/register', [RegisterController::class, 'store']);
+Route::post('/login', function (Request $request) {
+    \Log::info($request);
+});

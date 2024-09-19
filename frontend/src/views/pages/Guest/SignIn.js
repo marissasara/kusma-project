@@ -25,6 +25,7 @@ function SignIn() {
 
 
     const handleSubmit = (e) => {
+        setIsLoading(true)
         e.preventDefault();
         
         const formData = new FormData();
@@ -40,7 +41,7 @@ function SignIn() {
 
         axios({
             method: 'post',
-            url: 'http://localhost:8000/api/frontend/login',
+            url: 'http://localhost:8000/api/login',
             data: formData,
             headers: {
                 'Content-Type': 'multipart/form-data',
@@ -57,17 +58,18 @@ function SignIn() {
                 console.log(error.response.data.errors)
                 store.setValue('errors', error.response.data.errors ) // set the errors to store
             }
-        });
+        })
+        .finally( () => {
+            setIsLoading(false)
+        })
     };
 
     return (
-        <Row className='ms-4 col-8 border border-1 p-4 rounded'>
+        <Row className='ms-4 col-8 border border-1 p-4 rounded'  style={{ backgroundColor: isLoading ? '#eaeaea' : 'transparent' }} >
         <h1>Sign In</h1>
         <Form onSubmit={handleSubmit}>
 
             <Row>
-  
-
                 <Row className='mb-4'>
                     <InputText 
                         type='text'
@@ -91,8 +93,8 @@ function SignIn() {
               
             </Row>
 
-            <Button variant="primary" type="submit">
-            Submit
+            <Button disabled={isLoading} variant="primary" type="submit">
+            {isLoading ? 'loading...' : 'Submit'}
             </Button>
         </Form>
         </Row>
