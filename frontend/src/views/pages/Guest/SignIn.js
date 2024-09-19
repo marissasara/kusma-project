@@ -6,12 +6,10 @@ import { appendFormData, InputText } from '../../../FormInput';
 import { Navigate,Link } from 'react-router-dom'
 
 function SignIn() {
-    const store = useStore()
-    
+    const store = useStore(); // zustand store management
+    const url = process.env.REACT_APP_API_URL; // API server
     const [isLoading, setIsLoading] = useState(false);
-    const [errors, setErrors] = useState('');
-    
-
+   
     useEffect(() => {
         // Code to run when the component is loaded (similar to window.onload)
         console.log("Page has loaded!");
@@ -46,7 +44,7 @@ function SignIn() {
 
         axios({
             method: 'post',
-            url: 'http://localhost:8000/api/login',
+            url: `${url}/login`,
             data: formData,
             headers: {
                 'Content-Type': 'multipart/form-data',
@@ -54,8 +52,11 @@ function SignIn() {
         })
         .then(response => {
             console.log(response);
-            store.setValue('authenticated', true) 
-            localStorage.setItem('token', response.data.token) // localstorage
+            store.setValue('authenticated', true) // for redirect purpose
+            store.setValue('auth.user', response.data.user) // user account
+            store.setValue('auth.token', response.data.token) // user account
+            localStorage.setItem('token', response.data.token) // token to be used with axios interceptor
+            localStorage.setItem('auth', response.data) // token to be used with axios interceptor
             console.log('Form submitted successfully!');
         })
         .catch(error => {
@@ -70,9 +71,9 @@ function SignIn() {
     };
 
     // handle redirect after login
-    // if( store.getValue('authenticated') === true) {
-    //     return <Navigate to='/dashboard' replace />
-    // }
+    if( store.getValue('authenticated') === true) {
+        return <Navigate to='/dashboard' replace />
+    }
 
     return (
         <Row className='ms-4 col-8 border border-1 p-4 rounded'  style={{ backgroundColor: isLoading ? '#eaeaea' : 'transparent' }} >
