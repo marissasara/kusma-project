@@ -54,7 +54,8 @@ function SignIn() {
         })
         .then(response => {
             console.log(response);
-            store.setValue('authenticated', true)
+            store.setValue('authenticated', true) 
+            localStorage.setItem('token', response.data.token) // localstorage
             console.log('Form submitted successfully!');
         })
         .catch(error => {
