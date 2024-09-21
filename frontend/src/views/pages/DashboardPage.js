@@ -18,13 +18,12 @@ const DashboardPage = () => {
             url: `${url}/user`, // localhist:8080/api/user ( sanctum protected )
         })
         .then(response => {
-            console.log(response.data);
+            //console.log(response.data);
             store.setValue('auth', response.data)
         })
         .catch(error => {
             console.warn(error)
             if( error.response?.status === 401 ){ // unauthorized
-                console.log('ssss')
                 localStorage.removeItem('token') // token to be used with axios interceptor
                 store.setValue('authenticated', false)
             }

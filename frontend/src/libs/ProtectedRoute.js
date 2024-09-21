@@ -1,13 +1,16 @@
-import React from 'react'
-import { Navigate, Outlet } from 'react-router-dom'
-import useStore from '../store'
+import React, { useState,useEffect } from 'react';
+import { Navigate, Outlet } from 'react-router-dom';
+import useStore from '../store';
+import axios from './axios';
 
 const ProtectedRoute = () => {
 
     const store = useStore();
+    const url = process.env.REACT_APP_API_URL; // API server
+    
     // get user data from server
     useEffect( () => {
-        setIsLoading(true)
+     
         axios({
             method: 'get',
             url: `${url}/user`, // localhist:8080/api/user ( sanctum protected )
@@ -25,7 +28,7 @@ const ProtectedRoute = () => {
             }
         })
         .finally( () => {
-            setIsLoading(false)
+           
         })
 
 

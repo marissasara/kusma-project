@@ -1,4 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import ProtectedRoute from './libs/ProtectedRoute';
+
 import GuestLayout from './views/layouts/GuestLayout';
 import UserLayout from './views/layouts/UserLayout';
 import AdminLayout from './views/layouts/AdminLayout';
@@ -32,8 +35,10 @@ function App() {
 
         {/* User Layout */}
         <Route element={<UserLayout />}>
-          <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="/sign-out" element={<SignOut />} />
+          <Route element={<ProtectedRoute />}>
+            <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/sign-out" element={<SignOut />} />
+          </Route>  
         </Route>
 
         {/* Admin Layout */}
