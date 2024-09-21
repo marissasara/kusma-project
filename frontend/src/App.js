@@ -13,6 +13,7 @@ import AboutUs from './views/pages/Guest/AboutUs';
 import SignIn from './views/pages/Guest/SignIn';
 import Register from './views/pages/Guest/Register';
 import ContactUs from './views/pages/Guest/ContactUs';
+import SignOut from './views/pages/Guest/SignOut';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         {/* User Layout */}
         <Route element={<UserLayout />}>
           <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/sign-out" element={<SignOut />} />
         </Route>
 
         {/* Admin Layout */}
