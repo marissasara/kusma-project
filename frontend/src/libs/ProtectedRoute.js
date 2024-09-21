@@ -3,11 +3,14 @@ import { Navigate, Outlet } from 'react-router-dom';
 import useStore from '../store';
 import axios from './axios';
 
+/**
+ * Being used at App.js to protect route that need to be logged in
+ */
 const ProtectedRoute = () => {
 
-    const store = useStore();
+    const store = useStore(); // use global store
     const url = process.env.REACT_APP_API_URL; // API server
-    
+
     // get user data from server
     useEffect( () => {
      
@@ -21,10 +24,9 @@ const ProtectedRoute = () => {
         })
         .catch(error => {
             console.warn(error)
-            if( error.response?.status === 401 ){ // unauthorized
-                console.log('ssss')
-                localStorage.removeItem('token') // token to be used with axios interceptor
-                store.setValue('authenticated', false)
+            if( error.response?.status === 401 ){ // 401 means unauthorized from laravel
+                localStorage.removeItem('token') // remove the token 
+                store.setValue('authenticated', false) // for redirect purpose
             }
         })
         .finally( () => {
