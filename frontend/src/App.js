@@ -34,17 +34,21 @@ function App() {
         </Route>
 
         {/* User Layout */}
-        <Route element={<UserLayout />}>
-          <Route element={<ProtectedRoute />}>
+       
+        <Route element={<ProtectedRoute role={'user'} />}>
+          <Route element={<UserLayout />}>
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/sign-out" element={<SignOut />} />
           </Route>  
         </Route>
 
         {/* Admin Layout */}
-        <Route element={<AdminLayout />}>
-          <Route path="/admin" element={<AdminPage />} />
-        </Route>
+       
+        <Route element={<ProtectedRoute role={'admin'} />}>`
+          <Route element={<AdminLayout />}>`
+            <Route path="/admin" element={<AdminPage />} />
+          </Route>
+        </Route>  
       </Routes>
     </Router>
   );

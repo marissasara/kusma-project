@@ -6,10 +6,12 @@ import axios from './axios';
 /**
  * Being used at App.js to protect route that need to be logged in
  */
-const ProtectedRoute = () => {
+const ProtectedRoute = ({role}) => {
 
     const store = useStore(); // use global store
     const url = process.env.REACT_APP_API_URL; // API server
+
+    console.log(role)
 
     // get user data from server
     useEffect( () => {
@@ -33,14 +35,15 @@ const ProtectedRoute = () => {
            
         })
 
-
     },[] ) // every time page is loaded
 
     // handle redirect
     if( store.getValue('authenticated') === false) {
         return <Navigate to='/sign-in' replace />
+    } else {
+         return <Outlet />
     }
 
-    return <Outlet />
+   
 }
 export default ProtectedRoute
