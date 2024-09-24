@@ -28,6 +28,7 @@ const GuestLayout = () => {
           <main class="row overflow-auto mb-4">
               <div class="col pt-4">
                   <Outlet />
+                  
               </div>
           </main>
           <Footer />
