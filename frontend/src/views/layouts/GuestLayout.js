@@ -18,7 +18,7 @@ const GuestLayout = () => {
       </span>
 
       <span>
-        <img src={Podcast} alt="Podscast" height="60" className="d-inline-block align-text-top me-2"  />
+        {/* <img src={Podcast} alt="Podscast" height="60" className="d-inline-block align-text-top me-2"  /> */}
       </span>
    
     </nav>
