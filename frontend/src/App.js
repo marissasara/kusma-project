@@ -22,6 +22,7 @@ function App() {
   return (
     <Router>
       <Routes>
+        
         {/* Guest Layout */}
         <Route element={<GuestLayout />}>
           <Route path="/" element={<HomePage />} />
@@ -34,7 +35,6 @@ function App() {
         </Route>
 
         {/* User Layout */}
-       
         <Route element={<ProtectedRoute role={'user'} />}>
           <Route element={<UserLayout />}>
             <Route path="/dashboard" element={<DashboardPage />} />
@@ -43,7 +43,6 @@ function App() {
         </Route>
 
         {/* Admin Layout */}
-       
         <Route element={<ProtectedRoute role={'admin'} />}>`
           <Route element={<AdminLayout />}>`
             <Route path="/admin" element={<AdminPage />} />
