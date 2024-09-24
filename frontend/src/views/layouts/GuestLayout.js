@@ -5,6 +5,7 @@ import Footer from './Footer';
 import Logo from './nasional-fm.png';
 import Podcast from './rtm-podcast-icon.svg';
 
+
 const GuestLayout = () => {
   return (
     <>
@@ -27,6 +28,8 @@ const GuestLayout = () => {
       <div class="col d-flex flex-column h-sm-100">
           <main class="row overflow-auto mb-4">
               <div class="col pt-4">
+                  
+
                   <Outlet />
                   
               </div>

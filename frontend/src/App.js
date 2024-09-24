@@ -11,13 +11,15 @@ import LoginPage from './views/pages/LoginPage';
 import DashboardPage from './views/pages/DashboardPage';
 import AdminPage from './views/pages/AdminPage';
 
-import './App.css'
+import Home from './views/pages/Guest/Home';
 import AboutUs from './views/pages/Guest/AboutUs';
 import SignIn from './views/pages/Guest/SignIn';
 import Register from './views/pages/Guest/Register';
 import ContactUs from './views/pages/Guest/ContactUs';
 import SignOut from './views/pages/Guest/SignOut';
 
+
+import './App.css'
 function App() {
   return (
     <Router>
@@ -25,7 +27,7 @@ function App() {
         
         {/* Guest Layout */}
         <Route element={<GuestLayout />}>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<Home />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/logout" element={<LoginPage />} />
           <Route path="/about-us" element={<AboutUs />} />
