@@ -25,15 +25,8 @@ const GuestLayout = () => {
 
     <div class="container-fluid row overflow-auto">
       
-      <div class="col d-flex flex-column h-sm-100">
-          <main class="row overflow-auto mb-4">
-              <div class="col pt-4">
-                  
-
-                  <Outlet />
-                  
-              </div>
-          </main>
+      <div class="col d-flex flex-column h-sm-100 mb-2 mt-4">
+          <Outlet />
           <Footer />
       </div>
   </div>
