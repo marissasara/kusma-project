@@ -7,8 +7,6 @@ use Illuminate\Database\Seeder;
 
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
-use App\Models\UserProfile;
-use App\Models\UserDepartment;
 
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
@@ -28,7 +26,6 @@ class UserSeeder extends Seeder
             'name' => 'System Administrator',
             'email' => 'system@local',
             'password' => Hash::make('password'),
-
         ]);
         $user->markEmailAsVerified();
 
