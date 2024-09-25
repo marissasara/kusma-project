@@ -9,8 +9,8 @@ import AdminLayout from './views/layouts/AdminLayout/AdminLayout';
 
 import HomePage from './views/pages/HomePage';
 import LoginPage from './views/pages/LoginPage';
-import DashboardPage from './views/pages/DashboardPage';
-import AdminPage from './views/pages/AdminPage';
+import DashboardPage from './views/pages/User/DashboardPage';
+import AdminPage from './views/pages/Admin/AdminPage';
 
 import Home from './views/pages/Guest/Home';
 import AboutUs from './views/pages/Guest/AboutUs';
