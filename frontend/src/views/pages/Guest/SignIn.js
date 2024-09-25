@@ -80,11 +80,11 @@ function SignIn() {
         // Switch based on the role
         switch (role) {
             case 'system':
-                return <Navigate to='/system' replace />; // Redirect admin to /system
+                return <Navigate to='/system/home' replace />; // Redirect admin to /system
             case 'admin':
-                return <Navigate to='/admin' replace />; // Redirect admin to /admin
+                return <Navigate to='/admin/home' replace />; // Redirect admin to /admin
             case 'user':
-                return <Navigate to='/dashboard' replace />; // Redirect user to /dashboard
+                return <Navigate to='/user/home' replace />; // Redirect user to /dashboard
             default:
                 return <Navigate to='/' replace />; // Default redirect (e.g., home or error)
         }
