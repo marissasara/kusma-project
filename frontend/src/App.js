@@ -18,9 +18,8 @@ import SignIn from './views/pages/Guest/SignIn';
 import Register from './views/pages/Guest/Register';
 import ContactUs from './views/pages/Guest/ContactUs';
 import SignOut from './views/pages/Guest/SignOut';
+import './App.css';
 
-
-import './App.css'
 function App() {
   return (
     <Router>
@@ -55,7 +54,7 @@ function App() {
             <Route path="/admin" element={<AdminPage />} />
           </Route>
         </Route>
-          
+
       </Routes>
     </Router>
   );

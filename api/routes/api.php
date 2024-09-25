@@ -17,7 +17,18 @@ use App\Http\Controllers\AuthController;
 */
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+
+    $user = $request->user(); // Get the authenticated user
+    
+    // Retrieve the user's role using Spatie
+    $role = $user->roles->pluck('name')->first();
+
+    return response()->json([
+        'message' => 'Logged user info',
+        'user' => $user,
+        'role' => $role,
+    ]);
+
 });
 
 Route::post('/frontend/register', [RegisterController::class, 'store']);

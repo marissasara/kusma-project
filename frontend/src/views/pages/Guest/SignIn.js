@@ -52,11 +52,14 @@ function SignIn() {
         })
         .then(response => {
             console.log(response);
-            store.setValue('authenticated', true) // for redirect purpose
-            store.setValue('auth.user', response.data.user) // user account
-            store.setValue('auth.token', response.data.token) // user account
             localStorage.setItem('token', response.data.token) // token to be used with axios interceptor
-            localStorage.setItem('auth', response.data) // token to be used with axios interceptor
+            store.setValue('authenticated', true) // for redirect purpose
+
+            // store.setValue('auth.user', response.data.user) // account
+            // store.setValue('auth.token', response.data.token) // token
+            store.setValue('role', response.data.role) // role
+            // localStorage.setItem('auth', response.data) // token to be used with axios interceptor
+
             console.log('Form submitted successfully!');
         })
         .catch(error => {
@@ -71,9 +74,22 @@ function SignIn() {
     };
 
     // handle redirect after login
-    if( store.getValue('authenticated') === true) {
-        return <Navigate to='/dashboard' replace />
+    if (store.getValue('authenticated') === true) {
+        const role = store.getValue('role'); // Get the user role
+
+        // Switch based on the role
+        switch (role) {
+            case 'system':
+                return <Navigate to='/system' replace />; // Redirect admin to /system
+            case 'admin':
+                return <Navigate to='/admin' replace />; // Redirect admin to /admin
+            case 'user':
+                return <Navigate to='/dashboard' replace />; // Redirect user to /dashboard
+            default:
+                return <Navigate to='/' replace />; // Default redirect (e.g., home or error)
+        }
     }
+
 
     return (
         <Row className='ms-4 col-8 border border-1 p-4 rounded'  style={{ backgroundColor: isLoading ? '#eaeaea' : 'transparent' }} >

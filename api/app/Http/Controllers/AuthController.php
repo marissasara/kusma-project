@@ -40,19 +40,20 @@ class AuthController extends Controller
         $request->authenticate(); // check AuthRequest->authenticate
 
         // find user
-        $user = User::where('id', Auth::user()->id)
-                ->first();
+        $user = User::where('id', Auth::user()->id)->first();
 
         if ($user) {
             // create token in User Model
             $token = Auth::user()->createToken('API Token')->plainTextToken;
+            $role = $user->roles->pluck('name')->first(); 
             //$user['role'] = $user->roles->pluck('name')[0];
 
             //\Log::info('login-' . Auth::user()->email);
             return response()->json([
                 'message' => 'Authentication Success',
                 'token' => $token,
-                'user' => $user
+                'user' => $user,
+                'role' => $role,
             ]);
 
         } else {

@@ -1,6 +1,6 @@
 // GuestLayout.js
 import { Outlet } from 'react-router-dom';
-import SideBar from '../SideBar/GuestSideBar';
+import SideBar from './SideBar';
 import Footer from '../Global/Footer';
 
 const GuestLayout = () => {
