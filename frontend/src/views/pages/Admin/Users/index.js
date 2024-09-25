@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import useStore from '../../../../store';
 import axios from '../../../../libs/axios';
+import DataTable from './components/DataTable';
 
 const Users = () => {
     const store = useStore();
@@ -36,6 +37,7 @@ const Users = () => {
             .then( response => { // response block
                 console.log(response)
                 //setItems(response.data.users) // get the data
+                store.setValue('users', response.data.users)
                 store.setValue('refresh', false ) // reset the refresh state to false
             })
             .catch( error => { // error block
@@ -53,7 +55,7 @@ const Users = () => {
 
     return (
         <div>
-            user management
+            <DataTable />
         </div>
     );
 };
