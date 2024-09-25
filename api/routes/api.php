@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AuthController;
+//use App\Http\Controllers\Admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,8 +35,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/frontend/register', [RegisterController::class, 'store']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
-
-// Route::post('/logout', function (Request $request) {
-//     \Log::info($request);
-//     return $request->user();
-// });
+//Route::get('/admin/users', [UserController::class, 'index']);

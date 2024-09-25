@@ -17,7 +17,7 @@ import UserHomePage from './views/pages/User/Home';
 
 // Admin
 import AdminHomePage from './views/pages/Admin/Home';
-import UserManagement from './views/pages/Admin/User';
+import UserManagement from './views/pages/Admin/Users';
 
 // Profile
 import Profile from './views/pages/Global/Profile';
