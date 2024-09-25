@@ -54,7 +54,8 @@ function App() {
           <Route element={<AdminLayout />}>`
             <Route path="/admin" element={<AdminPage />} />
           </Route>
-        </Route>  
+        </Route>
+          
       </Routes>
     </Router>
   );
