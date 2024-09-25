@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Table,Button, Badge } from 'react-bootstrap';
 import useStore from '../../../../../store';
+import PaginatorLink from '../../../../../libs/PaginatorLink';
+import CreateButton from '../../../../../libs/CreateButton';
 
 const DataTable = () => {
     const store = useStore()
@@ -12,7 +14,7 @@ const DataTable = () => {
             <Table>
                 <thead>
                     <tr>
-                        <th style={{ 'width': '20px'}}><FontAwesomeIcon icon={['fas', 'hashtag']} />{' '}</th>
+                        <th style={{ 'width': '20px'}}><FontAwesomeIcon icon={['fas', 'hashtag']} />{' '}ID</th>
                         <th><FontAwesomeIcon icon={['fas', 'briefcase']} />{' '}Role</th>
                         <th><FontAwesomeIcon icon={['fas', 'person']} />{' '}Name</th>
                         <th><FontAwesomeIcon icon={['fas', 'envelope']} />{' '}Email</th>
@@ -24,7 +26,7 @@ const DataTable = () => {
                 <tbody>
                     {items?.data?.map((item,index) => (
                         <tr key={index}>
-                            <td><span className="badge bg-primary">{item.id}</span></td>
+                            <td><span className="badge bg-dark">{item.id}</span></td>
                             <td style={{'width':'80px'}}>
                                 {item.roles?.map((role, index) => (
                                     <React.Fragment key={index}>
@@ -40,7 +42,7 @@ const DataTable = () => {
                     ))}
                 </tbody>
             </Table>
-            
+            <PaginatorLink store={store} items={items} />
         </div>
     );
 };

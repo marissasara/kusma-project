@@ -13,7 +13,7 @@ class UserController extends Controller
         $users = User::query()
                         ->with('roles')
                         ->orderBy('id','DESC')
-                        ->paginate(25)
+                        ->paginate(1)
                         ->withQueryString();
 
         return response()->json([

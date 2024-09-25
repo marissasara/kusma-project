@@ -45,7 +45,7 @@ const Users = () => {
             })
         },
         [
-            //store.getValue('url'), // listener when url changed by pagination click
+            store.getValue('url'), // listener when url changed by pagination click
             store.getValue('refresh') // listener when create / update / delete / search performed
         ] 
 
