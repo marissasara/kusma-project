@@ -59,7 +59,7 @@ export function InputTextarea({fieldName, placeholder, icon, rows, isLoading}){
 
     return(<>
                 <InputGroup>
-                    <InputGroup.Text><FontAwesomeIcon icon={icon}></FontAwesomeIcon></InputGroup.Text>
+                    <InputGroup.Text><i className={`fs-5 ${icon}`}></i></InputGroup.Text>
                     <Form.Control 
                         as="textarea" 
                         rows={rows}
@@ -92,7 +92,7 @@ export function InputSelect({fieldName, placeholder, icon, isLoading, options}){
 
     return(<>
                 <InputGroup>
-                    <InputGroup.Text><FontAwesomeIcon icon={icon}></FontAwesomeIcon></InputGroup.Text>
+                    <InputGroup.Text><i className={`fs-5 ${icon}`}></i></InputGroup.Text>
                     <Form.Select
                         name={fieldName}
                         size='md' 
@@ -131,7 +131,7 @@ export function InputFile({fieldName, placeholder, icon,accept='image/*', isLoad
 
     return(<>
                 <InputGroup>
-                    <InputGroup.Text><FontAwesomeIcon icon={icon}></FontAwesomeIcon></InputGroup.Text>
+                    <InputGroup.Text><i className={`fs-5 ${icon}`}></i></InputGroup.Text>
                     <Form.Control 
                         placeholder={placeholder}
                         type={'file'}
@@ -248,7 +248,7 @@ export function InputDate({fieldName, icon}){
     return(<>
     
     <InputGroup>
-        <InputGroup.Text><FontAwesomeIcon icon={icon}></FontAwesomeIcon></InputGroup.Text>
+        <InputGroup.Text><i className={`fs-5 ${icon}`}></i></InputGroup.Text>
         <Form.Control 
             name={fieldName}
             type="date" 

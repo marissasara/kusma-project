@@ -11,7 +11,7 @@ const PaginatorLink = ({store,items}) => {
 
     // extract the data from Laravel Paginator JSON
     const links = items?.links?.map( (page,index) => 
-            <>
+        
             
             <Pagination.Item
                 key={index} 
@@ -21,7 +21,7 @@ const PaginatorLink = ({store,items}) => {
                 >
                     <span dangerouslySetInnerHTML={{__html: page.label}} />
             </Pagination.Item>
-            </>
+            
     )
 
     return  (

@@ -1,6 +1,5 @@
 
 import React, { useState, useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Table,Button, Badge } from 'react-bootstrap';
 import useStore from '../../../../../store';
 import PaginatorLink from '../../../../../libs/PaginatorLink';
@@ -12,17 +11,20 @@ const DataTableComponent = () => {
     const items = store.getValue('users')
     return (
         <div>
-            <CreateModal />
+            <CreateButton>
+                <CreateModal />
+            </CreateButton>
+            
    
             <Table>
                 <thead>
                     <tr>
-                        <th style={{ 'width': '20px'}}><FontAwesomeIcon icon={['fas', 'hashtag']} />{' '}ID</th>
-                        <th><FontAwesomeIcon icon={['fas', 'briefcase']} />{' '}Role</th>
-                        <th><FontAwesomeIcon icon={['fas', 'person']} />{' '}Name</th>
-                        <th><FontAwesomeIcon icon={['fas', 'envelope']} />{' '}Email</th>
-                        <th><FontAwesomeIcon icon={['fas', 'clock']} />{' '}Created At</th>
-                        <th className='text-center'><FontAwesomeIcon icon={['fas', 'bolt']} /></th>
+                        <th style={{ 'width': '20px'}}>ID</th>
+                        <th>Role</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Created At</th>
+                        <th className='text-center'></th>
                     </tr>
                 </thead>
 

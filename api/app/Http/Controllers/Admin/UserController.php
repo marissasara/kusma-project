@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin; 
 
 use App\Models\User;
+use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller; 
 
@@ -17,8 +18,18 @@ class UserController extends Controller
                         ->withQueryString();
 
         return response()->json([
-            'message' => 'Users',
+            'message' => 'Registered users',
             'users' => $users
+        ]);
+    }
+
+    public function roles()
+    {
+
+        $roles = Role::all();
+        return response()->json([
+            'message' => 'Available roles',
+            'roles' => $roles
         ]);
     }
 }

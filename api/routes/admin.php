@@ -8,4 +8,5 @@ use App\Http\Controllers\Admin\{
 
 // GET /api/admin/users
 Route::get('/users', [UserController::class, 'index']);
+Route::get('/roles', [UserController::class, 'roles']);
 

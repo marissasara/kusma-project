@@ -5,12 +5,12 @@ import Footer from '../Global/Footer';
 
 const AdminLayout = () => {
   return (
-    <div class="container-fluid overflow-hidden" id="root">
-      <div class="row vh-100 overflow-auto">
+    <div className="container-fluid overflow-hidden" id="root">
+      <div className="row vh-100 overflow-auto">
         <SideBar />  
-        <div class="col d-flex flex-column h-sm-100">
-            <main class="row overflow-auto">
-                <div class="col pt-4">
+        <div className="col d-flex flex-column h-sm-100">
+            <main className="row overflow-auto">
+                <div className="col pt-4">
                     <Outlet />
                 </div>
             </main>

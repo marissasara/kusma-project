@@ -3,11 +3,11 @@ import { Button, Modal} from 'react-bootstrap'
 import { InputText, InputTextarea, appendFormData } from '../../../../../libs/FormInput'
 import axios from '../../../../../libs/axios'
 import useStore from '../../../../../store';
-//import HtmlForm from '../components/HtmlForm'
+import HtmlFormComponent from '../components/HtmlFormComponent';
 
 export default function CreateModal() {
     const store = useStore()
-    const url = process.env.REACT_APP_API_URL + '/admin/roles'; // get available roles
+    const url = process.env.REACT_APP_API_URL; 
 
     const errors = store.getValue('errors')
    
@@ -18,7 +18,7 @@ export default function CreateModal() {
 
     useEffect(() => {
         console.log('init for CreateModal')
-
+        store.setValue('errors', null)
     },[])
 
     const handleShowClick = () =>{
@@ -28,7 +28,7 @@ export default function CreateModal() {
       // load roles
       axios({ 
           method: 'get', 
-          url: `${url}`,
+          url: `${url}/admin/roles`,// get available roles
           })
       .then( response => { // success 200
           //console.log(response)
@@ -109,7 +109,7 @@ export default function CreateModal() {
           </Modal.Header>
 
           <Modal.Body>
-            {/* <HtmlForm isLoading={isLoading} /> */}
+            <HtmlFormComponent isLoading={isLoading} />
           </Modal.Body>
           
           <Modal.Footer>
