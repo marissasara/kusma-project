@@ -25,8 +25,8 @@ const PaginatorLink = ({store,items}) => {
     )
 
     return  (
-        <div className="d-flex bd-highlight mb-3">
-            <div className="ms-auto p-2 bd-highlight">
+        <div className="d-flex justify-content-center bd-highlight mb-3">
+            <div className=" p-2 bd-highlight">
                 <Pagination className='mt-3'>
                 {links}
                 </Pagination>

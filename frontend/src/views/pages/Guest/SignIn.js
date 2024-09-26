@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Row, Col, Button, Form } from 'react-bootstrap';
 import axios from 'axios';
 import useStore from '../../../store';
-import { appendFormData, InputText } from '../../../FormInput';
+import { appendFormData, InputText } from '../../../libs/FormInput';
 import { Navigate,Link } from 'react-router-dom'
 
 function SignIn() {

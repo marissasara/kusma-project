@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Row,Col,Form, InputGroup } from 'react-bootstrap'
 import { React} from 'react'
-import useStore from './store';
+import useStore from '../store';
 
 export function appendFormData(formData, data) {
     if (data instanceof Array) {

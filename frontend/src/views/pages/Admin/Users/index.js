@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import useStore from '../../../../store';
 import axios from '../../../../libs/axios';
-import DataTable from './components/DataTable';
+import DataTableComponent from './components/DataTableComponent';
 
 const Users = () => {
     const store = useStore();
@@ -55,7 +55,7 @@ const Users = () => {
 
     return (
         <div>
-            <DataTable />
+            <DataTableComponent />
         </div>
     );
 };

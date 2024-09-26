@@ -5,12 +5,15 @@ import { Table,Button, Badge } from 'react-bootstrap';
 import useStore from '../../../../../store';
 import PaginatorLink from '../../../../../libs/PaginatorLink';
 import CreateButton from '../../../../../libs/CreateButton';
+import CreateModal from '../modals/CreateModal';
 
-const DataTable = () => {
+const DataTableComponent = () => {
     const store = useStore()
     const items = store.getValue('users')
     return (
         <div>
+            <CreateModal />
+   
             <Table>
                 <thead>
                     <tr>
@@ -47,4 +50,4 @@ const DataTable = () => {
     );
 };
 
-export default DataTable;
+export default DataTableComponent;
