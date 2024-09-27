@@ -3,6 +3,7 @@ import BannerComponent from '../../layouts/GuestLayout/BannerComponent';
 import { Row,Col } from 'react-bootstrap';
 import CardComponent from '../../layouts/GuestLayout/CardComponent';
 import ReactPlayer from 'react-player';
+import VideoComponent from '../../layouts/HomeLayout/VideoComponent';
 
 const Home = () => {
     const [played, setPlayed] = React.useState(0);
@@ -18,22 +19,7 @@ const Home = () => {
             </Row>
             <Row className="mt-4">
                 <Col xs={12} md={8} className="border border-1 p-3 rounded mb-3">
-                    <div className="container">
-                    <div className="grid grid-cols-1 justify-center text-center">
-                        <div className="relative">
-                        <ReactPlayer
-                            onProgress={(progress) => {
-                            setPlayed(progress.playedSeconds);
-                            }}
-                            url={src}
-                            playing={true}
-                            controls={true}
-                            width="100%"
-                            height="auto"
-                        />
-                        </div>
-                    </div>
-                    </div>
+                    <VideoComponent />
                 </Col>
 
                 <Col xs={12} md={4} className="border border-1 p-3 rounded">

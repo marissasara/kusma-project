@@ -23,7 +23,7 @@ import UserManagement from './views/pages/Admin/Users';
 import Profile from './views/pages/Global/Profile';
 
 
-import Home from './views/pages/Guest/Home';
+import Home from './views/pages/Home/Home';
 import AboutUs from './views/pages/Guest/AboutUs';
 import SignIn from './views/pages/Guest/SignIn';
 import Register from './views/pages/Guest/Register';
