@@ -12,7 +12,6 @@ const PaginatorLink = ({store,items}) => {
     // extract the data from Laravel Paginator JSON
     const links = items?.links?.map( (page,index) => 
         
-            
             <Pagination.Item
                 key={index} 
                 active={page.active}
@@ -25,11 +24,13 @@ const PaginatorLink = ({store,items}) => {
     )
 
     return  (
-        <div className="d-flex justify-content-center bd-highlight mb-3">
-            <div className=" p-2 bd-highlight">
+        <div className="d-flex mb-3">
+            <div className=" ms-auto p-2">
+          
                 <Pagination className='mt-3'>
-                {links}
+                    {links}
                 </Pagination>
+        
             </div>
         </div>
     )
