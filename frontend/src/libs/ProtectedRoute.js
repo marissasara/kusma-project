@@ -11,7 +11,7 @@ const ProtectedRoute = ({role}) => {
     const store = useStore(); // use global store
     const url = process.env.REACT_APP_API_URL; // API server
 
-    console.log(role)
+    //console.log(role)
 
     // get user data from server
     useEffect( () => {

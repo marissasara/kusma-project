@@ -6,6 +6,7 @@ import PaginatorLink from '../../../../../libs/PaginatorLink';
 import CreateButton from '../../../../../libs/CreateButton';
 import CreateModal from '../modals/CreateModal';
 import EditModal from '../modals/EditModal';
+import DeleteModal from '../modals/DeleteModal';
 
 const DataTableComponent = () => {
     const store = useStore()
@@ -46,7 +47,7 @@ const DataTableComponent = () => {
                             <td className='text-center' style={{'width':'200px'}}>
                                 <EditModal id={item.id} />
                                 {' '}
-                                {/* <DeleteModal id={item.id} /> */}
+                                <DeleteModal id={item.id} />
                             </td>
                         </tr>
                     ))}

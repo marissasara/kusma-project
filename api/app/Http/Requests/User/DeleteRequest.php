@@ -10,8 +10,7 @@ class DeleteRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'acknowledge' => 'required',
-           
+            'acknowledge' => 'required|accepted',
         ];
     }
 
