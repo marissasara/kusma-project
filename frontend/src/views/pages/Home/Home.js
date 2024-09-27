@@ -1,9 +1,9 @@
 import React from 'react';
-import BannerComponent from '../../layouts/GuestLayout/BannerComponent';
 import { Row,Col } from 'react-bootstrap';
-import CardComponent from '../../layouts/GuestLayout/CardComponent';
-import ReactPlayer from 'react-player';
-import VideoComponent from '../../layouts/HomeLayout/VideoComponent';
+
+import VideoComponent from '../../layouts/HomeLayout/components/VideoComponent';
+import CardComponent from '../../layouts/HomeLayout/components/CardComponent';
+import BannerComponent from '../../layouts/HomeLayout/components/BannerComponent';
 
 const Home = () => {
     const [played, setPlayed] = React.useState(0);

@@ -1,5 +1,5 @@
 import React from 'react';
-import SocialMediaIcons from '../GuestLayout/SocialMediaIcons';
+import SocialMediaIcons from './SocialMediaIcons';
 
 const Footer = () => {
     return (
