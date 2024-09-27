@@ -1,16 +1,15 @@
 import { useState, useEffect } from 'react';
-import { Row, Col, Button, Form } from 'react-bootstrap';
+import { Row, Button, Form } from 'react-bootstrap';
 import axios from 'axios';
 import useStore from '../../../store';
 import { appendFormData, InputText } from '../../../libs/FormInput';
-function Register() {
-    const store = useStore()
+import { useNavigate } from 'react-router-dom';
 
+function Register() {
+    const navigate = useNavigate();
+    const store = useStore(); // zustand store management
+    const url = process.env.REACT_APP_API_URL; // API server
     const [isLoading, setIsLoading] = useState(false);
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [errors, setErrors] = useState('');
 
     useEffect(() => {
         // Code to run when the component is loaded (similar to window.onload)
@@ -40,7 +39,8 @@ function Register() {
 
         axios({
             method: 'post',
-            url: 'http://localhost:8000/api/frontend/register',
+            //url: 'http://localhost:8000/api/frontend/register',
+            url: `${url}/frontend/register`,
             data: formData,
             headers: {
                 'Content-Type': 'multipart/form-data',
@@ -49,16 +49,24 @@ function Register() {
         .then(response => {
             console.log(response);
             console.log('Form submitted successfully!');
+            store.setValue('registered', true) // for redirect purpose
         })
         .catch(error => {
-   
-
             if( error.response?.status == 422 ){ // detect 422 errors by Laravel
                 console.log(error.response.data.errors)
                 store.setValue('errors', error.response.data.errors ) // set the errors to store
             }
         });
     };
+
+
+    useEffect( () => {
+        // handle redirect after successful registration
+        if (store.getValue('registered') === true) {
+            navigate('/sign-in', { replace: true });
+        }
+    }, [store.getValue('registered')])
+
 
     return (
         <Row className='ms-4 col-8 border border-1 p-4 rounded'>
