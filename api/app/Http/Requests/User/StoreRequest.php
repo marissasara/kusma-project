@@ -11,7 +11,7 @@ class StoreRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'role_id' => 'required',
+            'role_id' => ['required', Rule::exists('roles', 'id')],
             'email' => ['required','email', Rule::unique('users')],
             'password' => 'required|min:6|confirmed',    
         ];

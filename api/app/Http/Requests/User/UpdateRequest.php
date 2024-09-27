@@ -10,7 +10,7 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'role' => 'sometimes|required',
+            'role_id' => ['sometimes','required', Rule::exists('roles', 'id')],
             'email' => [
                     'required',
                     'email',
