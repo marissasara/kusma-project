@@ -1,9 +1,8 @@
 // GuestLayout.js
 import { Outlet } from 'react-router-dom';
-import SideBar from '../GuestLayout/SideBar';
 import Footer from './Footer';
 import Logo from './nasional-fm.png';
-import Podcast from './rtm-podcast-icon.svg';
+
 
 
 const GuestLayout = () => {
