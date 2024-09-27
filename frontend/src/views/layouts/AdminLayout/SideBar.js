@@ -18,7 +18,11 @@ const SideBar = () => {
                     </Link>
 
                     <Link to="/admin/users" className="nav-link text-dark-custom px-sm-0 px-2">
-                        <i className="fs-5 bi-people"></i><span className="ms-1 d-none d-sm-inline">User Management</span>
+                        <i className="fs-5 bi-people"></i><span className="ms-1 d-none d-sm-inline">User</span>
+                    </Link>
+
+                    <Link to="/admin/banners" className="nav-link text-dark-custom px-sm-0 px-2">
+                        <i className="fs-5 bi-image"></i><span className="ms-1 d-none d-sm-inline">Banner</span>
                     </Link>
 
                     

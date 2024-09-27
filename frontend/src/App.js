@@ -18,6 +18,7 @@ import UserHomePage from './views/pages/User/Home';
 // Admin
 import AdminHomePage from './views/pages/Admin/Home';
 import UserManagement from './views/pages/Admin/Users';
+import BannerManagement from './views/pages/Admin/Banners';
 
 // Profile
 import Profile from './views/pages/Global/Profile';
@@ -68,6 +69,7 @@ function App() {
           <Route element={<AdminLayout />}>`
             <Route path="/admin/home" element={<AdminHomePage />} />
             <Route path="/admin/users" element={<UserManagement />} />
+            <Route path="/admin/banners" element={<BannerManagement />} />
             <Route path="/admin/profile" element={<Profile />} />
           </Route>
         </Route>

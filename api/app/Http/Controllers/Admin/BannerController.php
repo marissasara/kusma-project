@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Banner;
@@ -7,8 +7,8 @@ use App\Services\CommonService;
 
 class BannerController extends Controller
 {
-
-    public function index(){
+    public function index()
+    {
 
         //$banners = Banner::defaultOrder()->get();
         $banners = Banner::defaultOrder()->paginate(10)->withQueryString(); 
@@ -21,11 +21,13 @@ class BannerController extends Controller
 
     }
 
-    public function show(Banner $banner){
+    public function show(Banner $banner)
+    {
         return response()->json(['banner' => $banner]);
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         // validation
         $request->validate([
             'title' => 'required|string',
@@ -81,7 +83,8 @@ class BannerController extends Controller
         }
     }
 
-    public function delete(Request $request,Banner $banner){
+    public function delete(Request $request,Banner $banner)
+    {
 
         $data = $request->validate([
             'acknowledge' => 'required|accepted',
