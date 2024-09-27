@@ -5,6 +5,7 @@ import useStore from '../../../../../store';
 import PaginatorLink from '../../../../../libs/PaginatorLink';
 import CreateButton from '../../../../../libs/CreateButton';
 import CreateModal from '../modals/CreateModal';
+import EditModal from '../modals/EditModal';
 
 const DataTableComponent = () => {
     const store = useStore()
@@ -42,7 +43,11 @@ const DataTableComponent = () => {
                             <td>{item.name}</td>
                             <td style={{'width':'150px'}}>{item.email}</td>
                             <td style={{'width':'180px'}}>{item.created_at}</td>
-                            <td className='text-center' style={{'width':'200px'}}></td>
+                            <td className='text-center' style={{'width':'200px'}}>
+                                <EditModal id={item.id} />
+                                {' '}
+                                {/* <DeleteModal id={item.id} /> */}
+                            </td>
                         </tr>
                     ))}
                 </tbody>

@@ -5,7 +5,7 @@ import axios from '../../../../../libs/axios'
 import useStore from '../../../../../store';
 import HtmlFormComponent from '../components/HtmlFormComponent';
 
-export default function CreateModal() {
+export default function EditModal({id}) {
     const store = useStore()
     const url = process.env.REACT_APP_API_URL; 
 
@@ -19,6 +19,7 @@ export default function CreateModal() {
     const handleShowClick = () =>{
       //store.emptyData() // empty store data
       store.setValue('errors', null)
+      setIsLoading(true)
       setShow(true)
       
       // load roles
@@ -32,6 +33,32 @@ export default function CreateModal() {
           })
       .catch( error => {
           console.warn(error)
+      })
+
+      // load user data based on given id
+      axios({ 
+        method: 'get', 
+        url: `${url}/admin/users/${id}`,
+        })
+      .then( response => { // success 200
+          console.log(response)
+          if( response?.data?.user.hasOwnProperty('name') ){
+            store.setValue('name', response?.data?.user?.name )
+          }
+
+          if( response?.data?.user.hasOwnProperty('role_id') ){
+            store.setValue('role_id', response?.data?.user?.role_id )
+          }
+
+          if( response?.data?.user.hasOwnProperty('email') ){
+            store.setValue('email', response?.data?.user?.email )
+          }
+          })
+      .catch( error => {
+          console.warn(error)
+      })
+      .finally( () => {
+        setIsLoading(false)
       })
       
     } 
@@ -53,17 +80,18 @@ export default function CreateModal() {
             { key: 'email', value: store.getValue('email') },
             { key: 'password', value: store.getValue('password') },
             { key: 'password_confirmation', value: store.getValue('password_confirmation') },
+            { key: '_method', value: 'put' },
         ];
         
         appendFormData(formData, dataArray);
 
         // Laravel special
-        formData.append('_method', 'post'); // get|post|put|patch|delete
+        //formData.append('_method', 'post'); // get|post|put|patch|delete
 
         // send to Laravel
         axios({ 
             method: 'post', 
-            url: `${url}/admin/users`,
+            url: `${url}/admin/users/${id}`,
             data: formData
           })
           .then( response => { // success 200
@@ -86,8 +114,8 @@ export default function CreateModal() {
   
     return (
       <>
-        <Button variant="primary" onClick={handleShowClick}>
-          Create
+        <Button size="sm" variant="primary" onClick={handleShowClick}>
+          Edit
         </Button>
   
         <Modal size={'lg'} show={show} onHide={handleCloseClick}>

@@ -4,6 +4,7 @@ import axios from 'axios';
 import useStore from '../../../store';
 import { appendFormData, InputText } from '../../../libs/FormInput';
 import { Navigate } from 'react-router-dom'
+import SubmitButton from '../../../libs/SubmitButton';
 
 function SignIn() {
     const store = useStore(); // zustand store management
@@ -120,9 +121,7 @@ function SignIn() {
               
             </Row>
 
-            <Button disabled={isLoading} variant="primary" type="submit">
-            {isLoading ? 'loading...' : 'Submit'}
-            </Button>
+            <SubmitButton isLoading={isLoading} value="Sign In" />
         </Form>
         </Row>
     );

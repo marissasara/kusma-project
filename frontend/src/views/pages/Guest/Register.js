@@ -4,6 +4,7 @@ import axios from 'axios';
 import useStore from '../../../store';
 import { appendFormData, InputText } from '../../../libs/FormInput';
 import { useNavigate } from 'react-router-dom';
+import SubmitButton from '../../../libs/SubmitButton';
 
 function Register() {
     const navigate = useNavigate();
@@ -15,6 +16,7 @@ function Register() {
         // Code to run when the component is loaded (similar to window.onload)
         console.log("Page has loaded!");
         store.emptyData() // clear all previous data
+        store.setValue('registered', false ) // init
 
         // Optionally, you can return a cleanup function to run when the component is unmounted
         return () => {
@@ -25,6 +27,7 @@ function Register() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setIsLoading(true)
         
         const formData = new FormData();
         const dataArray = [
@@ -35,7 +38,6 @@ function Register() {
         ];
         
         appendFormData(formData, dataArray);
-
 
         axios({
             method: 'post',
@@ -56,7 +58,10 @@ function Register() {
                 console.log(error.response.data.errors)
                 store.setValue('errors', error.response.data.errors ) // set the errors to store
             }
-        });
+        })
+        .finally(() => {
+            setIsLoading(false)
+        })
     };
 
 
@@ -75,7 +80,6 @@ function Register() {
 
             <Row>
                 <Row className='mb-4'>
-               
                     <InputText 
                         fieldName='name' 
                         placeholder='Your name'  
@@ -116,9 +120,7 @@ function Register() {
                 </Row>
             </Row>
 
-            <Button variant="primary" type="submit">
-            Submit
-            </Button>
+            <SubmitButton isLoading={isLoading} value="Register" />
         </Form>
         </Row>
     );
