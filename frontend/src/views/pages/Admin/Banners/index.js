@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import useStore from '../../../../store';
 import axios from '../../../../libs/axios';
 import DataTableComponent from './components/DataTableComponent';
@@ -6,7 +6,6 @@ import DataTableComponent from './components/DataTableComponent';
 const Banners = () => {
     const store = useStore();
     const url = process.env.REACT_APP_API_URL + '/admin/banners'; // API server
-    const [isLoading, setIsLoading] = useState(false);
    
     // preset
     useEffect(() => {
@@ -50,8 +49,6 @@ const Banners = () => {
         ] 
 
     ) // useEffect()
-
-
 
     return (
         <div>

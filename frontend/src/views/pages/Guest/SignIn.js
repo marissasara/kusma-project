@@ -54,6 +54,7 @@ function SignIn() {
         .then(response => {
             console.log(response);
             localStorage.setItem('token', response.data.token) // token to be used with axios interceptor
+            localStorage.setItem('role', response.data.role) // token to be used with profile
             store.setValue('authenticated', true) // for redirect purpose
 
             // store.setValue('auth.user', response.data.user) // account

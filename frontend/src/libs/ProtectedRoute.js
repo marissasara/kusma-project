@@ -29,7 +29,8 @@ const ProtectedRoute = ({role}) => {
         .catch(error => {
             console.warn(error)
             if( error.response?.status === 401 ){ // 401 means unauthorized from laravel
-                localStorage.removeItem('token') // remove the token 
+                localStorage.removeItem('token') // remove the token
+                localStorage.removeItem('role') // remove the token 
                 store.setValue('authenticated', false) // for redirect purpose
             }
         })

@@ -59,6 +59,7 @@ function App() {
         <Route element={<ProtectedRoute role={'user'} />}>
           <Route element={<UserLayout />}>
             <Route path="/user/home" element={<UserHomePage />} />
+            <Route path="/user/Profile" element={<Profile />} />
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/sign-out" element={<SignOut />} />
           </Route>  
