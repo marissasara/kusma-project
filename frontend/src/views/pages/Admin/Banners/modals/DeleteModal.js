@@ -6,7 +6,6 @@ import useStore from '../../../../../store';
 import HtmlFormComponent from '../components/HtmlFormComponent';
 
 export default function DeleteModal({id}) {
-  
     const store = useStore()
     const url = process.env.REACT_APP_API_URL; 
 
@@ -24,38 +23,21 @@ export default function DeleteModal({id}) {
       setIsLoading(true)
       setShow(true)
       
-      // load roles
-      axios({ 
-          method: 'get', 
-          url: `${url}/admin/roles`,// get available roles
-          })
-      .then( response => { // success 200
-          //console.log(response)
-          store.setValue('roles', response.data.roles)
-          })
-      .catch( error => {
-          console.warn(error)
-      })
-
-      // load user data based on given id
+      // load banner data based on given id
       axios({ 
         method: 'get', 
-        url: `${url}/admin/users/${id}`,
+        url: `${url}/admin/banners/${id}`,
         })
       .then( response => { // success 200
           console.log(response)
-          if( response?.data?.user.hasOwnProperty('name') ){
-            store.setValue('name', response?.data?.user?.name )
+          if( response?.data?.banner.hasOwnProperty('title') ){
+            store.setValue('title', response?.data?.banner?.title )
           }
 
-          if( response?.data?.user.hasOwnProperty('role_id') ){
-            store.setValue('role_id', response?.data?.user?.role_id )
+          if( response?.data?.banner.hasOwnProperty('description') ){
+            store.setValue('description', response?.data?.banner?.description )
           }
-
-          if( response?.data?.user.hasOwnProperty('email') ){
-            store.setValue('email', response?.data?.user?.email )
-          }
-          })
+      })
       .catch( error => {
           console.warn(error)
       })
@@ -89,7 +71,7 @@ export default function DeleteModal({id}) {
         // send to Laravel
         axios({ 
             method: 'post', 
-            url: `${url}/admin/users/${id}`,
+            url: `${url}/admin/banners/${id}`,
             data: formData
           })
           .then( response => { // success 200
@@ -118,11 +100,11 @@ export default function DeleteModal({id}) {
   
         <Modal size={'lg'} show={show} onHide={handleCloseClick}>
           <Modal.Header closeButton>
-            <Modal.Title>Delete User</Modal.Title>
+            <Modal.Title>Delete Banner</Modal.Title>
           </Modal.Header>
 
           <Modal.Body>
-            <HtmlFormComponent isLoading={'true'} />
+            <HtmlFormComponent isLoading={isLoading} />
           </Modal.Body>
           
           <Modal.Footer>
@@ -147,9 +129,9 @@ export default function DeleteModal({id}) {
 
             <Button 
               disabled={isLoading}
-              variant="danger" 
+              variant="primary" 
               onClick={handleSubmitClick}>
-              Delete
+              Submit
             </Button>
 
           </Modal.Footer>

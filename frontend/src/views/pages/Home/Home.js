@@ -14,7 +14,7 @@ const Home = () => {
                 <BannerComponent />
             </Row>
 
-            <Row className='mt-4'>
+            <Row className="mt-4 d-none d-sm-flex">
                 <CardComponent />
             </Row>
             <Row className="mt-4">
@@ -22,7 +22,7 @@ const Home = () => {
                     <VideoComponent />
                 </Col>
 
-                <Col xs={12} md={4} className="border border-1 p-3 rounded">
+                <Col xs={12} md={4} className="border border-1 p-3 rounded d-none d-sm-flex">
                     <ChatroomComponent />
                 </Col>
             </Row>

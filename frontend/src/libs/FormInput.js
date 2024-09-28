@@ -249,7 +249,7 @@ export function InputDate({fieldName, icon}){
     return(<>
     
     <InputGroup>
-        <InputGroup.Text><i className={`fs-5 ${icon}`}></i></InputGroup.Text>
+        <InputGroup.Text><i className={`fas ${icon}`}></i></InputGroup.Text>
         <Form.Control 
             name={fieldName}
             type="date" 

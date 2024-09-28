@@ -120,7 +120,7 @@ export default function EditModal({id}) {
   
         <Modal size={'lg'} show={show} onHide={handleCloseClick}>
           <Modal.Header closeButton>
-            <Modal.Title>Create User</Modal.Title>
+            <Modal.Title>Edit User</Modal.Title>
           </Modal.Header>
 
           <Modal.Body>

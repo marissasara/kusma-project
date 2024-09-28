@@ -1,60 +1,59 @@
 import { useEffect, useState } from 'react'
-import { Button, Form, FormCheck, Modal} from 'react-bootstrap'
+import { Button, Modal} from 'react-bootstrap'
 import { InputText, InputTextarea, appendFormData } from '../../../../../libs/FormInput'
 import axios from '../../../../../libs/axios'
 import useStore from '../../../../../store';
 import HtmlFormComponent from '../components/HtmlFormComponent';
 
-export default function DeleteModal({id}) {
-  
+export default function EditModal({id}) {
     const store = useStore()
     const url = process.env.REACT_APP_API_URL; 
 
     const errors = store.getValue('errors')
    
     const [show, setShow] = useState(false)
-    const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(false)
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true)
 
     const handleShowClick = () =>{
       //store.emptyData() // empty store data
       store.setValue('errors', null)
-      store.setValue('acknowledge', false)
       setIsLoading(true)
       setShow(true)
       
-      // load roles
-      axios({ 
-          method: 'get', 
-          url: `${url}/admin/roles`,// get available roles
-          })
-      .then( response => { // success 200
-          //console.log(response)
-          store.setValue('roles', response.data.roles)
-          })
-      .catch( error => {
-          console.warn(error)
-      })
-
-      // load user data based on given id
+      // load banner data based on given id
       axios({ 
         method: 'get', 
-        url: `${url}/admin/users/${id}`,
+        url: `${url}/admin/banners/${id}`,
         })
       .then( response => { // success 200
           console.log(response)
-          if( response?.data?.user.hasOwnProperty('name') ){
-            store.setValue('name', response?.data?.user?.name )
+          if( response?.data?.banner.hasOwnProperty('title') ){
+            store.setValue('title', response?.data?.banner?.title )
+          }
+          if( response?.data?.banner.hasOwnProperty('description') ){
+            store.setValue('description', response?.data?.banner?.description )
+          }
+          if( response?.data?.banner.hasOwnProperty('redirect_url') ){
+            store.setValue('redirect_url', response?.data?.banner?.redirect_url )
+          }
+          if( response?.data?.banner.hasOwnProperty('filename') ){
+            store.setValue('filename', response?.data?.banner?.filename )
           }
 
-          if( response?.data?.user.hasOwnProperty('role_id') ){
-            store.setValue('role_id', response?.data?.user?.role_id )
+          if( response?.data?.banner.hasOwnProperty('active') ){
+            store.setValue('active', response?.data?.banner?.active )
           }
 
-          if( response?.data?.user.hasOwnProperty('email') ){
-            store.setValue('email', response?.data?.user?.email )
+          if( response?.data?.banner.hasOwnProperty('published_start') ){
+            store.setValue('published_start', response?.data?.banner?.published_start )
           }
+
+          if( response?.data?.banner.hasOwnProperty('published_end') ){
+            store.setValue('published_end', response?.data?.banner?.published_end )
+          }
+
           })
       .catch( error => {
           console.warn(error)
@@ -77,8 +76,13 @@ export default function DeleteModal({id}) {
         store.setValue('errors', null)
         const formData = new FormData();
         const dataArray = [
-            { key: 'acknowledge', value: store.getValue('acknowledge') },
-            { key: '_method', value: 'delete' },
+          { key: 'title', value: store.getValue('title') },
+          { key: 'description', value: store.getValue('description') }, 
+          { key: 'redirect_url', value: store.getValue('redirect_url') }, 
+          { key: 'active', value: store.getValue('active') },
+          { key: 'published_start', value: store.getValue('published_start') },
+          { key: 'published_end', value: store.getValue('published_end') },
+          { key: '_method', value: 'put' },
         ];
         
         appendFormData(formData, dataArray);
@@ -89,7 +93,7 @@ export default function DeleteModal({id}) {
         // send to Laravel
         axios({ 
             method: 'post', 
-            url: `${url}/admin/users/${id}`,
+            url: `${url}/admin/banners/${id}`,
             data: formData
           })
           .then( response => { // success 200
@@ -113,31 +117,19 @@ export default function DeleteModal({id}) {
     return (
       <>
         <Button size="sm" variant="primary" onClick={handleShowClick}>
-          Delete
+          Edit
         </Button>
   
         <Modal size={'lg'} show={show} onHide={handleCloseClick}>
           <Modal.Header closeButton>
-            <Modal.Title>Delete User</Modal.Title>
+            <Modal.Title>Edit Banner</Modal.Title>
           </Modal.Header>
 
           <Modal.Body>
-            <HtmlFormComponent isLoading={'true'} />
+            <HtmlFormComponent isLoading={isLoading} />
           </Modal.Body>
           
           <Modal.Footer>
-
-            <FormCheck
-              className='me-4'
-              isInvalid={errors?.hasOwnProperty('acknowledge')}
-              reverse
-              disabled={isLoading}
-              label="acknowledge"
-              type="checkbox"
-              onClick={ () => store.setValue('errors', null) }
-              onChange={ (e) => store.setValue('acknowledge', true) }
-            /> 
-
             <Button 
               disabled={isLoading}
               variant="secondary" 
@@ -147,9 +139,9 @@ export default function DeleteModal({id}) {
 
             <Button 
               disabled={isLoading}
-              variant="danger" 
+              variant="primary" 
               onClick={handleSubmitClick}>
-              Delete
+              Submit
             </Button>
 
           </Modal.Footer>
