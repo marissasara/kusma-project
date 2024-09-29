@@ -32,26 +32,32 @@ const DataTableComponent = () => {
                 </thead>
 
                 <tbody>
-                    {items?.data?.map((item,index) => (
-                        <tr key={index}>
-                            <td><span className="badge bg-dark">{item.id}</span></td>
-                            <td className='text-center' style={{'width':'100px'}}>
+                    {items ? 
+                    <>
+                        {items?.data?.map((item,index) => (
+                            <tr key={index}>
+                                <td><span className="badge bg-dark">{item.id}</span></td>
+                                <td className='text-center' style={{'width':'100px'}}>
 
-                                <Ordering id={item.id} direction='up' disabled={index === 0}/>
-                                {' '}
-                                <Ordering id={item.id} direction='down' disabled={index === items.data.length - 1 }/>
+                                    <Ordering id={item.id} direction='up' disabled={index === 0}/>
+                                    {' '}
+                                    <Ordering id={item.id} direction='down' disabled={index === items.data.length - 1 }/>
 
-                            </td>
-                            <td>{item.title}</td>
-                            <td style={{'width':'150px'}}>{item.description}</td>
-                            <td style={{'width':'180px'}}>{item.created_at}</td>
-                            <td className='text-center' style={{'width':'200px'}}>
-                                <EditModal id={item.id} />
-                                {' '}
-                                <DeleteModal id={item.id} />
-                            </td>
-                        </tr>
-                    ))}
+                                </td>
+                                <td>{item.title}</td>
+                                <td style={{'width':'150px'}}>{item.description}</td>
+                                <td style={{'width':'180px'}}>{item.created_at}</td>
+                                <td className='text-center' style={{'width':'200px'}}>
+                                    <EditModal id={item.id} />
+                                    {' '}
+                                    <DeleteModal id={item.id} />
+                                </td>
+                            </tr>
+                        ))}
+                    </>
+                    :
+                    <tr><td colSpan={7}>loading...</td></tr>
+                    }
                 </tbody>
             </Table>
             <PaginatorLink store={store} items={items} />

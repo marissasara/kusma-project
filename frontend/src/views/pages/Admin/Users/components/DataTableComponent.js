@@ -31,26 +31,35 @@ const DataTableComponent = () => {
                 </thead>
 
                 <tbody>
-                    {items?.data?.map((item,index) => (
-                        <tr key={index}>
-                            <td><span className="badge bg-dark">{item.id}</span></td>
-                            <td style={{'width':'80px'}}>
-                                {item.roles?.map((role, index) => (
-                                    <React.Fragment key={index}>
-                                       {' '}<Badge bg='warning' className='p-2 text-dark'>{role.name}</Badge>
-                                    </React.Fragment>
-                                ))}
-                            </td>
-                            <td>{item.name}</td>
-                            <td style={{'width':'150px'}}>{item.email}</td>
-                            <td style={{'width':'180px'}}>{item.created_at}</td>
-                            <td className='text-center' style={{'width':'200px'}}>
-                                <EditModal id={item.id} />
-                                {' '}
-                                <DeleteModal id={item.id} />
-                            </td>
+                    {items ?
+                        <>
+                            {items?.data?.map((item,index) => (
+                            <tr key={index}>
+                                <td><span className="badge bg-dark">{item.id}</span></td>
+                                <td style={{'width':'80px'}}>
+                                    {item.roles?.map((role, index) => (
+                                        <React.Fragment key={index}>
+                                        {' '}<Badge bg='warning' className='p-2 text-dark'>{role.name}</Badge>
+                                        </React.Fragment>
+                                    ))}
+                                </td>
+                                <td>{item.name}</td>
+                                <td style={{'width':'150px'}}>{item.email}</td>
+                                <td style={{'width':'180px'}}>{item.created_at}</td>
+                                <td className='text-center' style={{'width':'200px'}}>
+                                    <EditModal id={item.id} />
+                                    {' '}
+                                    <DeleteModal id={item.id} />
+                                </td>
+                            </tr> 
+                        ))}
+                        </>
+                    :
+                        <tr>
+                            <td colSpan={6}>loading ...</td>
                         </tr>
-                    ))}
+                    }
+                   
                 </tbody>
             </Table>
             <PaginatorLink store={store} items={items} />
