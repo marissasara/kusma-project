@@ -104,7 +104,7 @@ export default function DeleteModal({id}) {
           </Modal.Header>
 
           <Modal.Body>
-            <HtmlFormComponent isLoading={isLoading} />
+            <HtmlFormComponent isLoading={true} />
           </Modal.Body>
           
           <Modal.Footer>

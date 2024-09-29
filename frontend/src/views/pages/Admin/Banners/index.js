@@ -36,7 +36,7 @@ const Banners = () => {
             .then( response => { // response block
                 console.log(response)
                 //setItems(response.data.users) // get the data
-                store.setValue('banners', response.data.banners) // to be used in DataTableComponent
+                store.setValue('banners', response.data.banners ?  response.data.banners : null) // to be used in DataTableComponent
                 store.setValue('refresh', false ) // reset the refresh state to false
             })
             .catch( error => { // error block
