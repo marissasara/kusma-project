@@ -6,7 +6,8 @@ const VideoComponent = () => {
     const src =`https://nasionalfm.muzikfmrtm.com/hls/myStream.m3u8`
     return (
         <div className="container">
-            <div className="grid grid-cols-1 justify-center text-center">
+            <h2>Livestream</h2>
+            <div className="">
                 <div className="relative">
                 <ReactPlayer
                     onProgress={(progress) => {
@@ -16,7 +17,7 @@ const VideoComponent = () => {
                     playing={true}
                     controls={true}
                     width="100%"
-                    height="auto"
+                    height="600px"
                 />
                 </div>
             </div>
