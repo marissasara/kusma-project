@@ -3,6 +3,12 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+
+// Homepage
+use App\Http\Controllers\Homepage\{
+    BannerController
+};
+
 // role = Guest
 use App\Http\Controllers\{
     RegisterController,
@@ -13,6 +19,8 @@ use App\Http\Controllers\{
 use App\Http\Controllers\User\{
     AccountController,
 };
+
+
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -31,6 +39,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     ]);
 
 });
+
+// homepage
+Route::get('/homepage/banners', [BannerController::class, 'show']);
+//Route::get('/homepage/deejay', [DeejayController::class, 'show']);
 
 // Account Management ( logged in users )
 Route::group(['middleware' => ['auth:sanctum']], function () {

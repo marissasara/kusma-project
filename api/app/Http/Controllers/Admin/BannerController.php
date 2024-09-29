@@ -47,8 +47,8 @@ class BannerController extends Controller
                 'description' => $request->input('description'),
                 'redirect_url' => $request->input('redirect_url'),
                 'active' => $request->input('active'),
-                'published_start' => $request->input('published_start') ?? Carbon::now(),
-                'published_end' => $request->input('published_end'),
+                'published_start' => $request->input('published_start') ?? Carbon::now(), // use current date
+                'published_end' => $request->input('published_end'), // if only user set the end date
                 'filename' => CommonService::handleStoreFile($request->file('banner'), $directory = 'banners'),
             ]);
 
