@@ -1,14 +1,15 @@
 import React , { useState,useEffect } from 'react';
 import useStore from '../../../../store';
 import axios from '../../../../libs/axios';
-import { Table } from 'react-bootstrap';
+import { Badge, Table } from 'react-bootstrap';
 import EditModal from './modals/EditModal';
 import PasswordModal from './modals/PasswordModal';
 
 const Profile = () => {
     const store = useStore();
-    const url = process.env.REACT_APP_API_URL + '/admin/account'; // API server
+    const url = process.env.REACT_APP_API_URL + '/account'; // API server
     const [isLoading, setIsLoading] = useState(false);
+    const account = store.getValue('account');
 
     // preset
     useEffect(() => {
@@ -38,7 +39,7 @@ const Profile = () => {
             .then( response => { // response block
                 console.log(response)
                 //setItems(response.data.users) // get the data
-                store.setValue('user', response.data.user)
+                store.setValue('account', response.data.user)
                 store.setValue('refresh', false ) // reset the refresh state to false
             })
             .catch( error => { // error block
@@ -67,18 +68,27 @@ const Profile = () => {
                     </tr>
                 </thead>
                 <tbody>
+                    {account && 
                     <tr>
-                        <td>12</td>
-                        <td>Role</td>
-                        <td>Name</td>
-                        <td>Email</td>
-                        <td>Created At</td>
+                        <td>{account?.id}</td>
+                        <td>
+                        {account?.roles?.map((role, index) => (
+                            <span key={index}>
+                            <Badge bg='dark'>{role.name.toUpperCase()}</Badge>
+                            {index < account.roles.length - 1 && ", "} {/* Adds a comma between role names except after the last one */}
+                            </span>
+                        ))}
+                        </td>
+                        <td>{account?.name}</td>
+                        <td>{account?.email}</td>
+                        <td>{account?.created_at}</td>
                         <td className='text-center'>
                             <EditModal />
                             {' '}
                             <PasswordModal />
                         </td>
                     </tr>
+                    }
                 </tbody>
             </Table>
         </div>

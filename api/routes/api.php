@@ -2,20 +2,18 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\AuthController;
-//use App\Http\Controllers\Admin\UserController;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
+// role = Guest
+use App\Http\Controllers\{
+    RegisterController,
+    AuthController
+};
+
+// role = User
+use App\Http\Controllers\User\{
+    AccountController,
+};
+
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
@@ -23,6 +21,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     
     // Retrieve the user's role using Spatie
     $role = $user->roles->pluck('name')->first();
+
+    $user['role'] = $role;
 
     return response()->json([
         'message' => 'Logged user info',
@@ -32,7 +32,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 });
 
+// Account Management ( logged in users )
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::get('/account', [AccountController::class, 'show']);
+    Route::put('/account/update', [AccountController::class, 'update']);
+    Route::put('/account/change_password', [AccountController::class, 'changePassword']);
+});
+
+
+// Auth 
 Route::post('/frontend/register', [RegisterController::class, 'store']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
-//Route::get('/admin/users', [UserController::class, 'index']);
+

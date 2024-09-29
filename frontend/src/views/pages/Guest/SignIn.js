@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Row,Button, Form } from 'react-bootstrap';
+import { Row,Alert, Form } from 'react-bootstrap';
 import axios from 'axios';
 import useStore from '../../../store';
 import { appendFormData, InputText } from '../../../libs/FormInput';
@@ -10,6 +10,8 @@ function SignIn() {
     const store = useStore(); // zustand store management
     const url = process.env.REACT_APP_API_URL; // API server
     const [isLoading, setIsLoading] = useState(false);
+    const [message, setMessage] = useState('');
+    const [messageType, setMessageType] = useState('');
    
     useEffect(() => {
         // Code to run when the component is loaded (similar to window.onload)
@@ -34,15 +36,11 @@ function SignIn() {
         
         const formData = new FormData();
         const dataArray = [
-    
             { key: 'email', value: store.getValue('email') }, 
             { key: 'password', value: store.getValue('password') }, 
-      
         ];
         
         appendFormData(formData, dataArray);
-
-
         axios({
             method: 'post',
             url: `${url}/login`,
@@ -56,12 +54,6 @@ function SignIn() {
             localStorage.setItem('token', response.data.token) // token to be used with axios interceptor
             localStorage.setItem('role', response.data.role) // token to be used with profile
             store.setValue('authenticated', true) // for redirect purpose
-
-            // store.setValue('auth.user', response.data.user) // account
-            // store.setValue('auth.token', response.data.token) // token
-            store.setValue('role', response.data.role) // role
-            // localStorage.setItem('auth', response.data) // token to be used with axios interceptor
-
             console.log('Form submitted successfully!');
         })
         .catch(error => {
@@ -69,6 +61,12 @@ function SignIn() {
                 console.log(error.response.data.errors)
                 store.setValue('errors', error.response.data.errors ) // set the errors to store
             }
+
+            if(error?.message){
+                setMessageType('danger')
+                setMessage(error.message)
+            }
+            console.warn(error.message)
         })
         .finally( () => {
             setIsLoading(false)
@@ -96,9 +94,12 @@ function SignIn() {
     return (
         <Row className='ms-4 col-8 border border-1 p-4 rounded'  style={{ backgroundColor: isLoading ? '#eaeaea' : 'transparent' }} >
         <h1>Sign In {store.getValue('authenticated') ? 'auth' : 'false'}</h1>
+
+     
         <Form onSubmit={handleSubmit}>
 
             <Row>
+                {message && <Alert variant={messageType}>{message}</Alert>}
                 <Row className='mb-4'>
                     <InputText 
                         type='text'
