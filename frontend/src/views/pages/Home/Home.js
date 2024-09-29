@@ -3,6 +3,7 @@ import { Row,Col } from 'react-bootstrap';
 
 import VideoComponent from './components/VideoComponent';
 import CardComponent from './components/CardComponent';
+import DeejayComponent from './components/DeejayComponent';
 import BannerComponent from './components/BannerComponent';
 import ChatroomComponent from './components/ChatroomComponent';
 
@@ -15,7 +16,8 @@ const Home = () => {
             </Row>
 
             <Row className="mt-4 d-none d-sm-flex">
-                <CardComponent />
+                {/* <CardComponent /> */}
+                <DeejayComponent />
             </Row>
             <Row className="mt-4">
                 <Col xs={12} md={8} className="border border-1 p-3 rounded mb-3">

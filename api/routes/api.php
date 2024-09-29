@@ -6,7 +6,8 @@ use Illuminate\Support\Facades\Route;
 
 // Homepage
 use App\Http\Controllers\Homepage\{
-    BannerController
+    BannerController,
+    DeejayController,
 };
 
 // role = Guest
@@ -42,6 +43,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // homepage
 Route::get('/homepage/banners', [BannerController::class, 'show']);
+Route::get('/homepage/deejays', [DeejayController::class, 'show']);
 //Route::get('/homepage/deejay', [DeejayController::class, 'show']);
 
 // Account Management ( logged in users )

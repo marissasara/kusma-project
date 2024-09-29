@@ -19,6 +19,7 @@ import UserHomePage from './views/pages/User/Home';
 import AdminHomePage from './views/pages/Admin/Home';
 import UserManagement from './views/pages/Admin/Users';
 import BannerManagement from './views/pages/Admin/Banners';
+import DeejayManagement from './views/pages/Admin/Deejays';
 
 // Profile
 import Profile from './views/pages/Global/Profile';
@@ -71,6 +72,7 @@ function App() {
             <Route path="/admin/home" element={<AdminHomePage />} />
             <Route path="/admin/users" element={<UserManagement />} />
             <Route path="/admin/banners" element={<BannerManagement />} />
+            <Route path="/admin/deejays" element={<DeejayManagement />} />
             <Route path="/admin/profile" element={<Profile />} />
           </Route>
         </Route>

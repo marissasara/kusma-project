@@ -41,7 +41,7 @@ const SideBar = () => {
                         <i className="fs-5 bi-image"></i><span className="ms-1 d-none d-sm-inline">Banner</span>
                     </Link>
 
-                    <Link to="/admin/banners" className="nav-link text-dark-custom px-sm-0 px-2">
+                    <Link to="/admin/deejays" className="nav-link text-dark-custom px-sm-0 px-2">
                         <i className="fs-5 bi-person"></i><span className="ms-1 d-none d-sm-inline">Deejay</span>
                     </Link>
 
