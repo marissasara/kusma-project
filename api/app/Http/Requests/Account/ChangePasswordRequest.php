@@ -5,19 +5,12 @@ namespace App\Http\Requests\Account;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class UpdateRequest extends FormRequest
+class ChangePasswordRequest extends FormRequest
 {
     public function rules(): array
     {
         return [
-            'email' => [
-                    'sometimes',
-                    'required',
-                    'email',
-                    // assuming id is pk
-                    Rule::unique('users', 'email')->ignore($this->user()->id),
-                ],
-            'name' => 'sometimes|required',    
+            'password' => 'required|required_if:password_present,true|min:6|confirmed',
         ];
     }
 

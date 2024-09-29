@@ -75,7 +75,7 @@ function SignIn() {
 
     // handle redirect after login
     if (store.getValue('authenticated') === true) {
-        const role = store.getValue('role'); // Get the user role
+        const role = localStorage.getItem('role'); // Get the user role
 
         // Switch based on the role
         switch (role) {

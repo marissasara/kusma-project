@@ -68,7 +68,7 @@ const Profile = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {account && 
+                    {account ?
                     <tr>
                         <td>{account?.id}</td>
                         <td>
@@ -87,6 +87,10 @@ const Profile = () => {
                             {' '}
                             <PasswordModal />
                         </td>
+                    </tr>
+                    :
+                    <tr>
+                        <td colSpan={6}>loading...</td>
                     </tr>
                     }
                 </tbody>

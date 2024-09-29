@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
+import {  useState } from 'react'
 import { Button, Modal} from 'react-bootstrap'
-import { InputText, InputTextarea, appendFormData } from '../../../../../libs/FormInput'
+import { appendFormData } from '../../../../../libs/FormInput'
+import HtmlFormComponent from '../components/HtmlFormComponent'
 import axios from '../../../../../libs/axios'
 import useStore from '../../../../../store';
 
@@ -18,48 +19,13 @@ export default function EditModal({id}) {
     const handleShowClick = () =>{
       //store.emptyData() // empty store data
       store.setValue('errors', null)
-      setIsLoading(true)
+      
+      // loading the HtmlComponent Form data
+      const account = store.getValue('account')
+      store.setValue('name', account.name)
+      store.setValue('email', account.email)
+    
       setShow(true)
-      
-      // load roles
-      axios({ 
-          method: 'get', 
-          url: `${url}/admin/roles`,// get available roles
-          })
-      .then( response => { // success 200
-          //console.log(response)
-          store.setValue('roles', response.data.roles)
-          })
-      .catch( error => {
-          console.warn(error)
-      })
-
-      // load user data based on given id
-      axios({ 
-        method: 'get', 
-        url: `${url}/admin/users/${id}`,
-        })
-      .then( response => { // success 200
-          console.log(response)
-          if( response?.data?.user.hasOwnProperty('name') ){
-            store.setValue('name', response?.data?.user?.name )
-          }
-
-          if( response?.data?.user.hasOwnProperty('role_id') ){
-            store.setValue('role_id', response?.data?.user?.role_id )
-          }
-
-          if( response?.data?.user.hasOwnProperty('email') ){
-            store.setValue('email', response?.data?.user?.email )
-          }
-          })
-      .catch( error => {
-          console.warn(error)
-      })
-      .finally( () => {
-        setIsLoading(false)
-      })
-      
     } 
 
     const handleCloseClick = () => {
@@ -75,13 +41,9 @@ export default function EditModal({id}) {
         const formData = new FormData();
         const dataArray = [
             { key: 'name', value: store.getValue('name') },
-            { key: 'role_id', value: store.getValue('role_id') },
             { key: 'email', value: store.getValue('email') },
-            { key: 'password', value: store.getValue('password') },
-            { key: 'password_confirmation', value: store.getValue('password_confirmation') },
             { key: '_method', value: 'put' },
         ];
-        
         appendFormData(formData, dataArray);
 
         // Laravel special
@@ -90,7 +52,7 @@ export default function EditModal({id}) {
         // send to Laravel
         axios({ 
             method: 'post', 
-            url: `${url}/admin/users/${id}`,
+            url: `${url}/account/update`,
             data: formData
           })
           .then( response => { // success 200
@@ -119,11 +81,11 @@ export default function EditModal({id}) {
   
         <Modal size={'lg'} show={show} onHide={handleCloseClick}>
           <Modal.Header closeButton>
-            <Modal.Title>Edit User</Modal.Title>
+            <Modal.Title>Update Account</Modal.Title>
           </Modal.Header>
 
           <Modal.Body>
-            
+              <HtmlFormComponent />
           </Modal.Body>
           
           <Modal.Footer>
