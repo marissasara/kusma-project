@@ -24,7 +24,7 @@ const SocialMediaIcons = () => {
       </a>
     </div>
     <Row className="d-flex justify-content-center text-primary">
-    NASIONAL FM
+    NASIONALfm
     </Row>
     </>
   );

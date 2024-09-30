@@ -48,7 +48,7 @@ const DeejayComponent = () => {
               
               //   }
               // </Carousel.Item>
-              <Card key={index} style={{ width: '29rem', marginBottom: '1rem' }}>
+              <Card key={index} className='me-3' style={{ width: '10rem', marginBottom: '1rem' }}>
               <Card.Img variant="top" src={`${serverUrl}/storage/deejays/${deejay.filename}`} alt={deejay.title} />
               <Card.Body>
                 <Card.Title>{deejay.title}</Card.Title>
@@ -67,7 +67,7 @@ const DeejayComponent = () => {
 
   if (deejays.length > 0){
     return (
-      <div className="d-flex flex-wrap justify-content-between">
+      <div className="d-flex flex-wrap">
         {cardItems()}
       </div>
       );

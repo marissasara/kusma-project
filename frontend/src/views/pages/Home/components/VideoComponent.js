@@ -17,7 +17,7 @@ const VideoComponent = () => {
                     playing={true}
                     controls={true}
                     width="100%"
-                    height="600px"
+                    height="auto"
                 />
                 </div>
             </div>

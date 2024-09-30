@@ -41,7 +41,8 @@ const BannerComponent = () => {
                 banner?.filename && 
                 <Link to={banner.redirect_url}>
                   <FigureImage
-                    className="d-block w-100"
+                    className="d-block w-100 "
+                    style={{ 'height' : '600px'}}
                     src={`${serverUrl}/storage/banners/${banner.filename}`} 
                     alt="First slide"
                   />
