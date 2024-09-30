@@ -12,10 +12,10 @@ const HomeLayout = () => {
                                 'backgroundColor': 'lightcyan'
                               }}>
       <span className="navbar-brand mb-0 h1 ms-4">
-        <img src={Logo} alt="Logo" height="60" className="d-inline-block align-text-top"  />
+        <img src={Logo} alt="Logo NasionalFM" height="60" className="d-inline-block align-text-top"  />
       </span>
 
-      <span>
+      <span className="d-none d-sm-flex">
         <img src={Podcast} alt="Podscast" height="60" className="d-inline-block align-text-top me-2"  />
       </span>
    
