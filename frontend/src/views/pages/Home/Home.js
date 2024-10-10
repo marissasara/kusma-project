@@ -20,8 +20,9 @@ const Home = () => {
                 {/* <CardComponent /> */}
                 <DeejayComponent />
             </Row>
+            <hr />
             <Row className="mt-4">
-                <Col xs={12} md={8} className="border border-1 p-3 rounded mb-3">
+                <Col  xs={12} md={8} className="border border-1 p-3 rounded mb-3">
                     <VideoComponent />
                 </Col>
 
