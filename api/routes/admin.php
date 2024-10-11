@@ -5,7 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\{
     UserController,
     BannerController,
-    DeejayController
+    DeejayController,
+    TopicController,
+    ChoiceController,
 };
 
 // Protect all admin routes with the 'admin' role
@@ -39,6 +41,26 @@ Route::group(['middleware' => ['auth:sanctum','role:admin']], function () {
     Route::post('/deejays', [DeejayController::class, 'store']);
     Route::delete('/deejays/{deejay}', [DeejayController::class, 'delete']);
     Route::get('/deejays/ordering/{deejay}', [DeejayController::class, 'ordering']);
+
+    // Topic Management | poll
+    // GET /api/admin/topics
+    Route::get('/topics', [TopicController::class, 'index']);
+    Route::get('/topics/{topic}', [TopicController::class, 'show']);
+    Route::post('/topics', [TopicController::class, 'store']);
+    Route::put('/topics/{topic}', [TopicController::class, 'update']);
+    Route::post('/topics', [TopicController::class, 'store']);
+    Route::delete('/topics/{topic}', [TopicController::class, 'delete']);
+    Route::get('/topics/ordering/{topic}', [TopicController::class, 'ordering']);
+
+    // Choice Management | poll
+    // GET /api/admin/choices
+    Route::get('/choices', [ChoiceController::class, 'index']);
+    Route::get('/choices/{choice}', [ChoiceController::class, 'show']);
+    Route::post('/choices', [ChoiceController::class, 'store']);
+    Route::put('/choices/{choice}', [ChoiceController::class, 'update']);
+    Route::post('/choices', [ChoiceController::class, 'store']);
+    Route::delete('/choices/{choice}', [ChoiceController::class, 'delete']);
+    Route::get('/choices/ordering/{choice}', [ChoiceController::class, 'ordering']);
 
 });
 
