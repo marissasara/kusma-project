@@ -25,8 +25,8 @@ const SideBar = () => {
                         <i className="fs-5 bi-database"></i><span className="ms-1 d-none d-sm-inline">Recording</span>
                     </Link>
 
-                    <Link to="/admin/poll" className="nav-link text-dark-custom px-sm-0 px-2">
-                        <i className="fs-5 bi-p-circle"></i><span className="ms-1 d-none d-sm-inline">Poll</span>
+                    <Link to="/admin/topics" className="nav-link text-dark-custom px-sm-0 px-2">
+                        <i className="fs-5 bi-p-circle"></i><span className="ms-1 d-none d-sm-inline">Carta Undi</span>
                     </Link>
 
                     <Link to="/admin/chatroom" className="nav-link text-dark-custom px-sm-0 px-2">

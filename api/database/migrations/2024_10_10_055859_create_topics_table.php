@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('topics', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
+            $table->string('title')->nullable();
             $table->text('description')->nullable();
             $table->nestedSet(); // Kalnoy nestedset
             $table->timestamps();
