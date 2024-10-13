@@ -55,11 +55,11 @@ Route::group(['middleware' => ['auth:sanctum','role:admin']], function () {
     // Choice Management | poll
     // GET /api/admin/choices
     Route::get('/choices/{topicId}', [ChoiceController::class, 'index']);
-    Route::get('/choices/{choice}', [ChoiceController::class, 'show']);
+    Route::get('/choices/{choice}/show', [ChoiceController::class, 'show']);
     Route::post('/choices', [ChoiceController::class, 'store']);
-    Route::put('/choices/{choice}', [ChoiceController::class, 'update']);
+    Route::put('/choices/{choice}/update', [ChoiceController::class, 'update']);
     Route::post('/choices', [ChoiceController::class, 'store']);
-    Route::delete('/choices/{choice}', [ChoiceController::class, 'delete']);
+    Route::delete('/choices/{choice}/delete', [ChoiceController::class, 'delete']);
     Route::get('/choices/ordering/{choice}', [ChoiceController::class, 'ordering']);
 
 });

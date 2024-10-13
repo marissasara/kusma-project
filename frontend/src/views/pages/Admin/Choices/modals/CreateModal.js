@@ -18,13 +18,21 @@ export default function CreateModal() {
     const handleShow = () => setShow(true)
 
     const handleShowClick = () =>{
-      store.emptyData()
+      //store.emptyData()
       store.setValue('errors', null)
+      store.setValue('title', null )
+      store.setValue('description', null)
+      store.setValue('photo', null)
+      store.setValue('filename', null)
       setShow(true)
     } 
 
     const handleCloseClick = () => {
       store.setValue('errors', null)
+      store.setValue('title', null )
+      store.setValue('description', null)
+      store.setValue('photo', null)
+      store.setValue('filename', null)
       handleClose()
     }
 

@@ -44,24 +44,37 @@ const HtmlFormComponent = ({isLoading}) => {
             <hr />
             <h5>Poster</h5>
             <Col className='mb-2'>
-                {store.getValue('filename')  || selectedImage ? (
-
+                {store.getValue('current_photo')  || selectedImage ? (
+                <>
                     <Figure>
                          <Figure.Image
                             className="img-fluid"
-                            src={selectedImage || `${url}/storage/choices/${store.getValue('filename')}`}
+                            src={selectedImage || `${url}/storage/choices/${store.getValue('current_photo')}`}
                             alt="Preview"
                         />
                     </Figure>
+
+                    <InputFile
+                    fieldName='photo' 
+                    placeholder='Choose image'  
+                    icon='fa-solid fa-image'
+                    isLoading={isLoading}
+                    />
+                </>
                           
                 ) : (
-                    <InputFile
+               <>  
+               
+               
+               <InputFile
                         fieldName='photo' 
                         placeholder='Choose image'  
                         icon='fa-solid fa-image'
                         isLoading={isLoading}
-                    />
+                    /></>
                 )}
+
+              
             </Col>
             
           

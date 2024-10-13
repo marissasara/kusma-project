@@ -44,7 +44,7 @@ const Choices = () => {
                 } 
             )
             .then( response => { // response block
-                console.log(response)
+                //console.log(response)
                 //setItems(response.data.users) // get the data
                 //setTopic(response.data.topic)
                 store.setValue('topic', response.data.topic ?  response.data.topic : null) 

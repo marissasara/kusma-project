@@ -63,7 +63,7 @@ class ChoiceController extends Controller
     public function update(Request $request,Choice $choice)
     {
 
-        //\Log::info($request);
+        \Log::info($request);
         // validation
         $data = $request->validate([
 
@@ -72,9 +72,23 @@ class ChoiceController extends Controller
             'photo' => 'sometimes|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
 
-        $choice = Choice::where('id', $choice->id)->update($request->except(['_method','id']));
+       
         if($request->has('photo')){
-            CommonService::handleStoreFile($request->file('photo'), $directory = 'choices');
+            // Update the choice record with new data
+            $choice->update([
+                'user_id' => auth('sanctum')->user()->id,  // This can remain the same
+                'title' => $request->input('title'),        // Update title if provided
+                'description' => $request->input('description'),  // Update description if provided
+                'filename' => $request->hasFile('photo') ? CommonService::handleStoreFile($request->file('photo'), $directory = 'choices') : $choice->filename  // Update filename if new file is uploaded
+            ]);
+        } else {
+                    // Update the choice record with new data
+            $choice->update([
+                'user_id' => auth('sanctum')->user()->id,  // This can remain the same
+                'title' => $request->input('title'),        // Update title if provided
+                'description' => $request->input('description'),  // Update description if provided
+        
+            ]);
         }
 
         return response()->json(['message' => 'choice successfully updated']);

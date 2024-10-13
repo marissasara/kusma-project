@@ -26,7 +26,7 @@ export default function DeleteModal({id}) {
       // load choice data based on given id
       axios({ 
         method: 'get', 
-        url: `${url}/admin/choices/${id}`,
+        url: `${url}/admin/choices/${id}/show`,
         })
       .then( response => { // success 200
           console.log(response)
@@ -36,6 +36,10 @@ export default function DeleteModal({id}) {
 
           if( response?.data?.choice.hasOwnProperty('description') ){
             store.setValue('description', response?.data?.choice?.description )
+          }
+
+          if( response?.data?.choice.hasOwnProperty('filename') ){
+            store.setValue('filename', response?.data?.choice?.filename )
           }
       })
       .catch( error => {
@@ -71,7 +75,7 @@ export default function DeleteModal({id}) {
         // send to Laravel
         axios({ 
             method: 'post', 
-            url: `${url}/admin/choices/${id}`,
+            url: `${url}/admin/choices/${id}/delete`,
             data: formData
           })
           .then( response => { // success 200

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->integer('user_id');
             $table->integer('topic_id');
             $table->text('title')->nullable();
+            $table->text('description')->nullable();
             $table->string('filename')->nullable();
             $table->nestedSet(); // Kalnoy nestedset
             $table->timestamps();

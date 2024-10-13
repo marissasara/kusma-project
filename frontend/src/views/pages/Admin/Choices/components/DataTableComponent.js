@@ -14,7 +14,7 @@ const DataTableComponent = () => {
     const store = useStore()
     const items = store.getValue('choices'); 
     const url = process.env.REACT_APP_SERVER_URL; 
-    console.log(items)
+    //console.log(items)
     return (
         <div>
             <CreateButton>
@@ -54,6 +54,15 @@ const DataTableComponent = () => {
                                             <td style={{width: '*'}}>
                                                
                                                 <Card className='p-3'>
+
+                                                    <Figure>
+                                                        <Figure.Image
+                                                            width={'300px'}
+                                                            className="img-fluid"
+                                                            src={`${url}/storage/choices/${item.filename}`}
+                                                            alt="Preview"
+                                                        />
+                                                    </Figure>
                                                     <h3>{item.title}</h3>
                                                     {item.description}
                                                 </Card>

@@ -17,15 +17,18 @@ export default function EditModal({id}) {
     const handleShow = () => setShow(true)
 
     const handleShowClick = () =>{
-      //store.emptyData() // empty store data
+
       store.setValue('errors', null)
+      store.setValue('title', null )
+      store.setValue('description', null)
+      store.setValue('current_photo', null)
       setIsLoading(true)
       setShow(true)
       
       // load choice data based on given id
       axios({ 
         method: 'get', 
-        url: `${url}/admin/choices/${id}`,
+        url: `${url}/admin/choices/${id}/show`,
         })
       .then( response => { // success 200
           console.log(response)
@@ -34,6 +37,10 @@ export default function EditModal({id}) {
           }
           if( response?.data?.choice.hasOwnProperty('description') ){
             store.setValue('description', response?.data?.choice?.description )
+          }
+
+          if( response?.data?.choice.hasOwnProperty('filename') ){
+            store.setValue('current_photo', response?.data?.choice?.filename )
           }
          
           })
@@ -47,6 +54,10 @@ export default function EditModal({id}) {
     } 
 
     const handleCloseClick = () => {
+      store.setValue('errors', null)
+      store.setValue('title', null )
+      store.setValue('description', null)
+      store.setValue('current_photo', null)
       handleClose()
     }
 
@@ -60,10 +71,7 @@ export default function EditModal({id}) {
         const dataArray = [
           { key: 'title', value: store.getValue('title') },
           { key: 'description', value: store.getValue('description') }, 
-          { key: 'redirect_url', value: store.getValue('redirect_url') }, 
-          { key: 'active', value: store.getValue('active') },
-          { key: 'published_start', value: store.getValue('published_start') },
-          { key: 'published_end', value: store.getValue('published_end') },
+          { key: 'photo', value: store.getValue('photo') },
           { key: '_method', value: 'put' },
         ];
         
@@ -75,7 +83,7 @@ export default function EditModal({id}) {
         // send to Laravel
         axios({ 
             method: 'post', 
-            url: `${url}/admin/choices/${id}`,
+            url: `${url}/admin/choices/${id}/update`,
             data: formData
           })
           .then( response => { // success 200
