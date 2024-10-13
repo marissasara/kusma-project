@@ -54,7 +54,7 @@ Route::group(['middleware' => ['auth:sanctum','role:admin']], function () {
 
     // Choice Management | poll
     // GET /api/admin/choices
-    Route::get('/choices', [ChoiceController::class, 'index']);
+    Route::get('/choices/{topicId}', [ChoiceController::class, 'index']);
     Route::get('/choices/{choice}', [ChoiceController::class, 'show']);
     Route::post('/choices', [ChoiceController::class, 'store']);
     Route::put('/choices/{choice}', [ChoiceController::class, 'update']);

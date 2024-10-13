@@ -2,19 +2,34 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Topic;
 use App\Models\Choice;
 use App\Services\CommonService;
 
 
 class ChoiceController extends Controller
 {
-    public function index()
+    public function index($topicId)
     {
-        $choices = Choice::defaultOrder()->paginate(10)->withQueryString(); 
-   
-        return response()->json(['choices' => $choices]);
-
+        // Fetch the topic by its ID
+        $topic = Topic::find($topicId);
+    
+        // Check if the topic exists
+        if (!$topic) {
+            return response()->json([
+                'message' => 'Topic not found.'
+            ], 404);
+        }
+    
+        // Fetch the choices related to the topic, paginated with 10 per page
+        $choices = Choice::where('topic_id', $topicId)->defaultOrder()->paginate(10)->withQueryString();
+    
+        return response()->json([
+            'topic' => $topic,
+            'choices' => $choices
+        ]);
     }
+    
 
     public function show(Choice $choice)
     {

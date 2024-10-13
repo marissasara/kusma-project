@@ -1,11 +1,19 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import useStore from '../../../../store';
 import axios from '../../../../libs/axios';
 import DataTableComponent from './components/DataTableComponent';
+import { Link,useParams } from 'react-router-dom';
+import { Breadcrumb, Card } from 'react-bootstrap';
+
+
 
 const Choices = () => {
     const store = useStore();
-    const url = process.env.REACT_APP_API_URL + '/admin/choices'; // API server
+    const { topicId } = useParams();
+    const url = process.env.REACT_APP_API_URL + '/admin/choices/' + topicId; // API server
+    const topic = store.getValue('topic')
+    // const [topic, setTopic] = useState({})
+ 
    
     // preset
     useEffect(() => {
@@ -15,6 +23,8 @@ const Choices = () => {
         // Zustand presets
         store.emptyData() // clear all previous data
         store.setValue('refresh', false ) // refresh set to false
+        store.setValue('topic', {}) // initiate as object
+        store.setValue('choices', {}) // initiate as object
 
         // Optionally, you can return a cleanup function to run when the component is unmounted
         return () => {
@@ -36,6 +46,8 @@ const Choices = () => {
             .then( response => { // response block
                 console.log(response)
                 //setItems(response.data.users) // get the data
+                //setTopic(response.data.topic)
+                store.setValue('topic', response.data.topic ?  response.data.topic : null) 
                 store.setValue('choices', response.data.choices ?  response.data.choices : null) // to be used in DataTableComponent
                 store.setValue('refresh', false ) // reset the refresh state to false
             })
@@ -50,8 +62,34 @@ const Choices = () => {
 
     ) // useEffect()
 
+
+
     return (
         <div>
+
+    <Breadcrumb>
+      <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/" }}>
+        Home
+      </Breadcrumb.Item>
+      <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/admin/topics" }}>
+        Topics
+      </Breadcrumb.Item>
+      <Breadcrumb.Item active>
+        {topic?.title || `Topic ${topic?.title}`}
+      </Breadcrumb.Item>
+    </Breadcrumb>
+
+            <Card className='p-3 mb-3'>
+                {topic?.title ? 
+                <> 
+                    <h2>{topic?.title}</h2>
+                    <p>{topic?.description}</p>
+                </>
+                :
+                <p>Loading...</p>
+                }
+               
+            </Card>
             <DataTableComponent />
         </div>
     );

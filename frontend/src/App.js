@@ -76,7 +76,7 @@ function App() {
             <Route path="/admin/banners" element={<BannerManagement />} />
             <Route path="/admin/deejays" element={<DeejayManagement />} />
             <Route path="/admin/topics" element={<TopicManagement />} />
-            <Route path="/admin/topics/:topicId/choices" element={<TopicManagement />} />
+            <Route path="/admin/topics/:topicId/choices" element={<ChoiceManagement />} />
             <Route path="/admin/profile" element={<Profile />} />
           </Route>
         </Route>
