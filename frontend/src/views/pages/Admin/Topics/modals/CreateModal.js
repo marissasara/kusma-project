@@ -17,6 +17,7 @@ export default function CreateModal() {
     const handleShowClick = () =>{
       //store.emptyData()
       store.setValue('errors', null)
+      
       setShow(true)
     } 
 

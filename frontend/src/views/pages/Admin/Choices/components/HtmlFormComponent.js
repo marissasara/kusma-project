@@ -13,7 +13,7 @@ const HtmlFormComponent = ({isLoading}) => {
         if (file) {
             setSelectedImage(URL.createObjectURL(file));
         }
-    })
+    },[store.getValue('photo')])
 
     return (
         <>
@@ -60,7 +60,6 @@ const HtmlFormComponent = ({isLoading}) => {
                         placeholder='Choose image'  
                         icon='fa-solid fa-image'
                         isLoading={isLoading}
-                  
                     />
                 )}
             </Col>

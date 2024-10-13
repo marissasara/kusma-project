@@ -40,6 +40,7 @@ class ChoiceController extends Controller
     {
         // validation
         $request->validate([
+            'topic_id' => 'required|integer|exists:topics,id',  // Ensure topic_id exists in the 'topics' table
             'title' => 'required|string',
             'description' => 'required|string',
             'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
@@ -49,7 +50,8 @@ class ChoiceController extends Controller
             //\Log::info($request);
             $choice = Choice::create([
                 'user_id' =>  auth('sanctum')->user()->id,
-
+                'topic_id' => $request->input('topic_id'),
+                'title' => $request->input('title'),
                 'description' => $request->input('description'),
                 'filename' => CommonService::handleStoreFile($request->file('photo'), $directory = 'choices'),
             ]);
@@ -65,12 +67,17 @@ class ChoiceController extends Controller
         // validation
         $data = $request->validate([
 
+            'title' => 'sometimes|string',
             'description' => 'sometimes|string',
+            'photo' => 'sometimes|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
 
         $choice = Choice::where('id', $choice->id)->update($request->except(['_method','id']));
+        if($request->has('photo')){
+            CommonService::handleStoreFile($request->file('photo'), $directory = 'choices');
+        }
 
-        return response()->json(['message' => 'choice successfully created']);
+        return response()->json(['message' => 'choice successfully updated']);
     }
 
     public function delete(Request $request,Choice $choice)

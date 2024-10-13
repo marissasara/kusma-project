@@ -4,8 +4,11 @@ import { InputText, InputTextarea, appendFormData } from '../../../../../libs/Fo
 import axios from '../../../../../libs/axios'
 import useStore from '../../../../../store';
 import HtmlFormComponent from '../components/HtmlFormComponent';
+import { useParams } from 'react-router-dom';
 
 export default function CreateModal() {
+
+    const { topicId } = useParams();
     const store = useStore()
     const url = process.env.REACT_APP_API_URL; 
     const errors = store.getValue('errors')
@@ -15,7 +18,7 @@ export default function CreateModal() {
     const handleShow = () => setShow(true)
 
     const handleShowClick = () =>{
-      //store.emptyData()
+      store.emptyData()
       store.setValue('errors', null)
       setShow(true)
     } 
@@ -33,6 +36,7 @@ export default function CreateModal() {
         store.setValue('errors', null)
         const formData = new FormData();
         const dataArray = [
+          { key: 'topic_id', value: topicId },
           { key: 'title', value: store.getValue('title') },
           { key: 'description', value: store.getValue('description') }, 
           { key: 'photo', value: store.getValue('photo') },
@@ -75,7 +79,7 @@ export default function CreateModal() {
   
         <Modal size={'lg'} show={show} onHide={handleCloseClick}>
           <Modal.Header closeButton>
-            <Modal.Title>Create Choice</Modal.Title>
+            <Modal.Title>Create Choice topik is {topicId}</Modal.Title>
           </Modal.Header>
 
           <Modal.Body>
