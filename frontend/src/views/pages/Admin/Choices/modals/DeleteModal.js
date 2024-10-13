@@ -38,8 +38,10 @@ export default function DeleteModal({id}) {
             store.setValue('description', response?.data?.choice?.description )
           }
 
+
+          
           if( response?.data?.choice.hasOwnProperty('filename') ){
-            store.setValue('filename', response?.data?.choice?.filename )
+            store.setValue('current_photo', response?.data?.choice?.filename )
           }
       })
       .catch( error => {

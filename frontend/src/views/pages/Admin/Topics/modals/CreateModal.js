@@ -16,12 +16,16 @@ export default function CreateModal() {
 
     const handleShowClick = () =>{
       //store.emptyData()
+      store.setValue('title', null)
+      store.setValue('description', null)
       store.setValue('errors', null)
       
       setShow(true)
     } 
 
     const handleCloseClick = () => {
+      store.setValue('title', null)
+      store.setValue('description', null)
       store.setValue('errors', null)
       handleClose()
     }
