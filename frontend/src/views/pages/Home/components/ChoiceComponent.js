@@ -16,14 +16,11 @@ const ChoiceComponent = ({topicId}) => {
     // check if user already voted ?
     const votedTopicId = localStorage.getItem('topic_id');
 
-    console.log('topic id is')
-    console.log(votedTopicId)
-
-     useEffect( () => {
+    useEffect( () => {
          setIsLoading(true)
          axios(`${url}/homepage/choices/${topicId}`)
          .then( response => {
-           console.log(response)
+           //console.log(response)
            setChoices(response.data.choices)
            store.setValue('refresh', false)
          })

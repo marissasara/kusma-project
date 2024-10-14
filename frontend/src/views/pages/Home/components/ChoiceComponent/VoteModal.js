@@ -16,11 +16,11 @@ export default function VoteModal({topicId, choiceId}) {
     const handleShow = () => setShow(true);
 
     const handleShowClick = () =>{
-        console.log(url)
+       
       setShow(true)
       axios(`${url}/homepage/choice/${choiceId}`)
       .then( response => {
-        console.log(response)
+        //console.log(response)
         setChoice(response.data.choice)
       })
       .catch( error => {
@@ -56,11 +56,11 @@ export default function VoteModal({topicId, choiceId}) {
             data: formData
           })
           .then( response => { // success 200
-            console.log(response)
+            //console.log(response)
 
             // if success, generate a localstorage with TopicId
             localStorage.setItem('topic_id' , topicId);
-            store.setValue('refresh', true)
+            store.setValue('refresh', true) // refresh the choices
           })
           .catch( error => {
             console.warn(error)
