@@ -27,17 +27,18 @@ const ChoiceComponent = ({topicId}) => {
     const PollItem = ({ title, description, filename }) => {
         return (
           <div className="row align-items-center mb-3 border-bottom pb-3">
-            <div className="col-4">
+            <div className="col-3">
            
                <FigureImage
                     className="image-fluid"
+                    style={{ 'height' : '250px'}}
                     src={`${serverUrl}/storage/choices/${filename}`} 
                     alt="First slide"
                   />
             </div>
-            <div className="col-6">
+            <div className="col-7">
               <h5>{title}</h5>
-              <p className="mb-1 text-muted">{description}</p>
+              <p className="mb-1">{description}</p>
               {/* <p className="text-muted">{type}</p> */}
             </div>
             <div className="col-2 text-center">
