@@ -1,6 +1,7 @@
 import React, { useEffect,useState } from 'react';
 import { Row,Col, FigureImage } from 'react-bootstrap';
 import axios from 'axios'
+import VoteModal from './ChoiceComponent/VoteModal';
 
 const ChoiceComponent = ({topicId}) => {
      // constants
@@ -43,7 +44,8 @@ const ChoiceComponent = ({topicId}) => {
             </div>
             <div className="col-2 text-center">
               {/* <h2 className="text-success">{rank}</h2> */}
-              <button className="btn btn-outline-secondary btn-sm" disabled>Vote</button>
+              {/* <button className="btn btn-outline-secondary btn-sm" disabled>Vote</button> */}
+              <VoteModal />
             </div>
           </div>
         );
