@@ -1,9 +1,12 @@
 import { useState } from 'react'
 import { Button, Figure, Modal} from 'react-bootstrap'
+import { appendFormData } from '../../../../../libs/FormInput';
 import axios from 'axios';
+import useStore from '../../../../../store';
 
-export default function VoteModal({choiceId}) {
+export default function VoteModal({topicId, choiceId}) {
   
+    const store = useStore()
     const url = process.env.REACT_APP_API_URL; 
     const serverUrl = process.env.REACT_APP_SERVER_URL;
     const [show, setShow] = useState(false);  
@@ -30,7 +33,43 @@ export default function VoteModal({choiceId}) {
     } 
 
     const handleCloseClick = () => {
-      handleClose()
+        handleClose()
+    }
+
+    const handleSubmitClick = () => {
+        setIsLoading(true)
+        //console.log('voted');
+
+        const formData = new FormData();
+        const dataArray = [
+          { key: 'topic_id', value: topicId },
+          { key: 'choice_id', value: choiceId }, 
+          { key: '_method', value: 'post' }, 
+        ];
+
+        appendFormData(formData, dataArray);
+
+        // send to Laravel
+        axios({ 
+            method: 'post', 
+            url: `${url}/homepage/vote`,
+            data: formData
+          })
+          .then( response => { // success 200
+            console.log(response)
+
+            // if success, generate a localstorage with TopicId
+            localStorage.setItem('topic_id' , topicId);
+            store.setValue('refresh', true)
+          })
+          .catch( error => {
+            console.warn(error)
+          })
+          .finally( () => {
+            setIsLoading(false)
+          })
+        
+        handleClose()
     }
 
     const PollItem = ({ id,title, description, filename }) => {
@@ -63,7 +102,7 @@ export default function VoteModal({choiceId}) {
             <Button 
                 className="btn btn-sm"
                 onClick={handleShowClick} 
-            >Vote
+            >Vote 
             </Button>
         </Figure>
   
@@ -95,7 +134,7 @@ export default function VoteModal({choiceId}) {
 
           <Button 
               variant="primary" 
-              onClick={handleCloseClick}>
+              onClick={handleSubmitClick}>
               Vote
             </Button>
     

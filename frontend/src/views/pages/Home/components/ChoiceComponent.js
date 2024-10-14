@@ -2,20 +2,30 @@ import React, { useEffect,useState } from 'react';
 import { Row,Col, FigureImage } from 'react-bootstrap';
 import axios from 'axios'
 import VoteModal from './ChoiceComponent/VoteModal';
+import useStore from '../../../../store';
 
 const ChoiceComponent = ({topicId}) => {
      // constants
+     const store = useStore()
      const url = process.env.REACT_APP_API_URL;
      const serverUrl = process.env.REACT_APP_SERVER_URL;
      const [choices,setChoices] = useState([]);
      const [isLoading,setIsLoading] = useState(false);
  
+
+    // check if user already voted ?
+    const votedTopicId = localStorage.getItem('topic_id');
+
+    console.log('topic id is')
+    console.log(votedTopicId)
+
      useEffect( () => {
          setIsLoading(true)
          axios(`${url}/homepage/choices/${topicId}`)
          .then( response => {
            console.log(response)
            setChoices(response.data.choices)
+           store.setValue('refresh', false)
          })
          .catch( error => {
            console.warn(error)
@@ -23,7 +33,7 @@ const ChoiceComponent = ({topicId}) => {
          .finally( () =>{ 
            setIsLoading(false)
          })
-       },[])
+       },[store.getValue('refresh')])
 
     const PollItem = ({ id,title, description, filename }) => {
         return (
@@ -45,7 +55,11 @@ const ChoiceComponent = ({topicId}) => {
             <div className="col-2 text-center">
               {/* <h2 className="text-success">{rank}</h2> */}
               {/* <button className="btn btn-outline-secondary btn-sm" disabled>Vote</button> */}
-              <VoteModal choiceId={id} />
+              { votedTopicId != topicId  ?
+              <VoteModal topicId={topicId} choiceId={id} />
+              :
+              <button className="btn btn-outline-secondary btn-sm" disabled>Vote</button> 
+              }
             </div>
           </div>
         );

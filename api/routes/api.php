@@ -10,6 +10,7 @@ use App\Http\Controllers\Homepage\{
     DeejayController,
     TopicController,
     ChoiceController,
+    VoteController,
 };
 
 // role = Guest
@@ -49,6 +50,7 @@ Route::get('/homepage/deejays', [DeejayController::class, 'show']);
 Route::get('/homepage/topics', [TopicController::class, 'show']);
 Route::get('/homepage/choices/{topicId}', [ChoiceController::class, 'index']);
 Route::get('/homepage/choice/{choice}', [ChoiceController::class, 'show']);
+Route::post('/homepage/vote', [VoteController::class, 'store']);
 //Route::get('/homepage/deejay', [DeejayController::class, 'show']);
 
 // Account Management ( logged in users )
