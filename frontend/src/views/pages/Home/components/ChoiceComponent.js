@@ -27,18 +27,17 @@ const ChoiceComponent = ({topicId}) => {
     const PollItem = ({ title, description, filename }) => {
         return (
           <div className="row align-items-center mb-3 border-bottom pb-3">
-            <div className="col-2">
+            <div className="col-4">
            
                <FigureImage
-                    className="d-block w-100 image-fluid"
-                    //style={{ 'height' : '600px'}}
+                    className="image-fluid"
                     src={`${serverUrl}/storage/choices/${filename}`} 
                     alt="First slide"
                   />
             </div>
-            <div className="col-8">
+            <div className="col-6">
               <h5>{title}</h5>
-              <p className="mb-1">{description}</p>
+              <p className="mb-1 text-muted">{description}</p>
               {/* <p className="text-muted">{type}</p> */}
             </div>
             <div className="col-2 text-center">
@@ -52,7 +51,7 @@ const ChoiceComponent = ({topicId}) => {
 
     return (
     
-                <div className="container mt-5">
+                <div className="container">
                 {choices.map((item, index) => (
                     <PollItem
                     key={index}
