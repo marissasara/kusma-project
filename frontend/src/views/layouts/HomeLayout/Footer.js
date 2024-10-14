@@ -7,7 +7,6 @@ import msc_logo from './msc-white.png';
 import apps_logo from './apps.png';
 import play_logo from './googleplay-bm.png';
 import huawei_logo from './huawei_appsgaleryedit1.png';
-import { Row } from 'react-bootstrap';
 
 const Footer = () => {
     return (
@@ -16,7 +15,7 @@ const Footer = () => {
     //         <SocialMediaIcons />
     //     </div>
     // </footer>
-    <Row className="mt-4 mb-4 ms-1 text-light rounded" style={{'backgroundColor': '#000'}}>
+    <footer className="mt-4 mb-4 ms-1 text-light rounded" style={{'backgroundColor': '#000'}}>
    
             <div className="row justify-content-center p-5 ms-5">
 
@@ -69,7 +68,7 @@ const Footer = () => {
                 </div>
             </div>
         </div>
-    </Row>
+    </footer>
     );
 };
 
