@@ -6,7 +6,7 @@ import CardComponent from './components/CardComponent';
 import DeejayComponent from './components/DeejayComponent';
 import BannerComponent from './components/BannerComponent';
 import ChatroomComponent from './components/ChatroomComponent';
-import VoteComponent from './components/VoteComponent';
+import VoteComponent from './components/TopicComponent';
 
 
 const Home = () => {
