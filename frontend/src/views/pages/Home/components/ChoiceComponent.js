@@ -25,7 +25,7 @@ const ChoiceComponent = ({topicId}) => {
          })
        },[])
 
-    const PollItem = ({ title, description, filename }) => {
+    const PollItem = ({ id,title, description, filename }) => {
         return (
           <div className="row align-items-center mb-3 border-bottom pb-3">
             <div className="col-3">
@@ -45,7 +45,7 @@ const ChoiceComponent = ({topicId}) => {
             <div className="col-2 text-center">
               {/* <h2 className="text-success">{rank}</h2> */}
               {/* <button className="btn btn-outline-secondary btn-sm" disabled>Vote</button> */}
-              <VoteModal />
+              <VoteModal choiceId={id} />
             </div>
           </div>
         );
@@ -58,6 +58,7 @@ const ChoiceComponent = ({topicId}) => {
                 {choices.map((item, index) => (
                     <PollItem
                     key={index}
+                    id={item.id}
                     title={item.title}
                     description={item.description}
                     filename={item.filename}

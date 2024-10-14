@@ -48,6 +48,7 @@ Route::get('/homepage/banners', [BannerController::class, 'show']);
 Route::get('/homepage/deejays', [DeejayController::class, 'show']);
 Route::get('/homepage/topics', [TopicController::class, 'show']);
 Route::get('/homepage/choices/{topicId}', [ChoiceController::class, 'index']);
+Route::get('/homepage/choice/{choice}', [ChoiceController::class, 'show']);
 //Route::get('/homepage/deejay', [DeejayController::class, 'show']);
 
 // Account Management ( logged in users )

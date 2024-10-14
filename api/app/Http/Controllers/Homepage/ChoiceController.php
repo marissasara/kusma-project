@@ -18,4 +18,12 @@ class ChoiceController extends Controller
             'choices' => $choices
         ]);
     }
+
+    public function show(Choice $choice)
+    {
+        return response()->json([
+            'message' => 'Choice detail',
+            'choice' => $choice
+        ]);
+    }
 }

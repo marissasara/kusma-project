@@ -1,21 +1,59 @@
 import { useState } from 'react'
 import { Button, Figure, Modal} from 'react-bootstrap'
+import axios from 'axios';
 
-
-export default function VoteModal() {
+export default function VoteModal({choiceId}) {
   
-    const url = process.env.REACT_APP_SERVER_URL; 
-    const [show, setShow] = useState(false)
-    const handleClose = () => setShow(false)
-    const handleShow = () => setShow(true)
+    const url = process.env.REACT_APP_API_URL; 
+    const serverUrl = process.env.REACT_APP_SERVER_URL;
+    const [show, setShow] = useState(false);  
+    const [choice,setChoice] = useState([]);
+    const [isLoading,setIsLoading] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     const handleShowClick = () =>{
+        console.log(url)
       setShow(true)
+      axios(`${url}/homepage/choice/${choiceId}`)
+      .then( response => {
+        console.log(response)
+        setChoice(response.data.choice)
+      })
+      .catch( error => {
+        console.warn(error)
+      })
+      .finally( () =>{ 
+        setIsLoading(false)
+      })
+      
     } 
 
     const handleCloseClick = () => {
       handleClose()
     }
+
+    const PollItem = ({ id,title, description, filename }) => {
+        return (
+          <div className="row align-items-center">
+            <div className="col-4">
+           
+               <Figure.Image
+                    className="image-fluid rounded"
+                    style={{ 'height' : '250px'}}
+                    src={`${serverUrl}/storage/choices/${filename}`} 
+                    alt="First slide"
+                  />
+            </div>
+            <div className="col-8">
+              <h5>{title}</h5>
+              <p className="mb-1">{description}</p>
+              {/* <p className="text-muted">{type}</p> */}
+            </div>
+           
+          </div>
+        );
+    };
 
 
     return (
@@ -31,14 +69,23 @@ export default function VoteModal() {
   
         <Modal size={'lg'} show={show} onHide={handleCloseClick}>
           <Modal.Header closeButton>
-            <Modal.Title>Vote</Modal.Title>
+            <Modal.Title>{choice.title}</Modal.Title>
           </Modal.Header>
 
-          <Modal.Body>
-            undi
-          </Modal.Body>
+        <Modal.Body>
+            <div className="container">
+        
+                <PollItem
+                    id={choice.id}
+                    //title={choice.title}
+                    description={choice.description}
+                    filename={choice.filename}
+                />
+                
+            </div>
+        </Modal.Body>
           
-          <Modal.Footer>        
+        <Modal.Footer>        
             
             <Button 
               variant="secondary" 
