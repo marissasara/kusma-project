@@ -2,6 +2,7 @@ import React, { useEffect,useState } from 'react';
 import { Row,Col } from 'react-bootstrap';
 import axios from 'axios'
 import PollComponent from './PollComponent';
+import ChoiceComponent from './ChoiceComponent';
 
 const TopicComponent = () => {
 
@@ -35,7 +36,9 @@ const TopicComponent = () => {
             </Col>
 
             <Col xs={12} md={8} className="border border-1 p-3 rounded d-none d-sm-flex">
-                <PollComponent topicId={topic.id} />
+                {topic?.id &&
+                  <ChoiceComponent topicId={topic.id} />
+                }
             </Col>
         </>
     );
