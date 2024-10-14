@@ -30,7 +30,7 @@ const ChoiceComponent = ({topicId}) => {
             <div className="col-3">
            
                <FigureImage
-                    className="image-fluid"
+                    className="image-fluid rounded"
                     style={{ 'height' : '250px'}}
                     src={`${serverUrl}/storage/choices/${filename}`} 
                     alt="First slide"
