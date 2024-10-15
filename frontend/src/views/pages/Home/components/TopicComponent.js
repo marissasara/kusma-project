@@ -35,7 +35,9 @@ const TopicComponent = () => {
                 <span>{topic?.description}</span>
             </Col>
 
-            <Col xs={12} md={8} className="border border-1 p-3 rounded d-none d-sm-flex">
+            <Col style={{'width':'10px'}} md={1}></Col>
+
+            <Col style={{'width':'100vH'}} xs={12} md={7} className="border border-1 p-3 rounded d-none d-sm-flex">
                 {topic?.id &&
                   <ChoiceComponent topicId={topic.id} />
                 }
