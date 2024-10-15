@@ -15,13 +15,15 @@ export default function CreateModal() {
     const handleShow = () => setShow(true)
 
     const handleShowClick = () =>{
-      store.emptyData()
+      //store.emptyData()
       store.setValue('errors', null)
+      store.setValue('photo', null)
       setShow(true)
     } 
 
     const handleCloseClick = () => {
       store.setValue('errors', null)
+      store.setValue('photo', null)
       handleClose()
     }
 
@@ -36,6 +38,8 @@ export default function CreateModal() {
           { key: 'title', value: store.getValue('title') },
           { key: 'description', value: store.getValue('description') }, 
           { key: 'photo', value: store.getValue('photo') },
+          { key: 'instagram', value: store.getValue('instagram') }, 
+          { key: 'filename', value: store.getValue('instagram') }, 
         ];
         
         appendFormData(formData, dataArray);
@@ -50,7 +54,7 @@ export default function CreateModal() {
             data: formData
           })
           .then( response => { // success 200
-            console.log(response)
+            //console.log(response)
             store.setValue('refresh', true) // to force useEffect get new data for index
             handleClose() // close the modal
           })

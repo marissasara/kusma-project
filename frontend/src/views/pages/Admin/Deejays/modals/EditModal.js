@@ -19,6 +19,8 @@ export default function EditModal({id}) {
     const handleShowClick = () =>{
       //store.emptyData() // empty store data
       store.setValue('errors', null)
+      store.setValue('photo', null)
+
       setIsLoading(true)
       setShow(true)
       
@@ -28,12 +30,21 @@ export default function EditModal({id}) {
         url: `${url}/admin/deejays/${id}`,
         })
       .then( response => { // success 200
-          console.log(response)
+          //console.log(response)
           if( response?.data?.deejay.hasOwnProperty('title') ){
             store.setValue('title', response?.data?.deejay?.title )
           }
           if( response?.data?.deejay.hasOwnProperty('description') ){
             store.setValue('description', response?.data?.deejay?.description )
+          }
+          if( response?.data?.deejay.hasOwnProperty('facebook') ){
+            store.setValue('facebook', response?.data?.deejay?.facebook )
+          }
+          if( response?.data?.deejay.hasOwnProperty('instagram') ){
+            store.setValue('instagram', response?.data?.deejay?.instagram )
+          }
+          if( response?.data?.deejay.hasOwnProperty('filename') ){
+            store.setValue('filename', response?.data?.deejay?.filename )
           }
          
           })
@@ -60,10 +71,9 @@ export default function EditModal({id}) {
         const dataArray = [
           { key: 'title', value: store.getValue('title') },
           { key: 'description', value: store.getValue('description') }, 
-          { key: 'redirect_url', value: store.getValue('redirect_url') }, 
-          { key: 'active', value: store.getValue('active') },
-          { key: 'published_start', value: store.getValue('published_start') },
-          { key: 'published_end', value: store.getValue('published_end') },
+          { key: 'facebook', value: store.getValue('facebook') }, 
+          { key: 'instagram', value: store.getValue('instagram') }, 
+          { key: 'photo', value: store.getValue('photo') }, 
           { key: '_method', value: 'put' },
         ];
         
