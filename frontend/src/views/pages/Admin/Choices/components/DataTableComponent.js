@@ -1,6 +1,6 @@
 
 import React, {  } from 'react';
-import { Card, Figure, Table } from 'react-bootstrap';
+import { Badge, Card, Figure, Table } from 'react-bootstrap';
 import useStore from '../../../../../store';
 import Ordering from './OrderingComponent';
 import PaginatorLink from '../../../../../libs/PaginatorLink';
@@ -70,7 +70,7 @@ const DataTableComponent = () => {
                                               
                                                 
                                             </td>
-                                            <td>{item.votes_count}</td>
+                                            <td><Badge className={'text-dark'} bg={'warning'}><h2>{item?.votes_count}</h2></Badge></td>
                                             <td style={{width: '180px'}}>{item.created_at}</td>
                                             <td className='text-center' style={{width: '200px'}}>
                                                 <EditModal id={item.id} />

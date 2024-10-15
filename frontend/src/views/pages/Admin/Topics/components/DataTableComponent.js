@@ -1,6 +1,6 @@
 
 import React, {  } from 'react';
-import { Button, Card, Figure, Table } from 'react-bootstrap';
+import { Badge, Button, Card, Figure, Table } from 'react-bootstrap';
 import useStore from '../../../../../store';
 import Ordering from './OrderingComponent';
 import PaginatorLink from '../../../../../libs/PaginatorLink';
@@ -28,8 +28,8 @@ const DataTableComponent = () => {
                     <tr>
                         <th style={{ 'width': '20px'}}>ID</th>
                         <th style={{ 'width': '20px'}} className='text-center'>Ordering</th>
-                        <th  style={{ 'width': '100vH'}}>Topic</th>
-                        <th>Votes</th>
+                        <th style={{ 'width': '90vH'}}>Topic</th>
+                        <th style={{ 'width': '40px'}}>Votes</th>
                         <th>Created At</th>
                         <th className='text-center'></th>
                     </tr>
@@ -62,7 +62,7 @@ const DataTableComponent = () => {
                                               
                                                 
                                             </td>
-                                            <td>{item?.votes_count}</td>
+                                            <td className='text-center'><Badge className={'text-dark'} bg={'warning'}><h2>{item?.votes_count}</h2></Badge></td>
                                             <td style={{width: '180px'}}>{item.created_at}</td>
                                             <td className='text-center' style={{width: '300px'}}>
 
