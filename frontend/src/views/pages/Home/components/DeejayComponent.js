@@ -1,5 +1,5 @@
 import  { useEffect, useState } from 'react'
-import { Carousel, FigureImage, Image, Card,Button } from 'react-bootstrap'
+import { Carousel, FigureImage, Image, Card,Button, Col } from 'react-bootstrap'
 import axios from 'axios'
 import { Link } from 'react-router-dom';
 
@@ -48,13 +48,35 @@ const DeejayComponent = () => {
               
               //   }
               // </Carousel.Item>
-              <Card key={index} className='me-3' style={{ width: '10rem', marginBottom: '1rem' }}>
+            <Card key={index} className='me-3' style={{  width: '12rem', marginBottom: '1rem' }}>
               <Card.Img variant="top" src={`${serverUrl}/storage/deejays/${deejay.filename}`} alt={deejay.title} />
               <Card.Body>
                 <Card.Title>{deejay.title}</Card.Title>
-                <Card.Text>{deejay.description}</Card.Text>
+                <Card.Text className='text-muted' style={{  minHeight: 'auto' }}>
+                  {deejay.description.length > 100 
+                    ? deejay.description.substring(0, 100) + '...' 
+                    : deejay.description}
+                </Card.Text>
+
                 {/* <Button variant="primary" href="#">Profile</Button> */}
+                <Col>
+                  <div className="text-center mt-auto p-2"   style={{ position: 'relative', bottom: '10px', left: '50%', transform: 'translateX(-50%)' }}>
+                    {deejay.facebook &&
+                    <a href={deejay.facebook} target="_blank" rel="noopener noreferrer">
+                      <i className="fab fa-facebook fa-2x"></i>
+                    </a>
+                    }
+                    {' '}
+                    {deejay.instagram &&
+                    <a href={deejay.facebook} target="_blank" rel="noopener noreferrer">
+                      <i className="fab fa-instagram fa-2x"></i>
+                    </a>
+                    }
+                  </div>
+                </Col>
+                
               </Card.Body>
+           
             </Card>
            
           );
