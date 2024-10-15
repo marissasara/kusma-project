@@ -22,7 +22,7 @@ class ChoiceController extends Controller
         }
     
         // Fetch the choices related to the topic, paginated with 10 per page
-        $choices = Choice::where('topic_id', $topicId)->defaultOrder()->paginate(10)->withQueryString();
+        $choices = Choice::withCount('votes')->where('topic_id', $topicId)->defaultOrder()->paginate(10)->withQueryString();
     
         return response()->json([
             'topic' => $topic,
@@ -63,7 +63,7 @@ class ChoiceController extends Controller
     public function update(Request $request,Choice $choice)
     {
 
-        \Log::info($request);
+        //\Log::info($request);
         // validation
         $data = $request->validate([
 
