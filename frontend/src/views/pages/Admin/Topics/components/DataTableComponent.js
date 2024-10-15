@@ -29,6 +29,7 @@ const DataTableComponent = () => {
                         <th style={{ 'width': '20px'}}>ID</th>
                         <th style={{ 'width': '20px'}} className='text-center'>Ordering</th>
                         <th  style={{ 'width': '100vH'}}>Topic</th>
+                        <th>Votes</th>
                         <th>Created At</th>
                         <th className='text-center'></th>
                     </tr>
@@ -61,6 +62,7 @@ const DataTableComponent = () => {
                                               
                                                 
                                             </td>
+                                            <td>{item?.votes_count}</td>
                                             <td style={{width: '180px'}}>{item.created_at}</td>
                                             <td className='text-center' style={{width: '300px'}}>
 

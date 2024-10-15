@@ -15,4 +15,14 @@ class Choice extends Model
     protected $casts = [
         'created_at' => 'datetime:d-m-Y H:i:s', // Format as datetime
     ];
+
+    public function topic()
+    {
+        return $this->belongsTo(Topic::class);
+    }
+
+    public function votes()
+    {
+        return $this->hasMany(Vote::class);
+    }
 }

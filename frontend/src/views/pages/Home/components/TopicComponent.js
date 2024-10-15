@@ -17,7 +17,7 @@ const TopicComponent = () => {
         setIsLoading(true)
         axios(`${url}/homepage/topics`)
         .then( response => {
-          //console.log(response)
+          console.log(response)
           setTopic(response.data.topic)
         })
         .catch( error => {

@@ -10,7 +10,7 @@ class TopicController extends Controller
 {
     public function index()
     {
-        $topics = Topic::defaultOrder()->paginate(10)->withQueryString(); 
+        $topics = Topic::withCount('votes')->defaultOrder()->paginate(10)->withQueryString(); 
    
         return response()->json(['topics' => $topics]);
 
