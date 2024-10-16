@@ -57,11 +57,11 @@ const SideBar = () => {
 
                     {/* <Link to="/admin/banners" className="nav-link text-dark-custom px-sm-0 px-2">
                         <i className="fs-5 bi-code"></i><span className="ms-1 d-none d-sm-inline">Header</span>
-                    </Link>
-
-                    <Link to="/admin/banners" className="nav-link text-dark-custom px-sm-0 px-2">
-                        <i className="fs-5 bi-code"></i><span className="ms-1 d-none d-sm-inline">Footer</span>
                     </Link> */}
+
+                    <Link to="/admin/footer" className="nav-link text-dark-custom px-sm-0 px-2">
+                        <i className="fs-5 bi-code"></i><span className="ms-1 d-none d-sm-inline">Footer</span>
+                    </Link> 
 
                     
                 </li>
