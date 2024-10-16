@@ -7,22 +7,23 @@ import DeejayComponent from './components/DeejayComponent';
 import BannerComponent from './components/BannerComponent';
 import ChatroomComponent from './components/ChatroomComponent';
 import VoteComponent from './components/TopicComponent';
+import './style.css';
 
 
 const Home = () => {
 
     return (
         <>
-            <Row className="mt-4 mb-4 ms-1">
+            <Row className="mt-4 mb-4 ms-1 ">
                 <BannerComponent />
             </Row>
 
-            <Row className="mt-4 mb-4 ms-1 bg-info pt-4 pb-3 rounded">
+            <Row className="mt-4 mb-4 ms-1 pt-4 pb-3 rounded ">
                 {/* <CardComponent /> */}
                 <DeejayComponent />
             </Row>
-            <hr />
-            <Row className="mt-4 mb-4 ms-1  pt-4 pb-3 bg-dark rounded ">
+            
+            <Row className="mt-4 mb-4 ms-1  pt-4 pb-3  rounded colorcontainerbirugelap ">
                 <Col  xs={12} md={8} className=" p-3 rounded mb-3">
                     <VideoComponent />
                 </Col>
@@ -32,7 +33,7 @@ const Home = () => {
                 </Col>
             </Row>
 
-            <Row className="mt-4 mb-4 ms-1 pt-4 pb-3">
+            <Row className="justify-content-center mt-4 mb-4 ms-1 pt-4 pb-3">
                 {/* <CardComponent /> */}
                 <VoteComponent />
             </Row>

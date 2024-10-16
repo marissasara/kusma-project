@@ -11,7 +11,7 @@ const HomeLayout = () => {
 
   useEffect(() => {
     // Apply background color to the body element
-    document.body.style.backgroundColor = 'lightcyan';
+    document.body.style.backgroundColor = '#eeeeee';
 
     // Cleanup when the component unmounts (optional)
     return () => {
@@ -23,9 +23,9 @@ const HomeLayout = () => {
   return (
     <>
 
-    <nav className="navbar rounded" style={{
+    <nav className="navbar" style={{
                                 'minHeight': '100px',
-                                'backgroundColor': 'cyan'
+                                'backgroundColor': '#103053'
                               }}>
       <span className="navbar-brand mb-0 h1 ms-4">
         <img src={Logo} alt="Logo NasionalFM" height="60" className="d-inline-block align-text-top"  />
@@ -37,11 +37,9 @@ const HomeLayout = () => {
    
     </nav>
 
-    <div className="container-fluid row overflow-auto " style={{'backgroundColor':'lightcyan'}}>
+    <div className="container-fluid row overflow-auto colorcontainerkelabu">
       
-      <div className='latar-belakang p-5'>
-        warna biru
-      </div>
+
       <div className="col d-flex flex-column h-sm-100 mb-2 mt-4">
           <Outlet />
           <Footer />

@@ -30,14 +30,14 @@ const TopicComponent = () => {
 
     return (
         <>
-            <Col xs={12} md={4} className="border border-1 p-3 rounded mb-3 p-4">
+            <Col xs={12} md={4} className="border bg-dark text-light border-1 p-3 rounded mb-3 p-4">
                 <h2>{topic?.title}</h2>
                 <span>{topic?.description}</span>
             </Col>
 
             <Col style={{'width':'10px'}} md={1}></Col>
 
-            <Col style={{'width':'100vH'}} xs={12} md={7} className="border border-1 p-3 rounded d-none d-sm-flex">
+            <Col style={{'width':'100vH'}} xs={12} md={7} className=" p-3 rounded d-none d-sm-flex">
                 {topic?.id &&
                   <ChoiceComponent topicId={topic.id} />
                 }

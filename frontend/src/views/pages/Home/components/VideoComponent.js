@@ -6,7 +6,7 @@ const VideoComponent = () => {
     const src =`https://nasionalfm.muzikfmrtm.com/hls/myStream.m3u8`
     return (
         <div className="container">
-            <h2>Livestream</h2>
+            <h2 >Livestream</h2>
             <div className="">
                 <div className="relative">
                 <ReactPlayer

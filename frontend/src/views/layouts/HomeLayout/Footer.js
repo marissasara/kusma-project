@@ -15,7 +15,7 @@ const Footer = () => {
     //         <SocialMediaIcons />
     //     </div>
     // </footer>
-    <footer className="mt-4 mb-4 ms-1 text-light rounded" style={{'backgroundColor': '#000'}}>
+    <footer className="mt-4 mb-4 ms-1 text-light rounded" style={{'backgroundColor': '#103053 '}}>
    
             <div className="row justify-content-center p-5 ms-5">
 

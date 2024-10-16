@@ -34,7 +34,7 @@ const ChoiceComponent = ({topicId}) => {
 
     const PollItem = ({ id,title, description, filename }) => {
         return (
-          <div className="row align-items-center mb-3 border-bottom pb-3">
+          <div className="border-bottom border-white bg-dark text-light row align-items-center p-3 mb-3  pb-3">
             <div className="col-3">
            
                <FigureImage
