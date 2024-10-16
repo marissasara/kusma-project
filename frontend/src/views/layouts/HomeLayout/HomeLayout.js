@@ -4,6 +4,8 @@ import Footer from './Footer';
 import Logo from './nasional-fm.png';
 import Podcast from './rtm-podcast-icon.png';
 import { useEffect } from 'react';
+import './style.css';
+
 const HomeLayout = () => {
 
 
@@ -37,6 +39,9 @@ const HomeLayout = () => {
 
     <div className="container-fluid row overflow-auto " style={{'backgroundColor':'lightcyan'}}>
       
+      <div className='latar-belakang p-5'>
+        warna biru
+      </div>
       <div className="col d-flex flex-column h-sm-100 mb-2 mt-4">
           <Outlet />
           <Footer />
