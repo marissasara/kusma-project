@@ -1,28 +1,44 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
+import alan_gambar from './alan.jpg';
+import lagu_alan from './onmyway.mp3';
+import './lagu.css';
 
 const CardComponent = () => {
-  const cardData = [
-    { title: 'Deejay 1', text: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' },
-    { title: 'Deejay 2', text: 'Some quick example text to build on the Deejay and make up the bulk of the card\'s content.' },
-    { title: 'Deejay 3', text: 'Some quick example text to build on the Deejay and make up the bulk of the card\'s content.' },
-    { title: 'Deejay 4', text: 'Some quick example text to build on the Deejay and make up the bulk of the card\'s content.' },
+ 
 
-  ];
+ 
 
   return (
-    <div className="d-flex flex-wrap justify-content-between">
-      {cardData.map((card, index) => (
-        <Card key={index} style={{ width: '18rem', marginBottom: '1rem' }}>
-          <Card.Img variant="top" src="https://via.placeholder.com/150" alt="Card image" />
-          <Card.Body>
-            <Card.Title>{card.title}</Card.Title>
-            <Card.Text>{card.text}</Card.Text>
-            <Button variant="primary" href="#">Profile</Button>
-          </Card.Body>
-        </Card>
-      ))}
+    <div className="container-fluid p-5 text-center">
+    <div className="row">
+      <h2><strong>CARTA LAGU</strong></h2>
+      <br /><br />
+
+      {/* Kad Lagu 1 */}
+      <div className="col-md-6 col-lg-4 col-xl-3 mb-3 mt-5">
+        <div className="music-carta-lagu">
+          <nav>
+            <a id="musikplayerundifont" href="#">
+              <div className="circle text-dark">
+                <p>Undi</p>
+              </div>
+            </a>
+          </nav>
+
+          <img src={alan_gambar} className="song-img" alt="Alan Walker" />
+          <h3><strong>I'm On My Way</strong></h3>
+          <p>Alan Walker</p>
+
+          <audio controls>
+            <source src={lagu_alan} type="audio/mpeg" />
+          </audio>
+        </div>
+        <br />
+      </div>
+      {/* Kad Lagu 1 */}
     </div>
+  </div>
   );
 }
 

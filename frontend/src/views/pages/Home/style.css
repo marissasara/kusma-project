@@ -9,3 +9,17 @@
 .colorcontainerkelabu {
     background-color: #eeeeee ;
 }
+
+.videocomponentbg {
+
+
+    background-image: url('CONTAINERbg.svg');
+    background-repeat: no-repeat;
+    
+    background-size: cover;
+      
+      width:100%;
+      height:100%;
+      padding: 25px 35px;
+    
+  }
