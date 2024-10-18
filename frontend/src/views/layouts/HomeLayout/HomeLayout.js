@@ -23,7 +23,7 @@ const HomeLayout = () => {
   return (
     <>
 
-    <nav className="navbar" style={{
+    {/* <nav className="navbar" style={{
                                 'minHeight': '100px',
                                 'backgroundColor': '#103053'
                               }}>
@@ -31,11 +31,21 @@ const HomeLayout = () => {
         <img src={Logo} alt="Logo NasionalFM" height="60" className="d-inline-block align-text-top"  />
       </span>
 
-      <span className="d-none d-sm-flex">
-        <img src={Podcast} alt="Podscast" height="60" className="d-inline-block align-text-top me-2"  />
-      </span>
+
    
-    </nav>
+    </nav> */}
+
+<div className="hero-image ">
+
+<div  className="d-flex flex-row  opacity-75 p-2 gap-4">
+
+
+
+</div>
+  
+  
+  
+</div>
 
     <div className="container-fluid row overflow-auto colorcontainerkelabu">
       

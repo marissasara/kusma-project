@@ -122,6 +122,7 @@ const Footer = () => {
             <p><a href="http://www.rtm.gov.my/" className="text-white">RTM</a></p>
             <p><a href="https://rtmklik.rtm.gov.my/" className="text-white">RTMKLIK</a></p>
             <p><a href="https://radio.rtm.gov.my/" className="text-white">STESEN RADIO KAMI</a></p>
+            <p><a href="https://podcast.rtm.gov.my/" className="text-white">PODCAST RTM</a></p>
             <hr id="footercolorhr" />
             <p><a href="#!" className="text-white">PENAFIAN</a></p>
             <p><a href="#!" className="text-white">POLISI PRIVASI</a></p>
