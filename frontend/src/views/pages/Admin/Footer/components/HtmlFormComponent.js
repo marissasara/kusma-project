@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { InputText,InputFile, InputRadio, InputDate, InputTextarea } from '../../../../../libs/FormInput';
+import { InputText,InputFile, InputRadio, InputDate, InputTextarea, InputSelect } from '../../../../../libs/FormInput';
 import { Form,Row,Col, Image, Figure, FormGroup } from 'react-bootstrap';
 import useStore from '../../../../../store'
 
@@ -7,6 +7,11 @@ const HtmlFormComponent = ({isLoading}) => {
     const store = useStore();
     const url = process.env.REACT_APP_SERVER_URL; 
     const [selectedImage, setSelectedImage] = useState(null);
+    const options = [
+        { id: 1, name: 'Option 1' },
+        { id: 2, name: 'Option 2' },
+        { id: 3, name: 'Option 3' }
+      ];
 
     useEffect( () => {
         const file = store.getValue('photo')
@@ -17,6 +22,18 @@ const HtmlFormComponent = ({isLoading}) => {
 
     return (
         <>
+
+            <Col className='mb-2'>
+                <InputSelect
+                    fieldName='hashtag' 
+                    placeholder='Choose Group'  
+                    options={options}
+                    icon='fa-solid fa-pencil'
+                    isLoading={isLoading}
+                />
+
+            </Col>
+
             <Col className='mb-2'>
                 <InputText
                     fieldName='title' 
