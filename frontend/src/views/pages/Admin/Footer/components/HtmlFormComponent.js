@@ -17,8 +17,6 @@ const HtmlFormComponent = ({isLoading}) => {
 
     return (
         <>
- 
-            <h5>Footer</h5>
             <Col className='mb-2'>
                 <InputText
                     fieldName='title' 
@@ -40,7 +38,7 @@ const HtmlFormComponent = ({isLoading}) => {
 
             </Col>
 
-             
+{/*              
             <hr />
             <h5>Poster</h5>
             <Col className='mb-2'>
@@ -76,7 +74,7 @@ const HtmlFormComponent = ({isLoading}) => {
 
               
             </Col>
-            
+             */}
           
         
         </>

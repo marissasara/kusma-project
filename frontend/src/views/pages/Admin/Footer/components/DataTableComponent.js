@@ -28,7 +28,7 @@ const DataTableComponent = () => {
                         <th style={{ 'width': '20px'}}>ID</th>
                         <th style={{ 'width': '20px'}} className='text-center'>Ordering</th>
                         <th  style={{ 'width': '100vH'}}>Footer</th>
-                        <th>Votes</th>
+                        <th>Hashtag</th>
                         <th>Created At</th>
                         <th className='text-center'></th>
                     </tr>
@@ -56,21 +56,21 @@ const DataTableComponent = () => {
                                                
                                                 <Card className='p-3'>
 
-                                                    <Figure>
+                                                    {/* <Figure>
                                                         <Figure.Image
                                                             width={'300px'}
                                                             className="img-fluid"
                                                             src={`${url}/storage/footers/${item.filename}`}
                                                             alt="Preview"
                                                         />
-                                                    </Figure>
+                                                    </Figure> */}
                                                     <h3>{item.title}</h3>
                                                     {item.description}
                                                 </Card>
                                               
                                                 
                                             </td>
-                                            <td><Badge className={'text-dark'} bg={'warning'}><h2>{item?.votes_count}</h2></Badge></td>
+                                            <td>{item.hashtag}</td>
                                             <td style={{width: '180px'}}>{item.created_at}</td>
                                             <td className='text-center' style={{width: '200px'}}>
                                                 <EditModal id={item.id} />

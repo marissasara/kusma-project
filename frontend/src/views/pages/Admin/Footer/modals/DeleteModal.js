@@ -37,12 +37,10 @@ export default function DeleteModal({id}) {
           if( response?.data?.footer.hasOwnProperty('description') ){
             store.setValue('description', response?.data?.footer?.description )
           }
-
-
           
-          if( response?.data?.footer.hasOwnProperty('filename') ){
-            store.setValue('current_photo', response?.data?.footer?.filename )
-          }
+          // if( response?.data?.footer.hasOwnProperty('filename') ){
+          //   store.setValue('current_photo', response?.data?.footer?.filename )
+          // }
       })
       .catch( error => {
           console.warn(error)
@@ -77,7 +75,7 @@ export default function DeleteModal({id}) {
         // send to Laravel
         axios({ 
             method: 'post', 
-            url: `${url}/admin/footers/${id}/delete`,
+            url: `${url}/admin/footers/${id}`,
             data: formData
           })
           .then( response => { // success 200

@@ -31,9 +31,10 @@ class FooterController extends Controller
         $request->validate([
             'title' => 'required|string',
             'description' => 'required|string',
-            'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'photo' => 'sometimes|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
 
+        
         if($request->has('photo')){
             //\Log::info($request);
             $footer = Footer::create([
@@ -42,9 +43,15 @@ class FooterController extends Controller
                 'description' => $request->input('description'),
                 'filename' => CommonService::handleStoreFile($request->file('photo'), $directory = 'footers'),
             ]);
-        
-            return response()->json(['message' => 'Footer creation success']);
+        } else {
+            $footer = Footer::create([
+                'user_id' =>  auth('sanctum')->user()->id,
+                'title' => $request->input('title'),
+                'description' => $request->input('description'),
+            ]);
         }
+
+        return response()->json(['message' => 'Footer creation success']);
     }
 
     public function update(Request $request,Footer $footer)

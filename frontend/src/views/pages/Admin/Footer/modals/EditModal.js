@@ -21,7 +21,7 @@ export default function EditModal({id}) {
       store.setValue('errors', null)
       store.setValue('title', null )
       store.setValue('description', null)
-      store.setValue('current_photo', null)
+      //store.setValue('current_photo', null)
       setIsLoading(true)
       setShow(true)
       
@@ -39,9 +39,9 @@ export default function EditModal({id}) {
             store.setValue('description', response?.data?.footer?.description )
           }
 
-          if( response?.data?.footer.hasOwnProperty('filename') ){
-            store.setValue('current_photo', response?.data?.footer?.filename )
-          }
+          // if( response?.data?.footer.hasOwnProperty('filename') ){
+          //   store.setValue('current_photo', response?.data?.footer?.filename )
+          // }
          
           })
       .catch( error => {
@@ -57,7 +57,7 @@ export default function EditModal({id}) {
       store.setValue('errors', null)
       store.setValue('title', null )
       store.setValue('description', null)
-      store.setValue('current_photo', null)
+      //store.setValue('current_photo', null)
       handleClose()
     }
 
@@ -71,7 +71,7 @@ export default function EditModal({id}) {
         const dataArray = [
           { key: 'title', value: store.getValue('title') },
           { key: 'description', value: store.getValue('description') }, 
-          { key: 'photo', value: store.getValue('photo') },
+          // { key: 'photo', value: store.getValue('photo') },
           { key: '_method', value: 'put' },
         ];
         
@@ -83,7 +83,7 @@ export default function EditModal({id}) {
         // send to Laravel
         axios({ 
             method: 'post', 
-            url: `${url}/admin/footers/${id}/update`,
+            url: `${url}/admin/footers/${id}`,
             data: formData
           })
           .then( response => { // success 200

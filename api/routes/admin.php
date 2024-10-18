@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\{
     DeejayController,
     TopicController,
     ChoiceController,
+    FooterController,
 };
 
 // Protect all admin routes with the 'admin' role
@@ -61,6 +62,16 @@ Route::group(['middleware' => ['auth:sanctum','role:admin']], function () {
     Route::post('/choices', [ChoiceController::class, 'store']);
     Route::delete('/choices/{choice}/delete', [ChoiceController::class, 'delete']);
     Route::get('/choices/ordering/{choice}', [ChoiceController::class, 'ordering']);
+
+    // Footer Management | poll
+    // GET /api/admin/footers
+    Route::get('/footers', [FooterController::class, 'index']);
+    Route::get('/footers/{footer}', [FooterController::class, 'show']);
+    Route::post('/footers', [FooterController::class, 'store']);
+    Route::put('/footers/{footer}', [FooterController::class, 'update']);
+    Route::post('/footers', [FooterController::class, 'store']);
+    Route::delete('/footers/{footer}', [FooterController::class, 'delete']);
+    Route::get('/footers/ordering/{footer}', [FooterController::class, 'ordering']);
 
 });
 
