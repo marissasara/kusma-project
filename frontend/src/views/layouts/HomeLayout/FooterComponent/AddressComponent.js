@@ -25,9 +25,7 @@ const AddressComponent = () => {
     })
   },[])
 
-
-      
-  return (
+  if(address) return (
 
     <>
       <h6 className="text-uppercase fw-bold">{address?.title}</h6>
