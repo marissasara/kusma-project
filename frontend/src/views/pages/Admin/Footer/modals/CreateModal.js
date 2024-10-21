@@ -23,6 +23,7 @@ export default function CreateModal() {
       store.setValue('errors', null)
       store.setValue('title', null )
       store.setValue('description', null)
+      store.setValue('hashtag', null)
       // store.setValue('photo', null)
       // store.setValue('filename', null)
       setShow(true)
@@ -32,6 +33,7 @@ export default function CreateModal() {
       store.setValue('errors', null)
       store.setValue('title', null )
       store.setValue('description', null)
+      store.setValue('hashtag', null)
       // store.setValue('photo', null)
       // store.setValue('filename', null)
       handleClose()
@@ -47,6 +49,7 @@ export default function CreateModal() {
         const dataArray = [
           { key: 'title', value: store.getValue('title') },
           { key: 'description', value: store.getValue('description') }, 
+          { key: 'hashtag', value: store.getValue('hashtag') }, 
           // { key: 'photo', value: store.getValue('photo') },
         ];
         

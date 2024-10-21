@@ -21,6 +21,7 @@ export default function EditModal({id}) {
       store.setValue('errors', null)
       store.setValue('title', null )
       store.setValue('description', null)
+      store.setValue('hashtag', null)
       //store.setValue('current_photo', null)
       setIsLoading(true)
       setShow(true)
@@ -28,7 +29,7 @@ export default function EditModal({id}) {
       // load footer data based on given id
       axios({ 
         method: 'get', 
-        url: `${url}/admin/footers/${id}/show`,
+        url: `${url}/admin/footers/${id}`,
         })
       .then( response => { // success 200
           console.log(response)
@@ -37,6 +38,10 @@ export default function EditModal({id}) {
           }
           if( response?.data?.footer.hasOwnProperty('description') ){
             store.setValue('description', response?.data?.footer?.description )
+          }
+
+          if( response?.data?.footer.hasOwnProperty('hashtag') ){
+            store.setValue('hashtag', response?.data?.footer?.hashtag )
           }
 
           // if( response?.data?.footer.hasOwnProperty('filename') ){
@@ -57,6 +62,7 @@ export default function EditModal({id}) {
       store.setValue('errors', null)
       store.setValue('title', null )
       store.setValue('description', null)
+      store.setValue('hashtag', null)
       //store.setValue('current_photo', null)
       handleClose()
     }
@@ -71,6 +77,7 @@ export default function EditModal({id}) {
         const dataArray = [
           { key: 'title', value: store.getValue('title') },
           { key: 'description', value: store.getValue('description') }, 
+          { key: 'hashtag', value: store.getValue('hashtag') }, 
           // { key: 'photo', value: store.getValue('photo') },
           { key: '_method', value: 'put' },
         ];

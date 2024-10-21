@@ -31,7 +31,8 @@ class FooterController extends Controller
         $request->validate([
             'title' => 'required|string',
             'description' => 'required|string',
-            'photo' => 'sometimes|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'hashtag' => 'required|string',
+            //'photo' => 'sometimes|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
 
         
@@ -41,13 +42,15 @@ class FooterController extends Controller
                 'user_id' =>  auth('sanctum')->user()->id,
                 'title' => $request->input('title'),
                 'description' => $request->input('description'),
-                'filename' => CommonService::handleStoreFile($request->file('photo'), $directory = 'footers'),
+                'hashtag' => $request->input('hashtag'),
+                //'filename' => CommonService::handleStoreFile($request->file('photo'), $directory = 'footers'),
             ]);
         } else {
             $footer = Footer::create([
                 'user_id' =>  auth('sanctum')->user()->id,
                 'title' => $request->input('title'),
                 'description' => $request->input('description'),
+                'hashtag' => $request->input('hashtag'),
             ]);
         }
 
@@ -62,7 +65,8 @@ class FooterController extends Controller
         $data = $request->validate([
             'title' => 'sometimes|string',
             'description' => 'sometimes|string',
-            'photo' => 'sometimes|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'hashtag' => 'sometimes|string',
+            //'photo' => 'sometimes|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
 
        
@@ -72,7 +76,8 @@ class FooterController extends Controller
                 'user_id' => auth('sanctum')->user()->id,  // This can remain the same
                 'title' => $request->input('title'),        // Update title if provided
                 'description' => $request->input('description'),  // Update description if provided
-                'filename' => $request->hasFile('photo') ? CommonService::handleStoreFile($request->file('photo'), $directory = 'footers') : $footer->filename  // Update filename if new file is uploaded
+                'hashtag' => $request->input('hashtag'),  // Update description if provided
+                //'filename' => $request->hasFile('photo') ? CommonService::handleStoreFile($request->file('photo'), $directory = 'footers') : $footer->filename  // Update filename if new file is uploaded
             ]);
         } else {
                     // Update the footer record with new data
@@ -80,6 +85,7 @@ class FooterController extends Controller
                 'user_id' => auth('sanctum')->user()->id,  // This can remain the same
                 'title' => $request->input('title'),        // Update title if provided
                 'description' => $request->input('description'),  // Update description if provided
+                'hashtag' => $request->input('hashtag'),  // Update description if provided
         
             ]);
         }

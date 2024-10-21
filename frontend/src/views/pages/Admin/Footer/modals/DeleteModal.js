@@ -26,7 +26,7 @@ export default function DeleteModal({id}) {
       // load footer data based on given id
       axios({ 
         method: 'get', 
-        url: `${url}/admin/footers/${id}/show`,
+        url: `${url}/admin/footers/${id}`,
         })
       .then( response => { // success 200
           console.log(response)
@@ -36,6 +36,10 @@ export default function DeleteModal({id}) {
 
           if( response?.data?.footer.hasOwnProperty('description') ){
             store.setValue('description', response?.data?.footer?.description )
+          }
+
+          if( response?.data?.footer.hasOwnProperty('hashtag') ){
+            store.setValue('hashtag', response?.data?.footer?.hashtag )
           }
           
           // if( response?.data?.footer.hasOwnProperty('filename') ){
