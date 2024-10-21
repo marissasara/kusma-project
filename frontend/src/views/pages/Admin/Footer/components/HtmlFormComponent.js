@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { InputText,InputFile, InputRadio, InputDate, InputTextarea, InputSelect } from '../../../../../libs/FormInput';
+import { InputText,InputFile, InputRadio, InputDate, InputTextarea, InputSelect, TextEditor } from '../../../../../libs/FormInput';
 import { Form,Row,Col, Image, Figure, FormGroup } from 'react-bootstrap';
 import useStore from '../../../../../store'
 
@@ -8,10 +8,10 @@ const HtmlFormComponent = ({isLoading}) => {
     const url = process.env.REACT_APP_SERVER_URL; 
     const [selectedImage, setSelectedImage] = useState(null);
     const options = [
-        { id: 1, name: 'Column 1' },
-        { id: 2, name: 'Column 2' },
-        { id: 3, name: 'Column 3' },
-        { id: 4, name: 'Address' }
+        { id: 'Column 1', name: 'Column 1' },
+        { id: 'Column 2', name: 'Column 2' },
+        { id: 'Column 3', name: 'Column 3' },
+        { id: 'Address', name: 'Address' }
       ];
 
     useEffect( () => {
@@ -46,7 +46,7 @@ const HtmlFormComponent = ({isLoading}) => {
             </Col>
             
             <Col className='mb-2'>
-                <InputTextarea
+                <TextEditor
                     fieldName='description' 
                     placeholder='Description'  
                     icon='fa-solid fa-clipboard'

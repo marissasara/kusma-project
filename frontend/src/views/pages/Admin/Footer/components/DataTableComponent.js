@@ -65,7 +65,8 @@ const DataTableComponent = () => {
                                                         />
                                                     </Figure> */}
                                                     <h3>{item.title}</h3>
-                                                    {item.description}
+                                            
+                                                    <div dangerouslySetInnerHTML={{ __html: item.description}} />
                                                 </Card>
                                               
                                                 

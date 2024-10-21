@@ -1,7 +1,9 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Row,Col,Form, InputGroup } from 'react-bootstrap'
-import { React} from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Row,Col,Form, InputGroup } from 'react-bootstrap';
+import { React} from 'react';
 import useStore from '../store';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css'; // import styles
 
 export function appendFormData(formData, data) {
     if (data instanceof Array) {
@@ -19,6 +21,24 @@ export function appendFormData(formData, data) {
             }
         }
     }
+}
+export function TextEditor({fieldName}){
+    const store = useStore()
+    const errors = store.getValue('errors')
+
+    return (
+        <div className="mb-5">
+            <ReactQuill
+              value={store.getValue(fieldName) ||  ''}
+              onChange={(content) => {
+                store.setValue(fieldName, content);
+              }}
+            style={{ height: '400px' }}
+            />
+                   
+        </div>
+               
+      );
 }
 
 export function InputText({fieldName, placeholder, icon, isLoading, type='text'}){
