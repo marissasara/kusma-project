@@ -71,7 +71,7 @@ const DataTableComponent = () => {
                                               
                                                 
                                             </td>
-                                            <td>{item.hashtag}</td>
+                                            <td style={{'width': '200px'}}><Badge>{item.hashtag}</Badge></td>
                                             <td style={{width: '180px'}}>{item.created_at}</td>
                                             <td className='text-center' style={{width: '200px'}}>
                                                 <EditModal id={item.id} />

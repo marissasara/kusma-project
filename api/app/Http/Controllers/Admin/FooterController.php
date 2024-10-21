@@ -12,7 +12,13 @@ class FooterController extends Controller
     {
     
         // Fetch the footers related to the topic, paginated with 10 per page
-        $footers = Footer::defaultOrder()->paginate(10)->withQueryString();
+        //$footers = Footer::defaultOrder()->paginate(10)->withQueryString();
+        $footers = Footer::select('*')
+                    //->orderBy('hashtag')
+                    ->defaultOrder()
+                    ->paginate(10)
+                    ->withQueryString();
+
     
         return response()->json([
             'footers' => $footers

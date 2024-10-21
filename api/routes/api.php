@@ -11,6 +11,7 @@ use App\Http\Controllers\Homepage\{
     TopicController,
     ChoiceController,
     VoteController,
+    FooterController,
 };
 
 // role = Guest
@@ -54,9 +55,9 @@ Route::post('/homepage/vote', [VoteController::class, 'store']);
 //Route::get('/homepage/deejay', [DeejayController::class, 'show']);
 
 // footer
-Route::get('/homepage/footers/{hashtag}', [FooterController::class, 'hashtag']);
+//Route::get('/homepage/footers/{hashtag}', [FooterController::class, 'hashtag']);
 Route::get('/homepage/footers/address', [FooterController::class, 'address']);
-Route::get('/homepage/footers/{footer}', [FooterController::class, 'show']);
+//Route::get('/homepage/footers/{footer}', [FooterController::class, 'show']);
 
 // Account Management ( logged in users )
 Route::group(['middleware' => ['auth:sanctum']], function () {

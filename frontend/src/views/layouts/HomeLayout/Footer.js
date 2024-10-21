@@ -9,6 +9,7 @@ import play_logo from './googleplay-bm.png';
 import huawei_logo from './huawei_appsgaleryedit1.png';
 import facebook_logo from './fblogowhite.png';
 import x_logo from './logowhite.png';
+import AddressComponent from './FooterComponent/AddressComponent';
 const Footer = () => {
     return (
    
@@ -48,12 +49,7 @@ const Footer = () => {
         <div className="row mt-3">
           {/* Grid column */}
           <div className="col-md-6 col-lg-4 col-xl-3 mx-auto mb-4">
-            <h6 className="text-uppercase fw-bold">NASIONALFM</h6>
-            <hr id="footercolorhr" />
-            <p><i className="bi bi-geo-alt mr-3"></i>Aras 3 Selatan, Wisma Radio, 50740 Angkasapuri Kota Media, Kuala Lumpur</p>
-            <p><i className="bi bi-envelope mr-3"></i> nasionalfm@rtm.gov.my</p>
-            <p><i className="bi bi-telephone mr-3"></i> +603 2282 7829</p>
-            <p><i className="bi bi-telephone mr-3"></i> +603 2284 7594</p>
+            <AddressComponent />
           </div>
           {/* Grid column */}
 

@@ -31,14 +31,14 @@ class FooterController extends Controller
     */
     public function address()
     {
-        $footer = Footer::query()
-                    ->where('hashtag', 'address')
+        $address = Footer::query()
+                    ->where('hashtag', 'footer-address')
                     ->defaultOrder()
                     ->first();
 
         return response()->json([
-            'message' => 'Footer for Homepage',
-            'footer' => $footer
+            'message' => 'Address for Homepage',
+            'address' => $address
         ]);
     }
 
