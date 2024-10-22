@@ -2,7 +2,7 @@ import React from 'react';
 import { Row,Col } from 'react-bootstrap';
 
 import VideoComponent from './components/VideoComponent';
-import CardComponent from './components/CardComponent';
+import SongComponent from './components/SongComponent';
 import DeejayComponent from './components/DeejayComponent';
 import BannerComponent from './components/BannerComponent';
 import ChatroomComponent from './components/ChatroomComponent';
@@ -39,8 +39,7 @@ const Home = () => {
             </Row> */}
 
             <Row className="justify-content-center mt-4 mb-4 ms-1 pt-4 pb-3">
-                 <CardComponent /> 
-                
+                 <SongComponent /> 
             </Row>
 
         </>
