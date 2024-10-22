@@ -9,6 +9,7 @@ class TopicController extends Controller
     public function show()
     {
         $topic = Topic::query()
+                    ->with(['choices'])
                     ->defaultOrder()
                     ->first();
 

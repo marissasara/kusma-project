@@ -97,14 +97,14 @@ export default function VoteModal({topicId, choiceId}) {
 
     return (
       <>
-        <Figure>
-
+        {/* <Figure>
             <Button 
                 className="btn btn-sm"
                 onClick={handleShowClick} 
             >Vote 
             </Button>
-        </Figure>
+        </Figure> */}
+        <p onClick={handleShowClick}>Vote</p>
   
         <Modal size={'lg'} show={show} onHide={handleCloseClick}>
           <Modal.Header closeButton>

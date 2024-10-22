@@ -15,7 +15,7 @@ const TopicComponent = () => {
 
     useEffect( () => {
         setIsLoading(true)
-        axios(`${url}/homepage/topics`)
+        axios(`${url}/homepage/topics`) // Topic hasMany Choices
         .then( response => {
           //console.log(response)
           setTopic(response.data.topic)
