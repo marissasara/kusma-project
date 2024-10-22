@@ -29,6 +29,10 @@ import Profile from './views/pages/Global/Profile';
 
 
 import Home from './views/pages/Home/Home';
+import ContentPage from './views/pages/Content/content';
+import FooterPage from './views/pages/Content/footer';
+
+
 import AboutUs from './views/pages/Guest/AboutUs';
 import SignIn from './views/pages/Guest/SignIn';
 import Register from './views/pages/Guest/Register';
@@ -47,6 +51,9 @@ function App() {
         {/* Home Layout */ }
         <Route element={<HomeLayout />}>
           <Route path="/" element={<Home />} />
+          <Route path="/contents/:id" element={<ContentPage />} />
+          <Route path="/footers/:id" element={<FooterPage />} />
+
         </Route>
         
         {/* Guest Layout */}

@@ -57,6 +57,7 @@ Route::post('/homepage/vote', [VoteController::class, 'store']);
 // footer
 Route::get('/homepage/footers/address', [FooterController::class, 'address']);
 Route::get('/homepage/footers/{hashtag}', [FooterController::class, 'hashtag']);
+Route::get('/homepage/footers/{footer}/show', [FooterController::class, 'show']);
 
 //Route::get('/homepage/footers/{footer}', [FooterController::class, 'show']);
 

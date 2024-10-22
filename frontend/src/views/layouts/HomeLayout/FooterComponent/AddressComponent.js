@@ -13,7 +13,7 @@ const AddressComponent = () => {
     setIsLoading(true)
     axios(`${url}/homepage/footers/address`)
     .then( response => {
-      console.log(response)
+      //console.log(response)
       setAddress(response.data.address)
     })
     .catch( error => {
@@ -31,6 +31,7 @@ const AddressComponent = () => {
       <hr id="footercolorhr" />
       <p><div dangerouslySetInnerHTML={{ __html: address.description}} /></p>
     </>
+    
   ); 
 }
 

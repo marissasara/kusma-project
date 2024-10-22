@@ -13,7 +13,7 @@ const LinkComponent = ({hashtag}) => {
       setIsLoading(true)
       axios(`${url}/homepage/footers/${hashtag}`)
       .then( response => {
-        console.log(response)
+        //console.log(response)
         setFooters(response.data.footers)
       })
       .catch( error => {
@@ -35,7 +35,7 @@ const LinkComponent = ({hashtag}) => {
       
                 return (
                     <div key={index}>
-                     <p><a href={footer.id} className="text-white">{footer.title}</a></p>
+                     <p><a href={`/footers/${footer.id}`} className="text-white">{footer.title}</a></p>
                     </div>   
                 )
             }) // map
