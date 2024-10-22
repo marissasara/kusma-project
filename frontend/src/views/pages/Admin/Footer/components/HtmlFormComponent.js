@@ -8,8 +8,10 @@ const HtmlFormComponent = ({isLoading}) => {
     const url = process.env.REACT_APP_SERVER_URL; 
     const [selectedImage, setSelectedImage] = useState(null);
     const options = [
-        { id: 'footer-links', name: 'footer-links' },
-        { id: 'footer-address', name: 'footer-address' }
+        { id: 'column-1', name: 'column-1' },
+        { id: 'column-2', name: 'column-2' },
+        { id: 'address', name: 'address' },
+        { id: 'social-media', name: 'social-media'}
       ];
 
     useEffect( () => {

@@ -13,6 +13,7 @@ class FooterController extends Controller
     */
     public function hashtag($hashtag)
     {
+        //\Log::info($hashtag);
         $footers = Footer::query()
                     ->where('hashtag', $hashtag)
                     ->defaultOrder()
@@ -32,7 +33,7 @@ class FooterController extends Controller
     public function address()
     {
         $address = Footer::query()
-                    ->where('hashtag', 'footer-address')
+                    ->where('hashtag', 'address')
                     ->defaultOrder()
                     ->first();
 
@@ -43,7 +44,7 @@ class FooterController extends Controller
     }
 
     
-    /*
+   /*
     * Content for Footer ( Show, $footer is ID )
     */
     public function show($footer)

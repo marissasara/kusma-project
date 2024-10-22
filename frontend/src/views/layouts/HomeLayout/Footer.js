@@ -10,6 +10,7 @@ import huawei_logo from './huawei_appsgaleryedit1.png';
 import facebook_logo from './fblogowhite.png';
 import x_logo from './logowhite.png';
 import AddressComponent from './FooterComponent/AddressComponent';
+import LinkComponent from './FooterComponent/LinkComponent';
 const Footer = () => {
     return (
    
@@ -55,23 +56,13 @@ const Footer = () => {
 
           {/* Grid column */}
           <div className="col-md-6 col-lg-2 col-xl-2 mx-auto mb-4">
-            <h6 className="text-uppercase fw-bold"></h6>
-            <p><a href="http://www.rtm.gov.my/" className="text-white">RTM</a></p>
-            <p><a href="https://rtmklik.rtm.gov.my/" className="text-white">RTMKLIK</a></p>
-            <p><a href="https://radio.rtm.gov.my/" className="text-white">STESEN RADIO KAMI</a></p>
-            <p><a href="https://podcast.rtm.gov.my/" className="text-white">PODCAST RTM</a></p>
-            <hr id="footercolorhr" />
-            <p><a href="#!" className="text-white">PENAFIAN</a></p>
-            <p><a href="#!" className="text-white">POLISI PRIVASI</a></p>
-            <p><a href="#!" className="text-white">POLISI KESELAMATAN</a></p>
+            <LinkComponent hashtag={'column-1'} />
           </div>
           {/* Grid column */}
 
           {/* Grid column */}
           <div className="col-md-12 col-lg-2 col-xl-2 mx-auto mb-4">
-            <h6 className="text-uppercase fw-bold"></h6>
-            <p><a href="#!" className="text-white">PENGIKLANAN</a></p>
-            <p><a href="#!" className="text-white">FREKUENSI</a></p>
+            <LinkComponent hashtag={'column-2'} />
           </div>
           {/* Grid column */}
         </div>
