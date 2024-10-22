@@ -14,6 +14,8 @@ const SongComponent = () => {
   const [isLoading,setIsLoading] = useState(false);
   const votedTopicId = localStorage.getItem('topic_id'); // to check if user already voted
 
+  //console.log(votedTopicId)
+
   useEffect( () => {
       setIsLoading(true)
       axios(`${url}/homepage/topics`)
@@ -46,13 +48,13 @@ const SongComponent = () => {
       <div className="col-md-6 col-lg-4 col-xl-3 mb-3 mt-5">
         <div className="music-carta-lagu">
           <nav>
-            <a id="musikplayerundifont" href="#">
+            <a id="musikplayerundifont">
               <div className="circle text-dark">
              
               { votedTopicId != topic.id  ?
                <VoteModal topicId={topic.id} choiceId={item.id} />
               :
-              <p className='text-muted'>Voted</p> 
+              <p className='text-white'>Voted</p> 
               }
               </div>
             </a>

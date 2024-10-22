@@ -15,6 +15,8 @@ export default function VoteModal({topicId, choiceId}) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    //console.log(topicId)
+
     const handleShowClick = () =>{
        
       setShow(true)
