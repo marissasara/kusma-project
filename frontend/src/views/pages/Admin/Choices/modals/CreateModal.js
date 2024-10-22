@@ -90,7 +90,7 @@ export default function CreateModal() {
   
         <Modal size={'lg'} show={show} onHide={handleCloseClick}>
           <Modal.Header closeButton>
-            <Modal.Title>Create Choice topik is {topicId}</Modal.Title>
+            <Modal.Title>Create Choice</Modal.Title>
           </Modal.Header>
 
           <Modal.Body>
