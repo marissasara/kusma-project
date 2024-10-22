@@ -69,9 +69,11 @@ const SongComponent = () => {
           <h3><strong>{item.title}</strong></h3>
           <p>{item.description}</p>
 
-          <audio controls>
-            <source src={lagu_alan} type="audio/mpeg" />
-          </audio>
+          {item.songfile && 
+            <audio controls>
+              <source  src={`${serverUrl}/storage/songfiles/${item.songfile}`} type="audio/mpeg" />
+            </audio>
+          } {/* jika ada lagu upload */} 
         </div>
         <br />
       </div>

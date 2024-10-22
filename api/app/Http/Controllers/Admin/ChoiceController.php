@@ -43,10 +43,11 @@ class ChoiceController extends Controller
             'topic_id' => 'required|integer|exists:topics,id',  // Ensure topic_id exists in the 'topics' table
             'title' => 'required|string',
             'description' => 'required|string',
-            'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'songfile' => 'required|mimes:mp3|max:10048'
         ]);
 
-        if($request->has('photo')){
+        if($request->has('photo') && $request->has('songfile') ){
             //\Log::info($request);
             $choice = Choice::create([
                 'user_id' =>  auth('sanctum')->user()->id,
@@ -54,6 +55,7 @@ class ChoiceController extends Controller
                 'title' => $request->input('title'),
                 'description' => $request->input('description'),
                 'filename' => CommonService::handleStoreFile($request->file('photo'), $directory = 'choices'),
+                'songfile' => CommonService::handleStoreFile($request->file('songfile'), $directory = 'songfiles'),
             ]);
         
             return response()->json(['message' => 'Choice creation success']);
@@ -69,7 +71,8 @@ class ChoiceController extends Controller
 
             'title' => 'sometimes|string',
             'description' => 'sometimes|string',
-            'photo' => 'sometimes|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'photo' => 'sometimes|image|mimes:jpeg,png,jpg,gif|max:2048',
+            //'songfile' => 'sometimes|mimes:mp3|max:10048'
         ]);
 
        

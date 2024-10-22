@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { InputText,InputFile, InputRadio, InputDate, InputTextarea } from '../../../../../libs/FormInput';
-import { Form,Row,Col, Image, Figure, FormGroup } from 'react-bootstrap';
+import { Form,Row,Col, Image, Figure, FormGroup, Card } from 'react-bootstrap';
 import useStore from '../../../../../store'
 
 const HtmlFormComponent = ({isLoading}) => {
     const store = useStore();
     const url = process.env.REACT_APP_SERVER_URL; 
+    const serverUrl = process.env.REACT_APP_SERVER_URL;
     const [selectedImage, setSelectedImage] = useState(null);
+    
 
     useEffect( () => {
         const file = store.getValue('photo')
@@ -53,13 +55,33 @@ const HtmlFormComponent = ({isLoading}) => {
                             alt="Preview"
                         />
                     </Figure>
-
+{/* 
+                    <h5>Change Image</h5>
                     <InputFile
                     fieldName='photo' 
                     placeholder='Choose image'  
                     icon='fa-solid fa-image'
                     isLoading={isLoading}
-                    />
+                    /> */}
+
+                    {store.getValue('current_songfile')  &&  (
+                    <>
+                    <Card className='mt-3 mb-3 p-3'>
+                        <Card.Title>Lagu MP3</Card.Title>
+                        <audio controls>
+                            <source src={`${serverUrl}/storage/songfiles/${store.getValue('current_songfile') }`} type="audio/mpeg" />
+                        </audio>
+                    </Card>
+             
+                    </>
+                    )}
+                    {/* <h5>Replace Song File ( mp3 ) </h5>
+                    <InputFile
+                    fieldName='songfile' 
+                    placeholder='Choose mp3'  
+                    icon='fa-solid fa-music'
+                    isLoading={isLoading}
+                    /> */}
                 </>
                           
                 ) : (
@@ -67,11 +89,22 @@ const HtmlFormComponent = ({isLoading}) => {
                
                
                <InputFile
-                        fieldName='photo' 
-                        placeholder='Choose image'  
-                        icon='fa-solid fa-image'
-                        isLoading={isLoading}
-                    /></>
+                    fieldName='photo' 
+                    placeholder='Choose image'  
+                    icon='fa-solid fa-image'
+                    isLoading={isLoading}
+                />
+
+                <hr />
+                <h5>Song File ( mp3 ) </h5>
+                <InputFile
+                    fieldName='songfile' 
+                    placeholder='Choose mp3'  
+                    icon='fa-solid fa-music'
+                    isLoading={isLoading}
+                />
+                
+                </>
                 )}
 
               

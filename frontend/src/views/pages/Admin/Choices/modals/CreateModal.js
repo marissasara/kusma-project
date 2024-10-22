@@ -24,6 +24,7 @@ export default function CreateModal() {
       store.setValue('description', null)
       store.setValue('photo', null)
       store.setValue('filename', null)
+      store.setValue('songfile', null)
       setShow(true)
     } 
 
@@ -33,6 +34,7 @@ export default function CreateModal() {
       store.setValue('description', null)
       store.setValue('photo', null)
       store.setValue('filename', null)
+      store.setValue('songfile', null)
       handleClose()
     }
 
@@ -48,6 +50,7 @@ export default function CreateModal() {
           { key: 'title', value: store.getValue('title') },
           { key: 'description', value: store.getValue('description') }, 
           { key: 'photo', value: store.getValue('photo') },
+          { key: 'songfile', value: store.getValue('songfile') },
         ];
         
         appendFormData(formData, dataArray);

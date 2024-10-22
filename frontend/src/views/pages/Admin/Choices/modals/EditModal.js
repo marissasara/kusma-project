@@ -22,6 +22,7 @@ export default function EditModal({id}) {
       store.setValue('title', null )
       store.setValue('description', null)
       store.setValue('current_photo', null)
+      store.setValue('current_songfile', null)
       setIsLoading(true)
       setShow(true)
       
@@ -42,6 +43,10 @@ export default function EditModal({id}) {
           if( response?.data?.choice.hasOwnProperty('filename') ){
             store.setValue('current_photo', response?.data?.choice?.filename )
           }
+
+          if( response?.data?.choice.hasOwnProperty('songfile') ){
+            store.setValue('current_songfile', response?.data?.choice?.songfile )
+          }
          
           })
       .catch( error => {
@@ -58,6 +63,7 @@ export default function EditModal({id}) {
       store.setValue('title', null )
       store.setValue('description', null)
       store.setValue('current_photo', null)
+      store.setValue('current_song', null)
       handleClose()
     }
 
@@ -72,6 +78,7 @@ export default function EditModal({id}) {
           { key: 'title', value: store.getValue('title') },
           { key: 'description', value: store.getValue('description') }, 
           { key: 'photo', value: store.getValue('photo') },
+          { key: 'songfile', value: store.getValue('songfile') },
           { key: '_method', value: 'put' },
         ];
         

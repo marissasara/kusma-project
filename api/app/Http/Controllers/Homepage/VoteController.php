@@ -9,7 +9,7 @@ class VoteController extends Controller
 {
     public function store(Request $request)
     {
-        \Log::info($request);
+        //\Log::info($request);
         Vote::create([
             'topic_id' => $request->input('topic_id'),
             'choice_id' => $request->input('choice_id')
