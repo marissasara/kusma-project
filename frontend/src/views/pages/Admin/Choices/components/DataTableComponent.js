@@ -14,6 +14,7 @@ const DataTableComponent = () => {
     const store = useStore()
     const items = store.getValue('choices'); 
     const url = process.env.REACT_APP_SERVER_URL; 
+    const serverUrl = process.env.REACT_APP_SERVER_URL;
     //console.log(items)
     return (
         <div>
@@ -66,6 +67,16 @@ const DataTableComponent = () => {
                                                     </Figure>
                                                     <h3>{item.title}</h3>
                                                     {item.description}
+                                                    {item.songfile && (
+                                                    <Card className='mt-3 mb-3 p-3'>
+                                                    <Card.Title>Lagu MP3</Card.Title>
+                                                   
+                                                    <audio controls>
+                                                        <source src={`${serverUrl}/storage/songfiles/${item.songfile}`} type="audio/mpeg" />
+                                                    </audio>
+                                               
+                                                    </Card>
+                                                     )}
                                                 </Card>
                                               
                                                 
