@@ -6,6 +6,7 @@ const VideoComponent = () => {
     const [played, setPlayed] = React.useState(0);
     const src =`https://nasionalfm.muzikfmrtm.com/hls/myStream.m3u8`
     const [isLive, setIsLive] = useState(false);
+    const [refreshKey, setRefreshKey] = useState(0); // key to force refresh
 
     useEffect(() => {
         const checkStream = () => {
@@ -14,6 +15,7 @@ const VideoComponent = () => {
                 .then(response => {
                 if (response.ok) {
                     setIsLive(true);
+                    //setRefreshKey(prevKey => prevKey + 1); // refresh when stream is live
                 } else {
                     setIsLive(false);
                 }
@@ -32,7 +34,7 @@ const VideoComponent = () => {
 
     return (
        
-        <Row className="rounded" style={{ height: '100%', backgroundColor: '#000', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <Row key={refreshKey} className="rounded" style={{ height: '100%', backgroundColor: '#000', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         {isLive ? (
             <>
             <h2 className='text-danger'><i class="fa-solid fa-camera"></i> LIVE</h2>
@@ -43,6 +45,8 @@ const VideoComponent = () => {
                 url={src}
                 playing={true}
                 controls={true}
+                // volume={0}
+                // muted={true}
                 width="100%"
                 height="auto"
             />
