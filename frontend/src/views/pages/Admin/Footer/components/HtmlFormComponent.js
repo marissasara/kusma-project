@@ -14,6 +14,13 @@ const HtmlFormComponent = ({isLoading}) => {
         { id: 'social-media', name: 'social-media'}
       ];
 
+    const socials = [
+        { id: 'facebook', name: 'facebook' },
+        { id: 'instagram', name: 'instagram' },
+        { id: 'tiktok', name: 'tiktok' },
+        { id: 'twitter-x', name: 'twitter-x'}
+      ];
+
     useEffect( () => {
         const file = store.getValue('photo')
         if (file) {
@@ -29,13 +36,24 @@ const HtmlFormComponent = ({isLoading}) => {
                     fieldName='hashtag' 
                     placeholder='Choose Group'  
                     options={options}
-                    icon='fa-solid fa-pencil'
+                    icon='fa-solid fa-building'
                     isLoading={isLoading}
                 />
 
             </Col>
 
             <Col className='mb-2'>
+               {store.getValue('hashtag') == 'social-media' ? (
+                    <InputSelect
+                       fieldName='title' 
+                       placeholder='Choose Social Media'  
+                       options={socials}
+                       icon='fa-solid fa-pencil'
+                       isLoading={isLoading}
+                   />
+
+               ) : (
+
                 <InputText
                     fieldName='title' 
                     placeholder='Title'  
@@ -43,9 +61,20 @@ const HtmlFormComponent = ({isLoading}) => {
                     isLoading={isLoading}
                 />
 
+               )}
+
             </Col>
             
             <Col className='mb-2'>
+                {store.getValue('hashtag') == 'social-media' ? 
+                (
+                    <InputText
+                        fieldName='description' 
+                        placeholder='https://....'  
+                        icon='fa-solid fa-globe'
+                        isLoading={isLoading}
+                    />
+                ) : (
                 <TextEditor
                     fieldName='description' 
                     placeholder='Description'  
@@ -53,6 +82,7 @@ const HtmlFormComponent = ({isLoading}) => {
                     rows={'10'}
                     isLoading={isLoading}
                 />
+                )}
 
             </Col>
 
