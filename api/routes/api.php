@@ -12,6 +12,7 @@ use App\Http\Controllers\Homepage\{
     ChoiceController,
     VoteController,
     FooterController,
+    ChatController,
 };
 
 // role = Guest
@@ -53,6 +54,9 @@ Route::get('/homepage/choices/{topicId}', [ChoiceController::class, 'index']);
 Route::get('/homepage/choice/{choice}', [ChoiceController::class, 'show']);
 Route::post('/homepage/vote', [VoteController::class, 'store']);
 //Route::get('/homepage/deejay', [DeejayController::class, 'show']);
+
+// chatroom
+Route::post('/homepage/chats', [ChatController::class, 'store']);
 
 // footer
 Route::get('/homepage/footers/address', [FooterController::class, 'address']);
