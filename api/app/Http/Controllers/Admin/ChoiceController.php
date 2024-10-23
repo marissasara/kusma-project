@@ -72,7 +72,7 @@ class ChoiceController extends Controller
             'title' => 'sometimes|string',
             'description' => 'sometimes|string',
             'photo' => 'sometimes|image|mimes:jpeg,png,jpg,gif|max:2048',
-            //'songfile' => 'sometimes|mimes:mp3|max:10048'
+            'songfile' => 'sometimes|mimes:mp3|max:10048'
         ]);
 
        
@@ -84,13 +84,21 @@ class ChoiceController extends Controller
                 'description' => $request->input('description'),  // Update description if provided
                 'filename' => $request->hasFile('photo') ? CommonService::handleStoreFile($request->file('photo'), $directory = 'choices') : $choice->filename  // Update filename if new file is uploaded
             ]);
-        } else {
+        } elseif( $request->has('songfile') ) {
                     // Update the choice record with new data
             $choice->update([
                 'user_id' => auth('sanctum')->user()->id,  // This can remain the same
                 'title' => $request->input('title'),        // Update title if provided
                 'description' => $request->input('description'),  // Update description if provided
+                'songfile' => CommonService::handleStoreFile($request->file('songfile'), $directory = 'songfiles'), // if user change song
         
+            ]);
+        } else {
+            // Update the choice record with new data
+            $choice->update([
+                'user_id' => auth('sanctum')->user()->id,  // This can remain the same
+                'title' => $request->input('title'),        // Update title if provided
+                'description' => $request->input('description'),  // Update description if provided
             ]);
         }
 

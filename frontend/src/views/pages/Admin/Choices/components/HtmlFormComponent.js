@@ -55,16 +55,18 @@ const HtmlFormComponent = ({isLoading}) => {
                             alt="Preview"
                         />
                     </Figure>
-{/* 
+
                     <h5>Change Image</h5>
                     <InputFile
                     fieldName='photo' 
                     placeholder='Choose image'  
                     icon='fa-solid fa-image'
                     isLoading={isLoading}
-                    /> */}
+                    />
 
-                    {store.getValue('current_songfile')  &&  (
+                    <hr />
+
+                    {store.getValue('current_songfile')  ?  (
                     <>
                     <Card className='mt-3 mb-3 p-3'>
                         <Card.Title>Lagu MP3</Card.Title>
@@ -72,16 +74,26 @@ const HtmlFormComponent = ({isLoading}) => {
                             <source src={`${serverUrl}/storage/songfiles/${store.getValue('current_songfile') }`} type="audio/mpeg" />
                         </audio>
                     </Card>
+                    <h5>Replace Song File ( mp3 ) </h5>
+                        <InputFile
+                        fieldName='songfile' 
+                        placeholder='Choose mp3'  
+                        icon='fa-solid fa-music'
+                        isLoading={isLoading}
+                        />  
              
                     </>
+                    ) : (
+                    <>
+                        <h5>Song File ( mp3 ) </h5>
+                        <InputFile
+                        fieldName='songfile' 
+                        placeholder='Choose mp3'  
+                        icon='fa-solid fa-music'
+                        isLoading={isLoading}
+                        />  
+                    </>
                     )}
-                    {/* <h5>Replace Song File ( mp3 ) </h5>
-                    <InputFile
-                    fieldName='songfile' 
-                    placeholder='Choose mp3'  
-                    icon='fa-solid fa-music'
-                    isLoading={isLoading}
-                    /> */}
                 </>
                           
                 ) : (
@@ -95,20 +107,15 @@ const HtmlFormComponent = ({isLoading}) => {
                     isLoading={isLoading}
                 />
 
-                <hr />
-                <h5>Song File ( mp3 ) </h5>
-                <InputFile
-                    fieldName='songfile' 
-                    placeholder='Choose mp3'  
-                    icon='fa-solid fa-music'
-                    isLoading={isLoading}
-                />
+              
                 
                 </>
                 )}
 
               
             </Col>
+
+           
             
           
         
