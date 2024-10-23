@@ -7,7 +7,9 @@ import axios from 'axios';
 const ChatroomComponent = () => {
     const store = useStore()
     const [isLoading, setIsLoading] = useState(false)
+    const [isSending, setIsSending] = useState(false)
     const [lockUsername, setLockUsername] = useState(false)
+    const [chats, setChats] = useState([])
     const url = process.env.REACT_APP_API_URL; 
     
     // preset 
@@ -15,7 +17,90 @@ const ChatroomComponent = () => {
         store.setValue('refresh', false)
     },[])    
 
+    // autoscroll to bottom
+    useEffect(() => {
+        const chatBox = document.getElementById('chat-box');
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }, [chats]);
+    
+
+    // get chats
+    useEffect( () => {
+
+        // Function to fetch chats
+        const fetchChats = () => {
+            // Simulate an API call to get chats (replace this with actual API call)
+            console.log('Fetching chats...');
+            axios({ 
+                method: 'get', 
+                url: `${url}/homepage/chats`,
+              })
+              .then( response => { // success 200
+                console.log(response)
+                setChats(response.data.chats)
+                store.setValue('refresh', false)
+              })
+              .catch( error => {
+                console.warn(error)
+              })
+              .finally( () => {
+                setIsLoading(false)
+              
+              })
+              setIsSending(false)
+            
+        };
+
+        // Set an interval to fetch chats every 5 seconds (5000ms)
+        const intervalId = setInterval(() => {
+            fetchChats();
+        }, 2000);
+
+        // Clean up the interval when the component unmounts or effect re-runs
+        return () => clearInterval(intervalId);
+
+    },[store.getValue('refresh')])
+
+    const renderChats= () => {
+        
+        if (!chats || chats.length === 0) {
+            return <div></div>;
+        } 
+
+        if (chats.length > 0) {
+            return chats.map((chat, index) => {
+      
+                return (
+                    <Row key={index}>
+                        <Col xs={3}>{chat?.username}</Col>
+                        <Col xs={9}>{chat?.message}</Col>
+                    </Row>
+                )
+            }) // map
+        } // if
+    } 
+
+    const appendChat = () => {
+        
+        
+            if(isSending){
+                    return (
+        
+                        
+                        <Row>
+                            <Col xs={3}>{store.getValue('username')}</Col>
+                            <Col xs={9}>{store.getValue('message')}</Col>
+                        </Row>
+                    
+                    )
+            }
+           
+    
+        
+    }
+
     const handleSendButton = () => {
+        setIsSending(true)
         setLockUsername(true)
         setIsLoading(true)
         console.log('send')
@@ -49,58 +134,40 @@ const ChatroomComponent = () => {
     return (
         <div className="text-dark p-4 rounded" style={{'backgroundColor':'#eaeaea','width':'100%'}}>
             <h2>Chatroom</h2>
-            {/* Set fixed height, vertical scrolling, and prevent horizontal scrolling */}
-            <div style={{ 'maxHeight': '400px', 'overflowY': 'auto', 'overflowX': 'hidden', 'padding': '10px', 'backgroundColor': '#fff' }}>
-                <Row>
-                    <Col xs={3}>Azril</Col>
-                    <Col xs={9}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    </Col>
-                </Row>
-                <Row className='mt-1 mb-1'>
-                    <Col xs={3}>Nazli</Col>
-                    <Col xs={9}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </Col>
-                </Row>
-                <Row>
-                    <Col xs={3}>Guest</Col>
-                    <Col xs={9}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque faucibus lorem metus, a finibus purus luctus sit amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur porta erat sit amet efficitur hendrerit. Sed eget accumsan diam. Vivamus aliquet magna at ipsum iaculis venenatis.
-                    </Col>
-                </Row>
-                {/* Add more rows as needed */}
-                <Row className='mt-1 mb-1'>
-                    <Col xs={3}>Nazli</Col>
-                    <Col xs={9}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </Col>
-                </Row>
-                <Row className='mt-1 mb-1'>
-                    <Col xs={3}>Nazli</Col>
-                    <Col xs={9}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </Col>
-                </Row>
+            <div 
+                id="chat-box" 
+                style={{ 
+                    'maxHeight': '400px', 
+                    'overflowY': 'auto', 
+                    'overflowX': 'hidden', 
+                    'padding': '10px', 
+                    'backgroundColor': isSending ? '#999' : '#fff'  // Change background based on isSending state
+                }}
+            >
+                { renderChats() }
+
+                {/* { appendChat() } */}
             </div>
+
             <Row className='mt-1 p-2'>
                 <InputText 
                      fieldName={'username'}
                      icon={'fa-solid fa-user'}
                      placeholder={'Your name'}
-                     isLoading={lockUsername}
+                     isLoading={lockUsername }
                 />
             </Row>
             
             {store.getValue('username') !== null &&
             (<>
-            <Row className='mt-1 p-2'>
+            <Row className='mt-0 ps-2 pe-2'>
  
                 <InputTextarea 
                      fieldName={'message'}
                      icon={'fa-solid fa-message'}
                      placeholder={'message'}
                      rows={3}
+                     isLoading={isLoading}
                 />
 
                 

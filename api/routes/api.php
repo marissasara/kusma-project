@@ -56,6 +56,7 @@ Route::post('/homepage/vote', [VoteController::class, 'store']);
 //Route::get('/homepage/deejay', [DeejayController::class, 'show']);
 
 // chatroom
+Route::get('/homepage/chats', [ChatController::class, 'index']);
 Route::post('/homepage/chats', [ChatController::class, 'store']);
 
 // footer

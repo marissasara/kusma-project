@@ -18,4 +18,10 @@ class ChatController extends Controller
 
         return response()->json(['message' => 'message received']);
     }
+
+    public function index()
+    {
+        $chats = Chat::limit(50)->get();
+        return response()->json(['chats' => $chats]);
+    }
 }
