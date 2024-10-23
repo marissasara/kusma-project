@@ -1,5 +1,6 @@
 import React from 'react';
-import SocialMediaIcons from './SocialMediaIcons';
+
+// logo
 import ksn_logo from './ksn2.png';
 import mampu_logo from './mampu.png';
 import mygov_logo from './mygov2.png';
@@ -9,8 +10,11 @@ import play_logo from './googleplay-bm.png';
 import huawei_logo from './huawei_appsgaleryedit1.png';
 import facebook_logo from './fblogowhite.png';
 import x_logo from './logowhite.png';
+
+// components
 import AddressComponent from './FooterComponent/AddressComponent';
 import LinkComponent from './FooterComponent/LinkComponent';
+import SocialMediaComponent from './FooterComponent/SocialMediaComponent';
 const Footer = () => {
     return (
    
@@ -26,7 +30,7 @@ const Footer = () => {
 
       {/* Right */}
       <div>
-        <a href="https://www.facebook.com/NASIONALfmRTM" className="text-white me-4">
+        {/* <a href="https://www.facebook.com/NASIONALfmRTM" className="text-white me-4">
           <img src={facebook_logo} alt="Facebook" className="img-fluid" />
         </a>
         <a href="https://x.com/nasionalfm_my?lang=en" className="text-white me-4">
@@ -37,7 +41,9 @@ const Footer = () => {
         </a>
         <a href="https://www.tiktok.com/@nasionalfm?lang=en" className="text-white me-4">
           <i className="bi bi-tiktok"></i>
-        </a>
+        </a> */}
+
+        <SocialMediaComponent />
       </div>
       {/* Right */}
     </section>
