@@ -88,8 +88,8 @@ const ChatroomComponent = () => {
         
                         
                         <Row>
-                            <Col xs={3}>{store.getValue('username')}</Col>
-                            <Col xs={9}>{store.getValue('message')}</Col>
+                            <Col xs={1}>{store.getValue('username')}</Col>
+                            <Col xs={11}>{store.getValue('message')}</Col>
                         </Row>
                     
                     )
@@ -175,6 +175,7 @@ const ChatroomComponent = () => {
 
             <Row className='mt-1 p-2'>
                 <Button
+                disabled={store.getValue('message') == null}
                 onClick={ () => handleSendButton() }
                 >Send
                 </Button>
