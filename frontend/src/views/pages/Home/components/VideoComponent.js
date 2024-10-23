@@ -1,14 +1,13 @@
 import React from 'react';
+import { Col, Row } from 'react-bootstrap';
 import ReactPlayer from 'react-player';
 
 const VideoComponent = () => {
     const [played, setPlayed] = React.useState(0);
     const src =`https://nasionalfm.muzikfmrtm.com/hls/myStream.m3u8`
     return (
-        <div className="container">
-            <h2 >Livestream</h2>
-            <div className="">
-                <div className="relative">
+        <Row className="rounded" style={{'height' : '800px', 'backgroundColor' : '#000'}}>
+            
                 <ReactPlayer
                     onProgress={(progress) => {
                         setPlayed(progress.playedSeconds);
@@ -17,11 +16,10 @@ const VideoComponent = () => {
                     playing={true}
                     controls={true}
                     width="100%"
-                    height="auto"
+                    height="800px"
                 />
-                </div>
-            </div>
-        </div>
+        
+        </Row>
     );
 };
 

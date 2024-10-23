@@ -137,7 +137,7 @@ const ChatroomComponent = () => {
             <div 
                 id="chat-box" 
                 style={{ 
-                    'maxHeight': '400px', 
+                    'height': '500px', 
                     'overflowY': 'auto', 
                     'overflowX': 'hidden', 
                     'padding': '10px', 
