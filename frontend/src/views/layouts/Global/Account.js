@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import useStore from '../../../store';
+import useAuthStore from '../../../stores/AuthStore';
 
 const Account = () => {
-    const store = useStore();
+    //const store = useStore();
+    const store = useAuthStore();
     return (
             <div className="dropdown py-sm-4 mt-sm-auto ms-auto ms-sm-0 flex-shrink-1">
                 <a href="#" className="d-flex align-items-center text-dark-custom text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">

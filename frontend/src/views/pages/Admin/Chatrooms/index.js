@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { Button, Col, Row , Badge} from 'react-bootstrap';
 import { InputText, InputTextarea, appendFormData } from '../../../../libs/FormInput';
 import useStore from '../../../../store';
+import useAuthStore from '../../../../stores/AuthStore';
 import axios from '../../../../libs/axios';
 
 
 const ChatroomComponent = () => {
     const store = useStore()
+    const auth = useAuthStore()
     const [isLoading, setIsLoading] = useState(false)
     const [isSending, setIsSending] = useState(false)
     const [lockUsername, setLockUsername] = useState(false)
@@ -178,20 +180,20 @@ const ChatroomComponent = () => {
 
                 {/* { appendChat() } */}
             </div>
-
-            <Row className='mt-1 p-2'>
+           
+            {/* <Row className='mt-1 p-2'>
                 <InputText 
                      fieldName={'auth.name'}
                      icon={'fa-solid fa-user'}
                      placeholder={'Your name'}
                      isLoading={lockUsername }
                 />
-            </Row>
+            </Row> */}
          
-            {store.getValue('auth.name') !== null &&
+            {auth.getValue('auth.name') !== null &&
             (<>
-            <Row className='mt-0 ps-2 pe-2'>
- 
+            <Row className='mt-0 ps-2 pe-2 mt-5'>
+                <small>Logged in as  {auth.getValue('auth.name')}</small>
                 <InputTextarea 
                      fieldName={'message'}
                      icon={'fa-solid fa-message'}

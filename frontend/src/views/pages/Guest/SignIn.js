@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Row,Alert, Form } from 'react-bootstrap';
 import axios from 'axios';
-import useStore from '../../../store';
 import { appendFormData, InputText } from '../../../libs/FormInput';
 import { Navigate } from 'react-router-dom'
 import SubmitButton from '../../../libs/SubmitButton';
+import useStore from '../../../store';
+import AuthStore from '../../../stores/AuthStore'
 
 function SignIn() {
     const store = useStore(); // zustand store management
@@ -50,7 +51,7 @@ function SignIn() {
             },
         })
         .then(response => {
-            console.log(response);
+            //console.log(response);
             localStorage.setItem('token', response.data.token) // token to be used with axios interceptor
             localStorage.setItem('role', response.data.role) // token to be used with profile
             store.setValue('authenticated', true) // for redirect purpose

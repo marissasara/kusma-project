@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 import useStore from '../store';
+import useAuthStore from '../stores/AuthStore';
 import axios from './axios';
 
 /**
@@ -9,6 +10,7 @@ import axios from './axios';
 const ProtectedRoute = ({role}) => {
 
     const store = useStore(); // use global store
+    const authStore = useAuthStore(); // use global store
     const url = process.env.REACT_APP_API_URL; // API server
 
     //console.log(role)
@@ -22,9 +24,9 @@ const ProtectedRoute = ({role}) => {
         })
         .then(response => {
             //console.log(response.data);
-            store.setValue('auth.email', response.data.user.email)
-            store.setValue('auth.name', response.data.user.name)
-            store.setValue('auth.role', response.data.role)
+            authStore.setValue('auth.email', response.data.user.email)
+            authStore.setValue('auth.name', response.data.user.name)
+            authStore.setValue('auth.role', response.data.role)
         })
         .catch(error => {
             console.warn(error)
