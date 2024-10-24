@@ -82,3 +82,11 @@
   a:active { 
     text-decoration: none; 
   }
+
+  #musikplayerundifont.hover-image {
+    transition: transform 0.3s;
+}
+
+#musikplayerundifont:hover {
+    transform: scale(1.1);
+}
