@@ -3,10 +3,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Module;
-use App\Services\CommonService;
 
-
-class TopicController extends Controller
+class ModuleController extends Controller
 {
     public function index()
     {
@@ -40,7 +38,7 @@ class TopicController extends Controller
 
     public function ordering(Module $module, Request $request)
     {
-        //\Log::info($request);
+        \Log::info($module);
         // reference https://github.com/lazychaser/laravel-nestedset
         switch($request->input('direction')){
             case 'up':

@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\{
     ChoiceController,
     FooterController,
     ChatController,
+    ModuleController,
 };
 
 // Protect all admin routes with the 'admin' role
@@ -75,10 +76,15 @@ Route::group(['middleware' => ['auth:sanctum','role:admin']], function () {
     Route::get('/footers/ordering/{footer}', [FooterController::class, 'ordering']);
 
     // Chatroom management
-     // GET /api/admin/chats
+    // GET /api/admin/chats
     Route::get('/chats', [ChatController::class, 'index']);
     Route::post('/chats', [ChatController::class, 'store']);
     Route::delete('/chats/{chat}', [ChatController::class, 'delete']);
+
+    // Module management
+    // GET /api/admin/modules
+    Route::get('/modules', [ModuleController::class, 'index']);
+    Route::get('/modules/ordering/{module}', [ModuleController::class, 'ordering']);
 
 });
 
