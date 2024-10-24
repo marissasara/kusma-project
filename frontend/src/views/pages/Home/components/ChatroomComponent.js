@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Col, Row } from 'react-bootstrap';
+import { Badge, Button, Col, Row } from 'react-bootstrap';
 import { InputText, InputTextarea, appendFormData } from '../../../../libs/FormInput';
 import useStore from '../../../../store';
 import axios from 'axios';
@@ -36,7 +36,7 @@ const ChatroomComponent = () => {
                 url: `${url}/homepage/chats`,
               })
               .then( response => { // success 200
-                console.log(response)
+                //console.log(response)
                 setChats(response.data.chats)
                 store.setValue('refresh', false)
               })
@@ -72,8 +72,8 @@ const ChatroomComponent = () => {
       
                 return (
                     <Row key={index}>
-                        <Col xs={3}>{chat?.username}</Col>
-                        <Col xs={9}>{chat?.message}</Col>
+                        <Col xs={3}><Badge>{chat?.username}</Badge></Col>
+                        <Col xs={9}><i><small>{chat?.message}</small></i></Col>
                     </Row>
                 )
             }) // map
@@ -119,7 +119,7 @@ const ChatroomComponent = () => {
             data: formData
           })
           .then( response => { // success 200
-            console.log(response)
+            //console.log(response)
             store.setValue('refresh', true) // to force useEffect get new data for index
             store.setValue('message', null) // clear the message  
           })
