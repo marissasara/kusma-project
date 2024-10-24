@@ -48,7 +48,10 @@ const SongComponent = () => {
       <div className="col-md-6 col-lg-4 col-xl-3 mb-3 mt-5">
         <div className="music-carta-lagu">
           <nav>
-            <a id="musikplayerundifont">
+            <a href="{ votedTopicId != topic.id  ?
+               <VoteModal topicId={topic.id} choiceId={item.id} />
+              :
+              }" id="musikplayerundifont">
               <div className="circle text-dark">
              
               { votedTopicId != topic.id  ?
