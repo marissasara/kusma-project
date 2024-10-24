@@ -71,7 +71,7 @@ class DeejayController extends Controller
             ]);
         } else {
                     // Update the choice record with new data
-            $choice->update([
+            $deejay->update([
                 'user_id' => auth('sanctum')->user()->id,  // This can remain the same
                 'title' => $request->input('title'),        // Update title if provided
                 'description' => $request->input('description'),  // Update description if provided
