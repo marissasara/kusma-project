@@ -106,7 +106,9 @@ export default function VoteModal({topicId, choiceId}) {
             >Vote 
             </Button>
         </Figure> */}
+        <a id="musikplayerundifont">
         <p onClick={handleShowClick}>Vote</p>
+        </a>
   
         <Modal size={'lg'} show={show} onHide={handleCloseClick}>
           <Modal.Header closeButton>
