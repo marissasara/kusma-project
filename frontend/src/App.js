@@ -23,6 +23,7 @@ import DeejayManagement from './views/pages/Admin/Deejays';
 import TopicManagement from './views/pages/Admin/Topics';
 import ChoiceManagement from './views/pages/Admin/Choices';
 import FooterManagement from './views/pages/Admin/Footer';
+import ChatroomManagement from './views/pages/Admin/Chatrooms';
 
 // Profile
 import Profile from './views/pages/Global/Profile';
@@ -87,6 +88,7 @@ function App() {
             <Route path="/admin/topics/:topicId/choices" element={<ChoiceManagement />} />
             <Route path="/admin/profile" element={<Profile />} />
             <Route path="/admin/footer" element={<FooterManagement />} />
+            <Route path="/admin/chatrooms" element={<ChatroomManagement />} />
           </Route>
         </Route>
 
