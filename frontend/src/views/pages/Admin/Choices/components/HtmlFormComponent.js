@@ -64,7 +64,31 @@ const HtmlFormComponent = ({isLoading}) => {
                     isLoading={isLoading}
                     />
 
-                    <hr />
+                    
+                </>
+                          
+                ) : (
+               <>  
+               
+               
+               <InputFile
+                    fieldName='photo' 
+                    placeholder='Choose image'  
+                    icon='fa-solid fa-image'
+                    isLoading={isLoading}
+                />
+
+              
+                
+                </>
+                )}
+
+              
+            </Col>
+
+            <Col>
+        
+            <hr />
 
                     {store.getValue('current_songfile')  ?  (
                     <>
@@ -94,25 +118,6 @@ const HtmlFormComponent = ({isLoading}) => {
                         />  
                     </>
                     )}
-                </>
-                          
-                ) : (
-               <>  
-               
-               
-               <InputFile
-                    fieldName='photo' 
-                    placeholder='Choose image'  
-                    icon='fa-solid fa-image'
-                    isLoading={isLoading}
-                />
-
-              
-                
-                </>
-                )}
-
-              
             </Col>
 
            
