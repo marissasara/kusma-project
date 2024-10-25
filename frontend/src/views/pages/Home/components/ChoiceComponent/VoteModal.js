@@ -81,7 +81,7 @@ export default function VoteModal({topicId, choiceId}) {
            
                <Figure.Image
                     className="image-fluid rounded"
-                    style={{ 'height' : '250px'}}
+                    
                     src={`${serverUrl}/storage/choices/${filename}`} 
                     alt="First slide"
                   />
