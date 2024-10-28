@@ -68,7 +68,16 @@ const Footer = () => {
 
           {/* Grid column */}
           <div className="col-md-12 col-lg-2 col-xl-2 mx-auto mb-4">
-            <LinkComponent hashtag={'column-2'} />
+            {/* <LinkComponent hashtag={'column-2'} /> */}
+            
+            <div>
+            <h6 className="text-uppercase fw-bold">PAUTAN</h6>
+              <p><a target="_blank" href="http://www.rtm.gov.my/" className="text-white">RTM</a></p>
+              <p><a target="_blank" href="https://rtmklik.rtm.gov.my/" className="text-white">RTMKLIK</a></p>
+              <p><a target="_blank" href="https://radio.rtm.gov.my/" className="text-white">STESEN RADIO KAMI</a></p>
+              <p><a target="_blank" href="https://podcast.rtm.gov.my/" className="text-white">PODCAST RTM</a></p>
+          </div>
+
           </div>
           {/* Grid column */}
         </div>
