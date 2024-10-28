@@ -1,6 +1,6 @@
 
 import React, {  } from 'react';
-import { Badge, Button, Card, Figure, Table } from 'react-bootstrap';
+import { Form, Badge, Button, Card, Figure, Table } from 'react-bootstrap';
 import useStore from '../../../../../store';
 import Ordering from './OrderingComponent';
 import PaginatorLink from '../../../../../libs/PaginatorLink';
@@ -11,6 +11,12 @@ const DataTableComponent = () => {
     const items = store.getValue('modules'); 
     const url = process.env.REACT_APP_SERVER_URL; 
     console.log(items)
+
+    const handleStatusChange = (id) => {
+        console.log(id)
+    }
+
+
     return (
         <div>
 
@@ -21,6 +27,7 @@ const DataTableComponent = () => {
                     <tr>
                         <th style={{ 'width': '20px'}}>ID</th>
                         <th style={{ 'width': '20px'}} className='text-center'>Ordering</th>
+                        <th style={{ 'width': '30px'}}>Status</th>
                         <th style={{ 'width': '90vH'}}>Module</th>
             
                     </tr>
@@ -43,14 +50,23 @@ const DataTableComponent = () => {
                                             </td>
                                 
                                         
+                                            <td>
+
+                                                <Form.Check // prettier-ignore
+                                                    defaultChecked={item.is_active ? true : false}
+                                                    type="switch"
+                                                    id="custom-switch"
+                                                    onChange={() => handleStatusChange(item.id) }
+                                                    //label="Check this switch"
+                                                />
+
+                                            </td>
                               
                                             <td style={{width: '*'}}>
                                                
                                                 <Card className='p-3'>
                                                     <h3>{item.name}</h3>
                                                 </Card>
-                                              
-    
                                             </td>
                                            
                                             
