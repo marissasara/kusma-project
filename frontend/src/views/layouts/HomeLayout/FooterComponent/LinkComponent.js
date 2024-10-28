@@ -47,7 +47,7 @@ const LinkComponent = ({hashtag}) => {
 
     return (
         <div>
-            <h6 className="text-uppercase fw-bold">{hashtag}</h6>
+            <h6 className="text-uppercase fw-bold"></h6>
             <hr id="footercolorhr" />
             {links()}
             {/* <p><a href="http://www.rtm.gov.my/" className="text-white">RTM</a></p>
