@@ -28,8 +28,9 @@ const StatusComponent = ({id, is_active }) => {
 
     return (
         <div>
+           
             <Form.Check // prettier-ignore
-                defaultChecked={is_active ? true : false}
+                checked={is_active == 1 ? true : false}
                 type="switch"
                 id="custom-switch"
                 onChange={() => handleStatusChange(id, is_active) }

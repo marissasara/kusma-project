@@ -34,7 +34,7 @@ const Topics = () => {
                 } 
             )
             .then( response => { // response block
-                console.log(response)
+                //console.log(response)
                 //setItems(response.data.users) // get the data
                 store.setValue('modules', response.data.modules ?  response.data.modules : null) // to be used in DataTableComponent
                 store.setValue('refresh', false ) // reset the refresh state to false

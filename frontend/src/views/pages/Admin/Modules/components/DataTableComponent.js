@@ -11,7 +11,7 @@ const DataTableComponent = () => {
     const store = useStore()
     const items = store.getValue('modules'); 
     const url = process.env.REACT_APP_SERVER_URL; 
-    console.log(items)
+    //console.log(items)
 
     return (
         <div>
@@ -53,7 +53,7 @@ const DataTableComponent = () => {
                                             <td style={{width: '*'}}>
                                                
                                                 <Card className='p-3'>
-                                                    <h3>{item.name}</h3>
+                                                    <h3>{item.name.toUpperCase()}</h3>
                                                 </Card>
                                             </td>
                                            

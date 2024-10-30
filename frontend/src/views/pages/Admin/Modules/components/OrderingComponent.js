@@ -14,6 +14,7 @@ const OrderingComponent = ({id,direction, disabled=false}) => {
         axios(`${url}/admin/modules/ordering/${id}?direction=${direction}`)
         .then( response => {
             //console.log(response)
+            //store.emptyData() // clear all previous data
             store.setValue('refresh', true) // trigger DataTable useEffect()
         })
         .catch( error => {
