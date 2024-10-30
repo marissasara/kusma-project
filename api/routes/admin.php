@@ -85,6 +85,7 @@ Route::group(['middleware' => ['auth:sanctum','role:admin']], function () {
     // GET /api/admin/modules
     Route::get('/modules', [ModuleController::class, 'index']);
     Route::get('/modules/ordering/{module}', [ModuleController::class, 'ordering']);
+    Route::get('/modules/activation/{module}/{is_active}', [ModuleController::class, 'activation']);
 
 });
 

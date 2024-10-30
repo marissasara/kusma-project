@@ -5,17 +5,13 @@ import useStore from '../../../../../store';
 import Ordering from './OrderingComponent';
 import PaginatorLink from '../../../../../libs/PaginatorLink';
 import { Link } from 'react-router-dom';
+import StatusComponent from './StatusComponent';
 
 const DataTableComponent = () => {
     const store = useStore()
     const items = store.getValue('modules'); 
     const url = process.env.REACT_APP_SERVER_URL; 
     console.log(items)
-
-    const handleStatusChange = (id) => {
-        console.log(id)
-    }
-
 
     return (
         <div>
@@ -51,15 +47,7 @@ const DataTableComponent = () => {
                                 
                                         
                                             <td>
-
-                                                <Form.Check // prettier-ignore
-                                                    defaultChecked={item.is_active ? true : false}
-                                                    type="switch"
-                                                    id="custom-switch"
-                                                    onChange={() => handleStatusChange(item.id) }
-                                                    //label="Check this switch"
-                                                />
-
+                                                <StatusComponent id={item.id} is_active={item.is_active} />
                                             </td>
                               
                                             <td style={{width: '*'}}>

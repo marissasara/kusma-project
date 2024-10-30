@@ -38,7 +38,7 @@ class ModuleController extends Controller
 
     public function ordering(Module $module, Request $request)
     {
-        \Log::info($module);
+        //\Log::info($module);
         // reference https://github.com/lazychaser/laravel-nestedset
         switch($request->input('direction')){
             case 'up':
@@ -49,6 +49,13 @@ class ModuleController extends Controller
             break;
         }
         
+    }
+
+    public function activation(Module $module, $is_active)
+    {
+        // \Log::info($module->id);
+        // \Log::info($is_active);
+        $module = Module::where('id', $module->id)->update(['is_active' => $is_active]);
     }
 
 }
