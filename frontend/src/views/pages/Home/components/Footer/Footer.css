@@ -1,0 +1,64 @@
+/* Footer.css */
+.footer {
+  background: linear-gradient(135deg, #1a3b6b, #2e4c8a);
+  color: #ffffff;
+  padding: 2rem 1rem; /* Reduced padding */
+  font-family: Arial, sans-serif;
+  font-size: 0.9rem; /* Smaller font size for less space usage */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-top {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center; /* Ensure alignment is maintained */
+}
+
+.footer-logo img {
+  width: 150px; /* Smaller logo */
+}
+
+.footer-section {
+  margin: 0.5rem; /* Reduced margin */
+  flex: 1;
+  min-width: 180px; /* Smaller min-width for each section */
+}
+
+.footer-title {
+  font-size: 1rem; /* Slightly larger than body text for emphasis */
+  margin-bottom: 0.5rem;
+  color: #aab4c8;
+  text-transform: uppercase;
+}
+
+.footer-bottom {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #4d5f7a;
+  padding-top: 0.5rem; /* Reduced padding */
+}
+
+.footer-bottom-left {
+  color: #aab4c8;
+}
+
+.footer-social a {
+  color: #aab4c8;
+  margin: 0 8px; /* Reduced margin */
+  font-size: 1.2rem; /* Smaller icons */
+}
+
+.footer-social a:hover {
+  color: #ffffff;
+  transform: scale(1.1); /* Subtle hover effect */
+}

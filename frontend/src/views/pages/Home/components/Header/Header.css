@@ -1,0 +1,78 @@
+/* src/components/Header.css */
+
+
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 80px;
+  margin-right: 8px;
+}
+
+.logo h1 {
+  font-size: 1.5em;
+  color: #1F3C88;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Navbar Styling */
+.navbar ul {
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar ul li a {
+  font-weight: 500;
+  color: #1F3C88;
+  text-decoration: none;
+  font-size: 1em;
+  transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+  color: #FFCC33;
+}
+
+/* Auth Buttons Styling */
+.auth-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.login-btn,
+.signup-btn {
+  padding: 8px 20px;
+  font-size: 1em;
+  font-weight: 400;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.login-btn {
+  background-color: #FFCC33;
+  color: #000000;
+}
+
+.signup-btn {
+  background-color: #003366;
+  color: #FFFFFF;
+}
+
+.login-btn:hover {
+  background-color: #e6b800;
+  transform: translateY(-2px); /* Subtle lift on hover */
+}
+
+.signup-btn:hover {
+  background-color: #002244;
+  transform: translateY(-2px); /* Subtle lift on hover */
+}

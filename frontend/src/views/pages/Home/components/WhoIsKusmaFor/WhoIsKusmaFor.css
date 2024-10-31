@@ -1,0 +1,47 @@
+/* src/components/WhoIsKusmaFor.css */
+
+.who-is-kusma-for {
+  padding: 3rem 1rem;
+}
+
+.who-is-kusma-for h2 {
+  font-size: 2.5rem;
+  color: #1F3C88;
+}
+
+.who-is-kusma-for p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.section-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.section-card {
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  color: #333;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.section-card h3 {
+  font-size: 1.5rem;
+  color: #1F3C88;
+}
+
+.section-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.section-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}

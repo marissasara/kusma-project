@@ -1,3 +1,4 @@
+/*
 #root {
   margin: 0;
   font-family: "Archivo Black", sans-serif;
@@ -7,19 +8,16 @@
 }
 
 .colorcontainerbirugelap {
-    background-color: #103053 ;
+    background-color: #103053;
 }
 
 .colorcontainerkelabu {
-    background-color: #eeeeee ;
+    background-color: #eeeeee;
 }
 
-
-/* This is a header css*/
-
+/*
 .hero-image {
   background-image: url(PHONEHEADER.svg);
-
   height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
@@ -36,47 +34,36 @@
   color: white;
 }
 
-
-
 @media screen and (min-width: 700px) {
-.hero-image {
-  background-image: url(TABLETHEADER.svg);
-
-  height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
+  .hero-image {
+    background-image: url(TABLETHEADER.svg);
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
   }
 }
-
 
 @media screen and (min-width: 1392px) {
-.hero-image {
-  background-image: url(HEADER-01.svg);
-
-  height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
+  .hero-image {
+    background-image: url(HEADER-01.svg);
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
   }
 }
 
 
-  /* footer */
-  #example2 {
+#example2 {
+    background-color: #310f71;
+}
 
-    background-color :#310f71;
-  
-    
-  }
-  
-  #footercolorhr{
-  
-  
-    background-color: #7c4dff; 
-    height: 2px
-  
-    
-  }
+/*
+#footercolorhr {
+    background-color: #7c4dff;
+    height: 2px;
+}
+*/
