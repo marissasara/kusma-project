@@ -3,7 +3,6 @@ import React from 'react';
 
 // Importing components
 import Navbar from './components/Navbar/Navbar';
-import Header from './components/Header/Header';
 import LandingPage from './components/LandingPage/LandingPage';
 import BecomeAnAgent from './components/BecomeAnAgent/BecomeAnAgent';
 import WhoIsKusmaFor from './components/WhoIsKusmaFor/WhoIsKusmaFor';

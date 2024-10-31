@@ -1,40 +1,68 @@
-/* src/components/Navbar.css */
+/* src/components/Navbar/Navbar.css */
 
-/* Navbar Container */
-.navbar {
+.navbar-header {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
-  padding: 0 20px;
-  
+  padding: 20px 40px;
+  background-color: #FFFFFF;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Navbar List and List Items */
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Logo Styling */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 60px; /* Adjusted size for consistency */
+  margin-right: 8px;
+}
+
+.logo h1 {
+  font-size: 1.5em;
+  color: #1F3C88;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Navbar Styling */
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 .navbar ul {
   list-style-type: none;
   display: flex;
   gap: 20px;
-  margin: 0;
   padding: 0;
-  
-}
-
-.navbar ul li {
-  position: relative;
-  font-weight: 500;
-  color: #1F3C88;
+  margin: 0;
 }
 
 .navbar ul li a {
+  font-weight: 500;
   color: #1F3C88;
   text-decoration: none;
   font-size: 1em;
-  transition: color 0.3s ease;
 }
 
 .navbar ul li a:hover {
-  color: #FFCC33; /* Hover color for links */
+  color: #FFCC33;
 }
 
 /* Dropdown Menu Styling */
@@ -43,54 +71,63 @@
 }
 
 .dropdown-menu {
+  display: block;
   position: absolute;
-  top: calc(100% + 5px); /* Position the dropdown slightly below the parent item */
+  top: 100%;
   left: 0;
   background-color: #FFFFFF;
-  border: 1px solid #ddd;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  padding: 10px 0;
-  min-width: 180px;
-  opacity: 0; /* Initially hidden */
-  visibility: hidden; /* Initially hidden */
-  transform: translateY(10px); /* Start with a slight downward offset */
-  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  overflow: hidden;
   z-index: 1000;
-  display: flex;
-  flex-direction: column; /* Display items in a vertical column */
+  min-width: 180px;
+  padding: 10px 0;
 }
 
-/* Show Dropdown on Hover */
-.navbar ul li:hover .dropdown-menu {
-  opacity: 1; /* Fully visible on hover */
-  visibility: visible; /* Make visible */
-  transform: translateY(0); /* Slide into place */
-}
-
-/* Dropdown Menu Items */
-.dropdown-menu li {
-  padding: 8px 15px;
-  white-space: nowrap; /* Prevents text from wrapping */
-}
-
-.dropdown-menu li a {
+.dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
   color: #1F3C88;
   text-decoration: none;
-  font-weight: 500;
-  font-size: 0.95em;
+  font-size: 0.9em;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.dropdown-menu li a:hover {
-  color: #FFCC33; /* Hover color for dropdown links */
+.dropdown-menu a:hover {
+  background-color: #FFCC33;
+  color: #FFFFFF;
 }
 
-/* Animation and Appearance */
-.navbar ul li {
-  cursor: pointer; /* Adds pointer cursor on list items */
+/* Auth Buttons Styling */
+
+.auth-buttons {
+  display: flex;
+  gap: 15px; /* Slightly increased gap */
+  margin-left: 30px; /* Increased distance from the navbar */
 }
 
-.navbar ul li a,
-.dropdown-menu li a {
-  font-family: 'Arial', sans-serif;
+.login-btn,
+.signup-btn {
+  padding: 15px 20px !important; 
+  font-size: 0.85em !important; 
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s !important;
+}
+
+.login-btn {
+  background-color: #FFCC33; /* Consistent color for login button */
+  color: #034078;
+}
+
+.signup-btn {
+  background-color: #003366 !important; /* Dark blue for sign up button */
+  color: #FFFFFF !important;
+}
+
+.login-btn:hover,
+.signup-btn:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Subtle shadow effect on hover */
+  transform: translateY(-2px); /* Slight lift effect for interactivity */
 }

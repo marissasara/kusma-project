@@ -6,18 +6,8 @@ import './LandingPage.css';
 const LandingPage = () => {
   return (
     <div className="landing-page">
-      <header className="landing-header">
-        <div className="logo">
-          <img src="logo.png" alt="KUSMA Logo" />
-          <h1>Konsortium Usahawan Madani</h1>
-        </div>
-        <Navbar />
-        <div className="auth-buttons">
-          <button className="login-btn btn btn-warning">Login</button>
-          <button className="signup-btn btn btn-primary">Sign Up</button>
-        </div>
-      </header>
-
+      <Navbar /> 
+      
       <section className="hero">
         <div className="hero-text">
           <h2>Fueling Business Growth with Easy Access to Government Funding.</h2>

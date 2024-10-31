@@ -1,33 +1,52 @@
-// src/components/Navbar.js
+// src/components/Navbar/Navbar.js
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import './Navbar.css';
+import { FaArrowRight } from 'react-icons/fa';
 
 const Navbar = () => {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
+    setIsDropdownOpen(!isDropdownOpen);
   };
 
   return (
-    <nav className="navbar">
-      <ul>
-        <li><Link to="/">Main</Link></li>
-        <li className="dropdown">
-          <span onClick={toggleDropdown}>About</span>
-          {dropdownOpen && (
-            <ul className="dropdown-menu">
-              <li><Link to="/about">About Us</Link></li>
-              <li><Link to="/about/directors">Board of Directors</Link></li>
-              <li><Link to="/about/members">Board of Members</Link></li>
-            </ul>
-          )}
-        </li>
-        <li><Link to="/contact">Contact Us</Link></li>
-        <li><Link to="/gallery">Photo Gallery</Link></li>
-      </ul>
-    </nav>
+    <header className="navbar-header">
+      <div className="navbar-content">
+        <div className="logo">
+          <img src="logo.png" alt="KUSMA Logo" />
+          <h1>Konsortium Usahawan Madani</h1>
+        </div>
+
+        <nav className="navbar">
+          <ul>
+            <li><a href="#main">Main</a></li>
+            <li 
+              className="dropdown"
+              onMouseEnter={toggleDropdown}
+              onMouseLeave={toggleDropdown}
+            >
+              <a href="#about">About</a>
+              {isDropdownOpen && (
+                <div className="dropdown-menu">
+                  <a href="#board-directors">Board of Directors</a>
+                  <a href="#board-members">Board of Members</a>
+                </div>
+              )}
+            </li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#gallery">Photo Gallery</a></li>
+          </ul>
+        </nav>
+
+        <div className="auth-buttons">
+          <button className="login-btn btn btn-warning">Login</button>
+          <button className="signup-btn btn btn-primary">
+            Sign Up <FaArrowRight className="ms-2" />
+          </button>
+        </div>
+      </div>
+    </header>
   );
 };
 
