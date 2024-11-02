@@ -19,7 +19,7 @@ const Account = () => {
                     <li>
                         <hr className="dropdown-divider" />
                     </li>
-                    <li><Link to="/sign-out" className="dropdown-item">Sign out</Link></li>
+                    <li><Link to={`${localStorage.getItem('role') }/sign-out`} className="dropdown-item">Sign out</Link></li>
                 </ul>
             </div>
     );

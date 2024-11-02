@@ -15,8 +15,6 @@ const SideBar = () => {
                         <i className="fs-5 bi-house"></i><span className="ms-1 d-none d-sm-inline">Home</span>
                     </Link>
                 </li>
-
-             
             </ul>
             <Account />
         </div>
