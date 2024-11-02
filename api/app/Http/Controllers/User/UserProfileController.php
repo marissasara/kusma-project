@@ -27,42 +27,42 @@ class UserProfileController extends Controller
     }
 
 
-// to update existing profile
-public function update(Request $request)
-{
-    // Get the authenticated user
-    $user = $request->user();
-    
-    // Validate the incoming request data
-    $request->validate([
-        'title' => 'required|string|max:255', // Example validation for title
-        'name' => 'required|string|max:255', // Example validation for name
-        //'email' => 'required|email|max:255',  // Example validation for email
-        // Add other fields that you want to update with appropriate validation rules
-    ]);
-
-    // Retrieve the user's profile
-    $profile = UserProfile::where('user_id', $user->id)->first();
-
-    if ($profile) {
-        // Update the profile with the validated data
-        $profile->update($request->only([
-            'title', 
-            'name'
-        ])); // Specify the fields to update
-
-        // Return a success response
-        return response()->json([
-            'message' => 'Profile updated successfully',
-            'profile' => $profile, // Return the updated profile data
+    // to update existing profile
+    public function update(Request $request)
+    {
+        // Get the authenticated user
+        $user = $request->user();
+        
+        // Validate the incoming request data
+        $request->validate([
+            'title' => 'required|string|max:255', // Example validation for title
+            'name' => 'required|string|max:255', // Example validation for name
+            //'email' => 'required|email|max:255',  // Example validation for email
+            // Add other fields that you want to update with appropriate validation rules
         ]);
-    }
 
-    // If the profile does not exist, you can return an error response
-    return response()->json([
-        'message' => 'Profile not found',
-    ], 404);
-}
+        // Retrieve the user's profile
+        $profile = UserProfile::where('user_id', $user->id)->first();
+
+        if ($profile) {
+            // Update the profile with the validated data
+            $profile->update($request->only([
+                'title', 
+                'name'
+            ])); // Specify the fields to update
+
+            // Return a success response
+            return response()->json([
+                'message' => 'Profile updated successfully',
+                'profile' => $profile, // Return the updated profile data
+            ]);
+        }
+
+        // If the profile does not exist, you can return an error response
+        return response()->json([
+            'message' => 'Profile not found',
+        ], 404);
+    }
 
 
 }
