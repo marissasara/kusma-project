@@ -4,8 +4,7 @@ import { appendFormData } from '../../../../../libs/FormInput';
 import useStore from '../../../../../store';
 
 const SendData = ({store}) => {
-
-
+    store.setValue('is_loading' , true)
     const url = process.env.REACT_APP_API_URL; // make sure API url not SERVER url
     store.setValue('errors', null) // clear any validation errors
     const formData = new FormData();
@@ -39,6 +38,7 @@ const SendData = ({store}) => {
         }
       })
       .finally( () => {
+        store.setValue('is_loading' , false)
       })
 
 };
