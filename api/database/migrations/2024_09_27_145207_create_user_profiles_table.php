@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Carbon\Carbon;
 
 return new class extends Migration
 {
@@ -11,11 +12,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('modules', function (Blueprint $table) {
-            $table->id();
+        Schema::create('user_profiles', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->integer('user_id')->nullable();
+            $table->string('title')->nullable();
             $table->string('name')->nullable();
-            $table->boolean('is_active')->default(false);
-            $table->nestedSet(); // Kalnoy nestedset
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('modules');
+        Schema::dropIfExists('user_profiles');
     }
 };

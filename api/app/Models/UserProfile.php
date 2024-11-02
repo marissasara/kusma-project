@@ -4,12 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Kalnoy\Nestedset\NodeTrait;
 
-class Deejay extends Model
+
+class UserProfile extends Model
 {
     use HasFactory;
-    use NodeTrait;
+
+
+    // each User hasOne UserProfile
+    // each UserProfile belongsTo User
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     protected $guarded = ['id'];
     protected $casts = [
