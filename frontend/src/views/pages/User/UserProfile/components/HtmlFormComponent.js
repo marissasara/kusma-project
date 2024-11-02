@@ -23,6 +23,7 @@ const HtmlFormComponent = () => {
         };
     },[])
 
+    // when user click submit
     const handleSubmitButton = () => {
         console.log('submitted')
         SendData({store}); // send data component
