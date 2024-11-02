@@ -48,3 +48,7 @@ Route::post('/frontend/register', [RegisterController::class, 'store']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
 
+// Route::middleware('auth:sanctum')->get('/user/user_profiles', function (Request $request) {
+//     return 'hello world';
+// });
+

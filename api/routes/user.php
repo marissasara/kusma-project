@@ -13,7 +13,7 @@ use App\Http\Controllers\User\{
 
 // UserProfile Routes
 // GET http://localhost:8000/api/users/user_profile
-Route::get('/user_profile', [UserProfileController::class, 'show']);
-Route::post('/user_profile', [UserProfileController::class, 'update']);
+Route::get('/user_profiles', [UserProfileController::class, 'show']);
+Route::put('/user_profiles', [UserProfileController::class, 'update']);
 
 
