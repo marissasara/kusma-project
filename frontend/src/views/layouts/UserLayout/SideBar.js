@@ -14,6 +14,9 @@ const SideBar = () => {
                     <Link to="/user/home" className="nav-link text-dark-custom px-sm-0 px-2">
                         <i className="fs-5 bi-house"></i><span className="ms-1 d-none d-sm-inline">Home</span>
                     </Link>
+                    <Link to="/user/user_profile" className="nav-link text-dark-custom px-sm-0 px-2">
+                        <i className="fs-5 bi-person"></i><span className="ms-1 d-none d-sm-inline">Profile</span>
+                    </Link>
                 </li>
             </ul>
             <Account />

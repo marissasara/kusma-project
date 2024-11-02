@@ -16,6 +16,7 @@ import DashboardPage from './views/pages/User/DashboardPage';
 
 // role=User
 import UserHomePage from './views/pages/User/Home';
+import UserProfile from './views/pages/User/UserProfile' // UserProfile Module
 
 // role=Admin
 import AdminHomePage from './views/pages/Admin/Home';
@@ -68,7 +69,8 @@ function App() {
         <Route element={<ProtectedRoute role={'user'} />}>
           <Route element={<UserLayout />}>
             <Route path="/user/home" element={<UserHomePage />} />
-            <Route path="/user/Profile" element={<Profile />} />
+            <Route path="/user/user_profile" element={<UserProfile />} />
+            <Route path="/user/profile" element={<Profile />} />
             <Route path="/user/dashboard" element={<DashboardPage />} />
             <Route path="/user/sign-out" element={<SignOut />} />
           </Route>  
