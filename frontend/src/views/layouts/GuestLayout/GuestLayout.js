@@ -1,22 +1,17 @@
 // GuestLayout.js
 import { Outlet } from 'react-router-dom';
-import SideBar from './SideBar';
-import Footer from '../Global/Footer';
+import Navbar from '../../pages/Home/components/Navbar/Navbar';
+import Footer from '../../pages/Home/components/Footer/Footer';
+import '../../pages/Home/components/Navbar/Navbar.css';
 
 const GuestLayout = () => {
   return (
-    <div class="container-fluid overflow-hidden" id="root">
-      <div class="row vh-100 overflow-auto">
-          <SideBar />  
-          <div class="col d-flex flex-column h-sm-100">
-              <main class="row overflow-auto">
-                  <div class="col pt-4">
-                      <Outlet />
-                  </div>
-              </main>
-              <Footer />
-          </div>
+    <div className="home-layout">
+      <Navbar /> {/* Navbar at the top */}
+      <div className="main-content">
+        <Outlet /> {/* This will render the nested routes */}
       </div>
+      <Footer /> {/* Footer at the bottom */}
     </div>
   );
 };

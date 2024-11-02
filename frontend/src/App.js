@@ -1,27 +1,30 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import ProtectedRoute from './libs/ProtectedRoute'; // only logged user 
+import ProtectedRoute from './libs/ProtectedRoute';
 
-// Master Layout based on Role
 import GuestLayout from './views/layouts/GuestLayout/GuestLayout';
 import HomeLayout from './views/layouts/HomeLayout/HomeLayout';
 import UserLayout from './views/layouts/UserLayout/UserLayout';
 import AdminLayout from './views/layouts/AdminLayout/AdminLayout';
 
-
-// role = guest
+//import HomePage from './views/pages/HomePage';
 import LoginPage from './views/pages/LoginPage';
 import DashboardPage from './views/pages/User/DashboardPage';
+//import AdminPage from './views/pages/Admin/AdminPage';
 
-
-// role=User
+// User
 import UserHomePage from './views/pages/User/Home';
-import UserProfile from './views/pages/User/UserProfile' // UserProfile Module
 
-// role=Admin
+// Admin
 import AdminHomePage from './views/pages/Admin/Home';
 import UserManagement from './views/pages/Admin/Users';
-
+import BannerManagement from './views/pages/Admin/Banners';
+import DeejayManagement from './views/pages/Admin/Deejays';
+import TopicManagement from './views/pages/Admin/Topics';
+import ChoiceManagement from './views/pages/Admin/Choices';
+import FooterManagement from './views/pages/Admin/Footer';
+import ChatroomManagement from './views/pages/Admin/Chatrooms';
+import ModuleManagement from './views/pages/Admin/Modules';
 
 // Profile
 import Profile from './views/pages/Global/Profile';
@@ -46,7 +49,7 @@ function App() {
   return (
     <Router>
       <Routes>
-
+        
         {/* Home Layout */ }
         <Route element={<HomeLayout />}>
           <Route path="/" element={<Home />} />
@@ -55,7 +58,7 @@ function App() {
 
         </Route>
         
-        {/* Guest */}
+        {/* Guest Layout */}
         <Route element={<GuestLayout />}>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/logout" element={<LoginPage />} />
@@ -65,23 +68,29 @@ function App() {
           <Route path="/register" element={<Register />} />
         </Route>
 
-        {/* User */}
+        {/* User Layout */}
         <Route element={<ProtectedRoute role={'user'} />}>
           <Route element={<UserLayout />}>
             <Route path="/user/home" element={<UserHomePage />} />
-            <Route path="/user/user_profile" element={<UserProfile />} />
-            <Route path="/user/profile" element={<Profile />} />
-            <Route path="/user/dashboard" element={<DashboardPage />} />
-            <Route path="/user/sign-out" element={<SignOut />} />
+            <Route path="/user/Profile" element={<Profile />} />
+            <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/sign-out" element={<SignOut />} />
           </Route>  
         </Route>
 
-        {/* Admin */}
+        {/* Admin Layout */}
         <Route element={<ProtectedRoute role={'admin'} />}>`
           <Route element={<AdminLayout />}>`
             <Route path="/admin/home" element={<AdminHomePage />} />
             <Route path="/admin/users" element={<UserManagement />} />
-            <Route path="/admin/sign-out" element={<SignOut />} />
+            <Route path="/admin/banners" element={<BannerManagement />} />
+            <Route path="/admin/deejays" element={<DeejayManagement />} />
+            <Route path="/admin/topics" element={<TopicManagement />} />
+            <Route path="/admin/topics/:topicId/choices" element={<ChoiceManagement />} />
+            <Route path="/admin/profile" element={<Profile />} />
+            <Route path="/admin/footer" element={<FooterManagement />} />
+            <Route path="/admin/chatrooms" element={<ChatroomManagement />} />
+            <Route path="/admin/modules" element={<ModuleManagement />} />
           </Route>
         </Route>
 
