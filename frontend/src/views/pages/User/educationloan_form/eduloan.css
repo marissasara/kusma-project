@@ -1,0 +1,52 @@
+/* educationloan.css */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #F5F5F5;
+    padding: 20px;
+}
+
+.container {
+    max-width: 700px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #003366; 
+    font-weight: 600;
+}
+
+h5 {
+    color: #003366; 
+    font-weight: 400;
+}
+
+.progress {
+    background-color: #ddd;
+    height: 8px;
+    border-radius: 5px;
+}
+
+.progress-bar {
+    background-color: #FFCC33; 
+}
+
+.btn-primary {
+    background-color: #FFCC33; 
+    color: #003366; 
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #f2b20c; 
+}
+
+label {
+    font-weight: 500;
+}
+
+.form-check-label {
+    margin-left: 5px;
+}
