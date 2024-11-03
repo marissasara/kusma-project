@@ -1,7 +1,7 @@
 // src/pages/ContactUs.js
 import React from 'react';
 import Navbar from '../Navbar/Navbar'; // Ensure the Navbar path is correct
-import './ContactUs.css';
+import './contactUs.css';
 
 function ContactUs() {
     return (

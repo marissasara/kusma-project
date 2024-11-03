@@ -5,7 +5,7 @@ import useStore from '../../../store';
 import { appendFormData, InputText } from '../../../libs/FormInput';
 import { useNavigate } from 'react-router-dom';
 import SubmitButton from '../../../libs/SubmitButton';
-
+import illustration from '../../../assets/signup.png';
 function Register() {
     const navigate = useNavigate();
     const store = useStore(); // zustand store management
@@ -74,55 +74,74 @@ function Register() {
 
 
     return (
-        <Row className='ms-4 col-8 border border-1 p-4 rounded'>
-        <h1>Register</h1>
-        <Form onSubmit={handleSubmit}>
+        <div className="register-page">
+            <div className="register-container">
+                {/* Left Section */}
+                <div className="left-section">
+                    <img src={illustration} alt="Progress illustration" className="illustration" />
+                </div>
 
-            <Row>
-                <Row className='mb-4'>
-                    <InputText 
-                        fieldName='name' 
-                        placeholder='Your name'  
-                        icon='bi-people'
-                        isLoading={isLoading}
-                    />
-                </Row>
-
-                <Row className='mb-4'>
-                    <InputText 
-                        type='text'
-                        fieldName='email' 
-                        placeholder='Valid email address'  
-                        icon='bi-envelope'
-                        isLoading={isLoading}
-                    />
-                </Row>
-
-                <Row className='mb-4'>
-                    <InputText 
-                        type='password'
-                        fieldName='password' 
-                        placeholder='Password'  
-                        icon='bi-lock'
-                        isLoading={isLoading}
-                    />
-                </Row>
-
-                <Row className='mb-4'>
-                    <InputText 
-                        type='password'
-                        password='password_confirmation'
-                        fieldName='password_confirmation' 
-                        placeholder='Confirm Password'  
-                        icon='bi-lock'
-                        isLoading={isLoading}
-                    />
-                </Row>
-            </Row>
-
-            <SubmitButton isLoading={isLoading} value="Register" />
-        </Form>
-        </Row>
+                {/* Right Section */}
+                <div className="right-section">
+                   
+                    
+                    <h4>Sign up for Free</h4>
+                    <p>Create Your Account and Unlock Personalized Guidance</p>
+                    
+                    <form className="register-form" onSubmit={handleSubmit}>
+                        <label>
+                            Name
+                            <input
+                                type="text"
+                                name="name"
+                                required
+                                onChange={(e) => store.setValue('name', e.target.value)}
+                                disabled={isLoading}
+                            />
+                        </label>
+                        
+                        <label>
+                            Email
+                            <input
+                                type="email"
+                                name="email"
+                                required
+                                onChange={(e) => store.setValue('email', e.target.value)}
+                                disabled={isLoading}
+                            />
+                        </label>
+                        
+                        <label>
+                            Password
+                            <input
+                                type="password"
+                                name="password"
+                                required
+                                onChange={(e) => store.setValue('password', e.target.value)}
+                                disabled={isLoading}
+                            />
+                        </label>
+                        
+                        <label>
+                            Confirm Password
+                            <input
+                                type="password"
+                                name="confirmPassword"
+                                required
+                                onChange={(e) => store.setValue('password_confirmation', e.target.value)}
+                                disabled={isLoading}
+                            />
+                        </label>
+                        
+                        <SubmitButton isLoading={isLoading} value="Register" />
+                        
+                        <p className="login-link">
+                            Already have an account? <a href="/login">Login</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
     );
 }
 

@@ -1,20 +1,24 @@
-// src/views/layouts/UserLayout/UserLayout.js
+// GuestLayout.js
+import { Outlet } from 'react-router-dom';
+import SideBar from './SideBar';
+import Footer from '../Global/Footer';
 
-import React from 'react';
-import UserNavbar from './UserNavbar'; // Ensure the path to UserNavbar is correct
-
-const UserLayout = ({ children }) => {
+const GuestLayout = () => {
   return (
-    <div className="user-layout">
-      {/* Call the UserNavbar at the top of the layout */}
-      <UserNavbar />
-
-      {/* Main content section */}
-      <div className="layout-content">
-        {children}
+    <div class="container-fluid overflow-hidden" id="root">
+      <div class="row vh-100 overflow-auto">
+        <SideBar />  
+        <div class="col d-flex flex-column h-sm-100">
+            <main class="row overflow-auto">
+                <div class="col pt-4">
+                    <Outlet />
+                </div>
+            </main>
+            <Footer />
+        </div>
       </div>
-    </div>
+  </div>
   );
 };
 
-export default UserLayout;
+export default GuestLayout;
