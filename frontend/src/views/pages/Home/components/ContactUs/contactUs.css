@@ -1,0 +1,64 @@
+/* contactUs.css */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #F5F5F5;
+    padding: 20px;
+}
+
+.container {
+    max-width: 700px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #003366;
+    font-weight: 600;
+}
+
+h5 {
+    color: #003366;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.contact-description, p {
+    color: #555;
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+.contact-form label {
+    font-weight: 500;
+    color: #003366;
+}
+
+.form-control {
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.form-control:focus {
+    border-color: #FFCC33;
+    box-shadow: 0 0 5px rgba(255, 204, 51, 0.5);
+}
+
+.btn-primary {
+    background-color: #FFCC33;
+    color: #003366;
+    border: none;
+    font-weight: 500;
+}
+
+.btn-primary:hover {
+    background-color: #f2b20c;
+    color: #003366;
+}
+
+.mb-3, .mt-5 {
+    margin-bottom: 1rem !important;
+    margin-top: 1.25rem !important;
+}

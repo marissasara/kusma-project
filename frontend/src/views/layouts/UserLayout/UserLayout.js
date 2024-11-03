@@ -1,7 +1,7 @@
 // GuestLayout.js
 import { Outlet } from 'react-router-dom';
 import SideBar from './SideBar';
-import Footer from '../Global/Footer';
+
 
 const GuestLayout = () => {
   return (
@@ -14,7 +14,7 @@ const GuestLayout = () => {
                     <Outlet />
                 </div>
             </main>
-            <Footer />
+          
         </div>
       </div>
   </div>

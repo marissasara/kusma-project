@@ -6,6 +6,8 @@ import { appendFormData, InputText } from '../../../libs/FormInput';
 import { useNavigate } from 'react-router-dom';
 import SubmitButton from '../../../libs/SubmitButton';
 import illustration from '../../../assets/signup.png';
+import './Register.css';
+
 function Register() {
     const navigate = useNavigate();
     const store = useStore(); // zustand store management
