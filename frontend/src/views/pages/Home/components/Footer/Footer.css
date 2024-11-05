@@ -1,18 +1,18 @@
-/* Footer.css */
 .footer {
   background: linear-gradient(135deg, #1a3b6b, #2e4c8a);
   color: #ffffff;
-  padding: 2rem 1rem; /* Reduced padding */
+  padding: 2rem 1rem;
   font-family: Arial, sans-serif;
-  font-size: 0.9rem; /* Smaller font size for less space usage */
+  font-size: 0.9rem;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
+  flex-wrap: nowrap;
   justify-content: space-between;
-  flex-wrap: wrap;
+  align-items: flex-start;
 }
 
 .footer-top {
@@ -20,24 +20,29 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  align-items: center; /* Ensure alignment is maintained */
+  align-items: flex-start;
+  gap: 1.5rem;
 }
 
 .footer-logo img {
-  width: 150px; /* Smaller logo */
+  width: 150px;
 }
 
 .footer-section {
-  margin: 0.5rem; /* Reduced margin */
+  margin: 0.5rem;
   flex: 1;
-  min-width: 180px; /* Smaller min-width for each section */
+  min-width: 180px;
 }
 
 .footer-title {
-  font-size: 1rem; /* Slightly larger than body text for emphasis */
+  font-size: 1rem;
   margin-bottom: 0.5rem;
-  color: #aab4c8;
+  color: #ffffff;
   text-transform: uppercase;
+}
+
+.footer-section p {
+  color: #f0f0f0; /* Light gray for better readability */
 }
 
 .footer-bottom {
@@ -45,20 +50,68 @@
   display: flex;
   justify-content: space-between;
   border-top: 1px solid #4d5f7a;
-  padding-top: 0.5rem; /* Reduced padding */
+  padding-top: 0.5rem;
+  align-items: center;
 }
 
 .footer-bottom-left {
-  color: #aab4c8;
+  color: #f0f0f0; /* Light gray to improve readability */
+}
+
+.footer-social {
+  display: flex;
+  gap: 10px;
 }
 
 .footer-social a {
-  color: #aab4c8;
-  margin: 0 8px; /* Reduced margin */
-  font-size: 1.2rem; /* Smaller icons */
+  color: #ffffff;
+  font-size: 1.2rem;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .footer-social a:hover {
-  color: #ffffff;
-  transform: scale(1.1); /* Subtle hover effect */
+  color: #f0f0f0;
+  transform: scale(1.1);
+}
+
+/* Media Queries for Responsive Layout */
+@media (max-width: 768px) {
+  .container {
+    flex-wrap: wrap;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-section {
+    min-width: 100%;
+    text-align: center;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-logo img {
+    width: 120px;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .footer-title {
+    font-size: 0.9rem;
+  }
+
+  .footer-social a {
+    font-size: 1rem;
+  }
 }

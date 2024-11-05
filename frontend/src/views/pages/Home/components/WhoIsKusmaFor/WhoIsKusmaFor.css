@@ -1,5 +1,3 @@
-/* src/components/WhoIsKusmaFor.css */
-
 .who-is-kusma-for {
   padding: 3rem 1rem;
 }
@@ -14,6 +12,7 @@
   color: #555;
 }
 
+/* Section Cards Layout */
 .section-cards {
   display: flex;
   flex-wrap: wrap;
@@ -29,6 +28,8 @@
   text-align: left;
   color: #333;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  max-width: 300px;
+  width: 100%; /* Ensures cards take full width on smaller screens */
 }
 
 .section-card h3 {
@@ -44,4 +45,51 @@
 .section-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .who-is-kusma-for h2 {
+    font-size: 2rem;
+  }
+
+  .who-is-kusma-for p {
+    font-size: 1rem;
+  }
+
+  .section-card {
+    max-width: 100%; /* Full width for mobile */
+    padding: 1.2rem;
+  }
+
+  .section-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .section-card p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .who-is-kusma-for {
+    padding: 2rem 0.5rem;
+  }
+
+  .who-is-kusma-for h2 {
+    font-size: 1.8rem;
+  }
+
+  .section-card {
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .section-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .section-card p {
+    font-size: 0.9rem;
+  }
 }

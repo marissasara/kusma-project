@@ -1,0 +1,150 @@
+/* AboutUs.css */
+
+.about-us {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background: #fafafa;
+  color: #333;
+}
+
+/* About Us Section */
+.about-section {
+  background: #ffffff;
+  padding: 60px 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.about-section h1 {
+  font-size: 3rem;
+  color: #003366;
+}
+
+.about-description {
+  font-size: 1.25em;
+  color: #666;
+  max-width: 800px;
+  margin: 0 auto 20px;
+}
+
+.specialty-text {
+  font-size: 1.5em;
+  color: #ffcc33;
+}
+
+/* Mission & Vision Section */
+.mission-vision {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: linear-gradient(135deg, #e6f2ff, #f2f8fc);
+  padding: 40px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.mission, .vision {
+  flex: 1;
+  margin: 0 15px;
+}
+
+.section-heading {
+  font-size: 2rem;
+  color: #003366;
+  font-weight: bold;
+}
+
+/* Core Competencies and Goals Container */
+.competencies-goals-container {
+  display: flex;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+/* Core Competencies */
+.core-competencies {
+  background: #ffffff;
+  flex: 1;
+  padding: 40px;
+  border-radius: 8px;
+}
+
+.competency-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.competency-item {
+  text-align: center;
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.competency-item:hover {
+  transform: translateY(-8px);
+}
+
+.competency-icon {
+  font-size: 2.5em;
+  color: #ffcc33;
+  margin-bottom: 10px;
+}
+
+.competency-title {
+  font-size: 1.1em;
+  color: #003366;
+}
+
+/* Goals */
+.goals-section {
+  background: #ffffff;
+  flex: 1;
+  padding: 40px;
+  border-radius: 8px;
+}
+
+.goals-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.goal-item {
+  text-align: center;
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.goal-item:hover {
+  transform: translateY(-8px);
+}
+
+.goal-icon {
+  font-size: 2em;
+  color: #ffcc33;
+  margin-bottom: 10px;
+}
+
+.goal-text {
+  font-size: 1.1em;
+  color: #003366;
+  font-weight: bold;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .mission-vision {
+    flex-direction: column;
+  }
+
+  .competencies-goals-container {
+    flex-direction: column;
+  }
+}

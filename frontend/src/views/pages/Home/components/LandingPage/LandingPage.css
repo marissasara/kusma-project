@@ -2,14 +2,14 @@
 
 .landing-page {
   font-family: Arial, sans-serif;
-  padding-top: 120px;  
+  padding-top: 120px;
 }
 
 .landing-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 20px;
+  padding: 20px 10%;
   background-color: #FFFFFF;
   position: fixed;
   width: 100%;
@@ -23,9 +23,9 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 50px 30px; /* Adjusted padding for better visual balance */
+  padding: 50px 30px;
   background-color: #f9f9f9;
-  min-height: calc(100vh - 120px); /* Adjusted for header height */
+  min-height: calc(100vh - 120px);
 }
 
 .hero-text {
@@ -44,10 +44,6 @@
   font-size: 1.2em;
   color: #666;
   line-height: 1.6;
-}
-
-.hero-text strong {
-  font-weight: bold;
 }
 
 .get-started-btn {
@@ -84,8 +80,8 @@
 /* Steps Section Styling */
 .steps-section {
   padding: 60px 30px;
-  background-color: #0652A8; /* Dark blue background */
-  color: #FFFFFF; /* White text */
+  background-color: #0652A8;
+  color: #FFFFFF;
   text-align: center;
 }
 
@@ -97,7 +93,7 @@
 
 .steps-section p {
   font-size: 1.1em;
-  color: #b0c4de; /* Light blue for subtitle */
+  color: #b0c4de;
   margin-bottom: 40px;
 }
 
@@ -105,7 +101,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px; /* Space between each step */
+  gap: 40px;
   position: relative;
 }
 
@@ -124,8 +120,8 @@
 .step-number {
   width: 50px;
   height: 50px;
-  background-color: #FFCC33; /* Yellow circle */
-  color: #1F3C88; /* Dark blue text */
+  background-color: #FFCC33;
+  color: #1F3C88;
   font-size: 1.2em;
   font-weight: bold;
   border-radius: 50%;
@@ -146,23 +142,89 @@
 .steps-list::before {
   content: '';
   position: absolute;
-  top: 50px; /* Aligns with the first step */
-  bottom: 50px; /* Aligns with the last step */
+  top: 50px;
+  bottom: 50px;
   width: 2px;
-  background-color: #FFCC33; /* Yellow line */
+  background-color: #FFCC33;
   left: 50%;
   transform: translateX(-50%);
-  z-index: -1; /* Keeps line behind the step items */
+  z-index: -1;
 }
 
-.step-item {
-  position: relative;
+/* Responsive Media Queries */
+@media (max-width: 992px) {
+  /* Tablet */
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .hero-text {
+    padding: 0;
+  }
+
+  .hero-text h2 {
+    font-size: 2em;
+  }
+
+  .get-started-btn {
+    padding: 10px 20px;
+    font-size: 0.9em;
+  }
+
+  .steps-section {
+    padding: 40px 20px;
+  }
 }
 
-.step-item:first-child .step-number {
-  margin-top: 0;
-}
+@media (max-width: 768px) {
+  /* Mobile */
+  .landing-header {
+    padding: 15px 5%;
+    flex-direction: column;
+  }
 
-.step-item:last-child .step-number {
-  margin-bottom: 0;
+  .hero {
+    padding: 30px 15px;
+  }
+
+  .hero-text h2 {
+    font-size: 1.8em;
+  }
+
+  .hero-text p {
+    font-size: 1em;
+  }
+
+  .get-started-btn {
+    padding: 8px 18px;
+    font-size: 0.85em;
+  }
+
+  .steps-section h2 {
+    font-size: 1.5em;
+  }
+
+  .steps-section p {
+    font-size: 1em;
+  }
+
+  .steps-list {
+    gap: 30px;
+  }
+
+  .step-number {
+    width: 40px;
+    height: 40px;
+    font-size: 1em;
+  }
+
+  .step-text {
+    font-size: 1em;
+  }
+
+  .steps-list::before {
+    width: 1px;
+  }
 }

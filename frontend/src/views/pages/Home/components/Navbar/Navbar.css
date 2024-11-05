@@ -1,8 +1,6 @@
-/* src/components/Navbar/Navbar.css */
-
 .navbar-header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
   background-color: #FFFFFF;
@@ -28,7 +26,7 @@
 }
 
 .logo img {
-  height: 60px; /* Adjusted size for consistency */
+  height: 60px;
   margin-right: 8px;
 }
 
@@ -39,94 +37,128 @@
   margin: 0;
 }
 
-/* Navbar Styling */
-.navbar {
+.menu-toggle {
+  display: none;
+  font-size: 1.5em;
+  color: #1F3C88;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Navbar Links Styling */
+.navbar-links {
   display: flex;
   align-items: center;
   gap: 20px;
 }
 
-.navbar ul {
-  list-style-type: none;
-  display: flex;
-  gap: 20px;
-  padding: 0;
-  margin: 0;
-}
-
-.navbar ul li a {
+.navbar-links a {
   font-weight: 500;
   color: #1F3C88;
   text-decoration: none;
   font-size: 1em;
 }
 
-.navbar ul li a:hover {
+.navbar-links a:hover {
   color: #FFCC33;
 }
 
-/* Dropdown Menu Styling */
-.dropdown {
-  position: relative;
-}
-
-.dropdown-menu {
-  display: block;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #FFFFFF;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  overflow: hidden;
-  z-index: 1000;
-  min-width: 180px;
-  padding: 10px 0;
-}
-
-.dropdown-menu a {
-  display: block;
-  padding: 10px 20px;
-  color: #1F3C88;
-  text-decoration: none;
-  font-size: 0.9em;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.dropdown-menu a:hover {
-  background-color: #FFCC33;
-  color: #FFFFFF;
-}
-
 /* Auth Buttons Styling */
-
 .auth-buttons {
   display: flex;
-  gap: 15px; /* Slightly increased gap */
-  margin-left: 30px; /* Increased distance from the navbar */
+  gap: 15px;
+  margin-left: 30px;
 }
 
 .login-btn,
 .signup-btn {
-  padding: 15px 20px !important; 
-  font-size: 0.85em !important; 
+  padding: 15px 20px;
+  font-size: 0.85em;
   font-weight: bold;
   border: none;
   cursor: pointer;
-  transition: background-color 0.2s, box-shadow 0.2s !important;
+  transition: background-color 0.2s, box-shadow 0.2s;
 }
 
 .login-btn {
-  background-color: #FFCC33; /* Consistent color for login button */
+  background-color: #FFCC33;
   color: #034078;
 }
+
 .signup-btn {
-  background-color: #003366 !important; /* Dark blue for sign up button */
-  color: #FFFFFF !important;
+  background-color: #003366;
+  color: #FFFFFF;
 }
 
 .login-btn:hover,
 .signup-btn:hover {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Subtle shadow effect on hover */
-  transform: translateY(-2px); /* Slight lift effect for interactivity */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Mobile Menu Styling */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar-links.open {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 15px 0;
+    width: 180px;
+    gap: 15px;
+    z-index: 1000;
+  }
+
+  .navbar-links a {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #1F3C88;
+    width: 100%;
+    text-align: left;
+  }
+
+  .navbar-links a:hover {
+    background-color: #f1f1f1;
+    color: #FFCC33;
+  }
+
+  .auth-buttons {
+    display: none;
+  }
+
+  .mobile-auth-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .mobile-auth-link {
+    font-weight: 500;
+    color: #1F3C88;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    width: 100%;
+    text-align: left;
+  }
+
+  .mobile-auth-link:hover {
+    background-color: #f1f1f1;
+    color: #FFCC33;
+  }
 }

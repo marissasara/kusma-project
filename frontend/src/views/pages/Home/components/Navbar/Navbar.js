@@ -1,13 +1,12 @@
-// src/components/Navbar/Navbar.js
 import React, { useState } from 'react';
 import './Navbar.css';
-import { FaArrowRight } from 'react-icons/fa';
+import { FaBars, FaTimes, FaArrowRight } from 'react-icons/fa';
 
 const Navbar = () => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
@@ -18,31 +17,27 @@ const Navbar = () => {
           <h1>Konsortium Usahawan Madani</h1>
         </div>
 
-        <nav className="navbar">
-          <ul>
-            <li><a href="#main">Main</a></li>
-            <li 
-              className="dropdown"
-              onMouseEnter={toggleDropdown}
-              onMouseLeave={toggleDropdown}
-            >
-              <a href="#about">About</a>
-              {isDropdownOpen && (
-                <div className="dropdown-menu">
-                  <a href="#board-directors">Board of Directors</a>
-                  <a href="#board-members">Board of Members</a>
-                </div>
-              )}
-            </li>
-            <li><a href="#contact">Contact Us</a></li>
-            <li><a href="#gallery">Photo Gallery</a></li>
-          </ul>
+        <button className="menu-toggle" onClick={toggleMenu}>
+          {isMenuOpen ? <FaTimes /> : <FaBars />}
+        </button>
+
+        <nav className={`navbar-links ${isMenuOpen ? 'open' : ''}`}>
+          <a href="#main">Main</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact Us</a>
+          <a href="#gallery">Photo Gallery</a>
+          <div className="mobile-auth-buttons">
+            <a href="#login" className="mobile-auth-link">Login</a>
+            <a href="#signup" className="mobile-auth-link">
+              Sign Up <FaArrowRight className="ms-1" />
+            </a>
+          </div>
         </nav>
 
         <div className="auth-buttons">
-          <button className="login-btn btn btn-warning">Login</button>
-          <button className="signup-btn btn btn-primary">
-            Sign Up <FaArrowRight className="ms-2" />
+          <button className="login-btn">Login</button>
+          <button className="signup-btn">
+            Sign Up <FaArrowRight />
           </button>
         </div>
       </div>

@@ -18,12 +18,12 @@
 }
 
 .reason-card {
-  width: 250px;
   border-radius: 12px;
   padding: 1.5rem;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 100%; /* Ensures consistent height for the cards */
 }
 
 .reason-card:hover {
@@ -54,4 +54,37 @@
   font-size: 1rem;
   color: #555;
   margin-top: 0.5rem;
+}
+
+/* Media Queries for Responsive Layout */
+
+@media (max-width: 992px) {
+  .section-title {
+    font-size: 2rem; /* Smaller title for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.8rem; /* Smaller title for smaller screens */
+  }
+
+  .reason-card {
+    width: 100%; /* Full-width cards on small screens */
+    margin-bottom: 1.5rem; /* Add spacing between cards */
+  }
+
+  .icon-circle {
+    width: 50px; /* Smaller icon for small screens */
+    height: 50px;
+    font-size: 1.2rem;
+  }
+
+  .reason-title {
+    font-size: 1.2rem;
+  }
+
+  .reason-description {
+    font-size: 0.9rem;
+  }
 }
