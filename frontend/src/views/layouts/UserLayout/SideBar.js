@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Account from '../Global/Account';
+import useAuthStore from '../../../stores/AuthStore';
 import './SideBar.css';
 
 const SideBar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const store = useAuthStore();
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -21,9 +22,7 @@ const SideBar = () => {
                     <button className="close-btn" onClick={toggleMenu}>
                         ✕
                     </button>
-                    <a href="/" className="d-flex align-items-center text-decoration-none text-light mb-4">
-                        <span className="fs-5">U<span className="d-none d-sm-inline">ser</span></span>
-                    </a>
+                    
                     <nav>
                         <ul className="menu-list">
                             <li className="nav-item">
@@ -32,13 +31,18 @@ const SideBar = () => {
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link to="/user/user_profile" className="menu-link" onClick={toggleMenu}>
+                                <Link to={`${localStorage.getItem('role')}/profile`} className="menu-link" onClick={toggleMenu}>
                                     <i className="fs-5 bi-person"></i> <span className="ms-2">Profile</span>
+                                </Link>
+                            </li>
+                        
+                            <li className="nav-item">
+                                <Link to={`${localStorage.getItem('role')}/`} className="menu-link" onClick={toggleMenu}>
+                                    <i className="fs-5 bi-box-arrow-right"></i> <span className="ms-2">Sign Out</span>
                                 </Link>
                             </li>
                         </ul>
                     </nav>
-                    <Account />
                 </div>
             </div>
         </div>

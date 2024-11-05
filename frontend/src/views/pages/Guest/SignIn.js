@@ -15,7 +15,6 @@ function SignIn() {
   const [messageType, setMessageType] = useState('');
 
   useEffect(() => {
-    // Zustand presets
     store.emptyData(); // Clear all previous data
     store.setValue('authenticated', false); // Set authenticated to false
   }, []);

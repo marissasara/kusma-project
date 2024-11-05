@@ -1,4 +1,3 @@
-// Home.js
 import React from 'react';
 import './Home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -69,6 +68,18 @@ const Home = () => {
             <div className="card-body">
               <h5 className="card-title">SPUMI - TEKUN</h5>
               <p className="card-text">The SPUMI program is specially designed for Indian entrepreneurs to access financing and support services.</p>
+              <a href="#" className="btn btn-primary w-100">Learn More</a>
+            </div>
+          </div>
+        </div>
+
+        {/* Program Card 6 */}
+        <div className="col-md-4 mb-4">
+          <div className="card">
+            <img src="images/new_program.jpg" className="card-img-top" alt="New Program" />
+            <div className="card-body">
+              <h5 className="card-title">New Program</h5>
+              <p className="card-text">This new program offers unique opportunities for innovative entrepreneurs looking to expand.</p>
               <a href="#" className="btn btn-primary w-100">Learn More</a>
             </div>
           </div>
