@@ -1,5 +1,4 @@
-/* Home.css */
-
+/* General Styles */
 body {
     font-family: 'Inter', sans-serif;
     background-color: #F9F9F9;
@@ -39,7 +38,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-    padding: 15px; /* Padding around the entire card for more organized spacing */
+    padding: 15px;
 }
 
 .card:hover {
@@ -67,41 +66,43 @@ body {
 /* Refined Title Styling */
 .card-title {
     color: #333;
-    font-size: 1.05rem; /* Smaller, refined title font */
+    font-size: 1.05rem;
     font-weight: 600;
     margin-bottom: 8px;
-    min-height: 50px; /* Ensures uniform title height */
-    line-height: 1.2; /* Tighter line-height for a cleaner look */
+    min-height: 50px;
+    line-height: 1.2;
 }
 
 /* Refined Text Styling */
 .card-text {
     color: #555;
-    font-size: 0.85rem; /* Slightly smaller font for organized appearance */
-    line-height: 1.3; /* Tighter line height */
+    font-size: 0.85rem;
+    line-height: 1.3;
     margin-bottom: 12px;
-    min-height: 70px; /* Consistent text area height */
-    text-align: justify; /* Align text for a tidy look */
+    min-height: 70px;
+    text-align: justify;
 }
 
-/* Slimmer Button Styling */
+/* Updated Button Styling */
 .btn-primary {
     background-color: #FFCC33;
     color: #003366;
     border: none;
-    font-weight: 500; /* Lighter font weight for a slimmer look */
-    width: 100%;
-    font-size: 0.8rem; /* Smaller font size */
-    padding: 5px 8px; /* Reduced padding for a more compact button */
-    margin-top: auto; /* Ensures button stays at the bottom */
-    border-radius: 4px; /* Slightly rounded corners */
+    font-weight: 500;
+    font-size: 1rem; /* Slightly larger font for better readability */
+    padding: 10px 20px; /* Increased padding for a more balanced look */
+    border-radius: 8px; /* Slightly larger border radius for smoother edges */
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Makes the button full-width within its container */
 }
 
 .btn-primary:hover {
     background-color: #f2b20c;
 }
-
 
 /* Row and Column Styling for Consistent Card Layout */
 .row > .col-md-4 {
@@ -110,4 +111,102 @@ body {
 
 .card, .card-body, .btn-primary {
     height: 100%;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 992px) {
+    .heading {
+        font-size: 1.5rem;
+    }
+
+    .alert {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .card-title {
+        font-size: 1rem;
+        min-height: 45px;
+    }
+
+    .card-text {
+        font-size: 0.8rem;
+        min-height: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .row > .col-md-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .card {
+        margin-bottom: 15px;
+    }
+
+    .card-img-top {
+        height: 120px;
+    }
+
+    .card-body {
+        padding: 10px;
+    }
+
+    .card-title {
+        font-size: 0.95rem;
+        min-height: unset;
+    }
+
+    .card-text {
+        font-size: 0.75rem;
+        min-height: unset;
+    }
+
+    .btn-primary {
+        font-size: 0.75rem;
+        padding: 4px 6px;
+    }
+}
+
+@media (max-width: 576px) {
+    .heading {
+        font-size: 1.3rem;
+    }
+
+    .alert {
+        font-size: 0.85rem;
+        padding: 8px;
+    }
+
+    .card {
+        padding: 10px;
+        box-shadow: none;
+    }
+
+    .card-img-top {
+        height: 100px;
+    }
+
+    .card-body {
+        padding: 8px;
+    }
+
+    .card-title {
+        font-size: 0.9rem;
+    }
+
+    .card-text {
+        font-size: 0.7rem;
+    }
+
+    .btn-primary {
+        font-size: 0.7rem;
+        padding: 3px 5px;
+    }
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import './Home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import maraImage from './../../../assets/mara.png';
 
 const Home = () => {
   return (
@@ -16,7 +17,8 @@ const Home = () => {
         {/* Program Card 1 */}
         <div className="col-md-4 mb-4">
           <div className="card">
-            <img src="images/putra_mara.png" className="card-img-top" alt="MARA Program - PUTRA" />
+          <img src={maraImage} className="card-img-top" alt="MARA Program - PUTRA" />
+
             <div className="card-body">
               <h5 className="card-title">Program Usahawan Lepasan Institut MARA / Belia - MARA</h5>
               <p className="card-text">PUTRA helps young entrepreneurs build foundational business skills with workshops and grants. Explore it now!</p>
@@ -28,7 +30,7 @@ const Home = () => {
         {/* Program Card 2 */}
         <div className="col-md-4 mb-4">
           <div className="card">
-            <img src="images/mara_semai.jpg" className="card-img-top" alt="MARA Program - SEMAI" />
+            <img src={maraImage} className="card-img-top" alt="MARA Program - SEMAI" />
             <div className="card-body">
               <h5 className="card-title">SEMAI - MARA</h5>
               <p className="card-text">SEMAI is designed to offer financing for emerging agricultural businesses. Gain full access and boost your venture!</p>
@@ -40,7 +42,7 @@ const Home = () => {
         {/* Program Card 3 */}
         <div className="col-md-4 mb-4">
           <div className="card">
-            <img src="images/mara_dana_nita.jpg" className="card-img-top" alt="MARA Program - DANA NITA" />
+            <img src= {maraImage} className="card-img-top" alt="MARA Program - DANA NITA" />
             <div className="card-body">
               <h5 className="card-title">DANA NITA - MARA</h5>
               <p className="card-text">DANA NITA offers accessible financing options for women entrepreneurs to kick-start their businesses.</p>
@@ -52,7 +54,7 @@ const Home = () => {
         {/* Program Card 4 */}
         <div className="col-md-4 mb-4">
           <div className="card">
-            <img src="images/tekun_pem_biayaan_kecil.jpg" className="card-img-top" alt="TEKUN Program - PEMBIAYAAN KECIL" />
+            <img src= {maraImage} className="card-img-top" alt="TEKUN Program - PEMBIAYAAN KECIL" />
             <div className="card-body">
               <h5 className="card-title">PEMBIAYAAN KECIL - TEKUN</h5>
               <p className="card-text">PEMBIAYAAN KECIL offers micro-financing for small-scale businesses. Secure funds to grow your business today.</p>
@@ -64,7 +66,7 @@ const Home = () => {
         {/* Program Card 5 */}
         <div className="col-md-4 mb-4">
           <div className="card">
-            <img src="images/tekun_spumi.png" className="card-img-top" alt="TEKUN Program - SPUMI" />
+            <img src={maraImage} className="card-img-top" alt="TEKUN Program - SPUMI" />
             <div className="card-body">
               <h5 className="card-title">SPUMI - TEKUN</h5>
               <p className="card-text">The SPUMI program is specially designed for Indian entrepreneurs to access financing and support services.</p>
@@ -76,7 +78,7 @@ const Home = () => {
         {/* Program Card 6 */}
         <div className="col-md-4 mb-4">
           <div className="card">
-            <img src="images/new_program.jpg" className="card-img-top" alt="New Program" />
+            <img src={maraImage} className="card-img-top" alt="New Program" />
             <div className="card-body">
               <h5 className="card-title">New Program</h5>
               <p className="card-text">This new program offers unique opportunities for innovative entrepreneurs looking to expand.</p>
