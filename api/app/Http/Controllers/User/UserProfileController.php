@@ -35,10 +35,20 @@ class UserProfileController extends Controller
         
         // Validate the incoming request data
         $request->validate([
-            'title' => 'required|string|max:255', // Example validation for title
-            'name' => 'required|string|max:255', // Example validation for name
-            //'email' => 'required|email|max:255',  // Example validation for email
-            // Add other fields that you want to update with appropriate validation rules
+            'title' => 'required|string|max:255', 
+            'name' => 'required|string|max:255', 'first_name' => 'sometimes|string|max:255',
+            'last_name' => 'sometimes|string|max:255',
+            'gender' => 'sometimes|string|max:255',
+            'email' => 'sometimes|email|unique:user_profiles,email,' . $user->id . ',user_id',
+            'phone_number' => 'sometimes|string|max:20',
+            'mykad_number' => 'sometimes|string|unique:user_profiles,mykad_number,' . $user->id . ',user_id',
+            'bumiputera_status' => 'sometimes|boolean',
+            'birthdate' => 'sometimes|date',
+            'address' => 'sometimes|string',
+            'city' => 'sometimes|string',
+            'postcode' => 'sometimes|string|max:10',
+            'state' => 'sometimes|string',
+            'oku_card' => 'sometimes|boolean'
         ]);
 
         // Retrieve the user's profile
