@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Navbar.css';
 import { FaBars, FaTimes, FaArrowRight } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,32 +15,43 @@ const Navbar = () => {
       <div className="navbar-content">
         <div className="logo">
           <img src="logo.png" alt="KUSMA Logo" />
-          <h1>Konsortium Usahawan Madani</h1>
+          <h1 className="title-no-wrap">Konsortium Usahawan Madani</h1>
         </div>
 
-        <button className="menu-toggle" onClick={toggleMenu}>
+        {/* Mobile Menu Toggle */}
+        <button className="menu-toggle d-lg-none" onClick={toggleMenu}>
           {isMenuOpen ? <FaTimes /> : <FaBars />}
         </button>
 
-        <nav className={`navbar-links ${isMenuOpen ? 'open' : ''}`}>
-          <a href="#main">Main</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact Us</a>
-          <a href="#gallery">Photo Gallery</a>
-          <div className="mobile-auth-buttons">
-            <a href="#login" className="mobile-auth-link">Login</a>
-            <a href="#signup" className="mobile-auth-link">
-              Sign Up <FaArrowRight className="ms-1" />
-            </a>
-          </div>
+        {/* Desktop Links (visible on lg and up) */}
+        <nav className="navbar-links d-none d-lg-flex">
+          <Link to="/">Main</Link>
+          <Link to="/about-us">About</Link>
+          <Link to="/contact-us">Contact Us</Link>
+          {/* <Link to="/photo-gallery">Photo Gallery</Link> */}
         </nav>
 
-        <div className="auth-buttons">
-          <button className="login-btn">Login</button>
-          <button className="signup-btn">
+        {/* Desktop Auth Buttons */}
+        <div className="auth-buttons d-none d-lg-flex">
+          <Link to="/sign-in" className="login-btn rounded">Login</Link>
+          <Link to="/register" className="signup-btn rounded">
             Sign Up <FaArrowRight />
-          </button>
+          </Link>
         </div>
+
+        {/* Mobile Links and Auth Buttons (visible on md and below) */}
+        <nav className={`navbar-links ${isMenuOpen ? 'open' : ''} d-md-none`}>
+          <Link to="/">Main</Link>
+          <Link to="/about-us">About</Link>
+          <Link to="/contact-us">Contact Us</Link>
+          {/* <Link to="/photo-gallery">Photo Gallery</Link> */}
+          <div className="mobile-auth-buttons mt-3">
+            <Link to="/sign-in" className="mobile-auth-link">Login</Link>
+            <Link to="/register" className="mobile-auth-link">
+              Sign Up <FaArrowRight className="ms-1" />
+            </Link>
+          </div>
+        </nav>
       </div>
     </header>
   );

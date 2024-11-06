@@ -1,6 +1,7 @@
+/* Navbar Container */
 .navbar-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Center-align content */
   align-items: center;
   padding: 20px 40px;
   background-color: #FFFFFF;
@@ -8,7 +9,7 @@
   width: 100%;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 .navbar-content {
@@ -17,6 +18,7 @@
   align-items: center;
   width: 100%;
   max-width: 1200px;
+  padding-right: 10px; /* Adjust padding for alignment */
 }
 
 /* Logo Styling */
@@ -35,8 +37,20 @@
   color: #1F3C88;
   font-weight: bold;
   margin: 0;
+  white-space: nowrap;
 }
 
+
+/* Additional styling for logo title */
+.title-no-wrap {
+  white-space: nowrap;
+  font-size: 1.8em; /* Adjusted for improved appearance */
+  color: #1F3C88;
+  margin: 0;
+}
+
+
+/* Menu Toggle (Mobile Only) */
 .menu-toggle {
   display: none;
   font-size: 1.5em;
@@ -50,7 +64,8 @@
 .navbar-links {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 15px; /* Reduced gap to bring links closer */
+  margin-right: 20px; /* Adjust margin for spacing between links and auth buttons */
 }
 
 .navbar-links a {
@@ -64,7 +79,7 @@
   color: #FFCC33;
 }
 
-/* Auth Buttons Styling */
+/* Auth Buttons Styling (Desktop) */
 .auth-buttons {
   display: flex;
   gap: 15px;
@@ -78,6 +93,8 @@
   font-weight: bold;
   border: none;
   cursor: pointer;
+  border-radius: 8px; /* Rounded corners */
+  text-decoration: none; /* Remove underline */
   transition: background-color 0.2s, box-shadow 0.2s;
 }
 
@@ -97,8 +114,16 @@
   transform: translateY(-2px);
 }
 
+
 /* Mobile Menu Styling */
+
+
 @media (max-width: 768px) {
+  .logo h1 {
+    font-size: 1.2em; 
+    white-space: normal; 
+  }
+
   .menu-toggle {
     display: block;
   }
@@ -136,15 +161,13 @@
     color: #FFCC33;
   }
 
-  .auth-buttons {
-    display: none;
-  }
-
+  /* Mobile Auth Buttons */
   .mobile-auth-buttons {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 15px;
     width: 100%;
+    text-align: center;
   }
 
   .mobile-auth-link {
@@ -153,12 +176,22 @@
     text-decoration: none;
     padding: 10px 20px;
     font-size: 1em;
-    width: 100%;
-    text-align: left;
   }
 
   .mobile-auth-link:hover {
     background-color: #f1f1f1;
     color: #FFCC33;
   }
+
+  /* Hide Desktop Auth Buttons */
+  .auth-buttons {
+    display: none;
+  }
+
+  @media (max-width: 480px) {
+    .logo h1 {
+      font-size: 1em; /* Further reduction for smaller screens */
+    }
+  }
+
 }
