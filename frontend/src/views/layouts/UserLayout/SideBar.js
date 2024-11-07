@@ -37,7 +37,7 @@ const SideBar = () => {
                             </li>
                         
                             <li className="nav-item">
-                                <Link to={`${localStorage.getItem('role')}/logout`} className="menu-link" onClick={toggleMenu}>
+                                <Link to={`${localStorage.getItem('role')}/sign-out`} className="menu-link" onClick={toggleMenu}>
                                     <i className="fs-5 bi-box-arrow-right"></i> <span className="ms-2">Sign Out</span>
                                 </Link>
                             </li>
