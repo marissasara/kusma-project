@@ -2,7 +2,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar'; // Ensure Navbar path is correct
-import './ContactUs.css';
+import './contactUs.css';
 
 const ContactUs = () => {
     const navigate = useNavigate();

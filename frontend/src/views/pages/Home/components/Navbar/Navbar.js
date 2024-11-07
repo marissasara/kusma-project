@@ -23,20 +23,20 @@ const Navbar = () => {
           {isMenuOpen ? <FaTimes /> : <FaBars />}
         </button>
 
-        {/* Desktop Links (visible on lg and up) */}
-        <nav className="navbar-links d-none d-lg-flex">
-          <Link to="/">Main</Link>
-          <Link to="/about-us">About</Link>
-          <Link to="/contact-us">Contact Us</Link>
-          {/* <Link to="/photo-gallery">Photo Gallery</Link> */}
-        </nav>
+        {/* Group Links and Auth Buttons for Desktop */}
+        <div className="links-and-auth d-none d-lg-flex">
+          <nav className="navbar-links">
+            <Link to="/">Main</Link>
+            <Link to="/about-us">About</Link>
+            <Link to="/contact-us">Contact Us</Link>
+          </nav>
 
-        {/* Desktop Auth Buttons */}
-        <div className="auth-buttons d-none d-lg-flex">
-          <Link to="/sign-in" className="login-btn rounded">Login</Link>
-          <Link to="/register" className="signup-btn rounded">
-            Sign Up <FaArrowRight />
-          </Link>
+          <div className="auth-buttons">
+            <Link to="/sign-in" className="login-btn rounded">Login</Link>
+            <Link to="/register" className="signup-btn rounded">
+              Sign Up <FaArrowRight />
+            </Link>
+          </div>
         </div>
 
         {/* Mobile Links and Auth Buttons (visible on md and below) */}
@@ -44,7 +44,6 @@ const Navbar = () => {
           <Link to="/">Main</Link>
           <Link to="/about-us">About</Link>
           <Link to="/contact-us">Contact Us</Link>
-          {/* <Link to="/photo-gallery">Photo Gallery</Link> */}
           <div className="mobile-auth-buttons mt-3">
             <Link to="/sign-in" className="mobile-auth-link">Login</Link>
             <Link to="/register" className="mobile-auth-link">

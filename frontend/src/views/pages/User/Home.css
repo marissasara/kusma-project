@@ -15,7 +15,7 @@ body {
     font-weight: bold;
     text-align: center;
     margin-bottom: 30px;
-    font-size: 1.8rem; /* Slightly smaller heading */
+    font-size: 1.8rem;
 }
 
 .alert {
@@ -25,7 +25,7 @@ body {
     padding: 12px;
     margin-bottom: 25px;
     border-radius: 5px;
-    font-size: 0.95rem; /* Smaller font for alert */
+    font-size: 0.95rem;
 }
 
 /* Program Card Styles */
@@ -38,7 +38,6 @@ body {
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-    padding: 15px;
 }
 
 .card:hover {
@@ -46,11 +45,14 @@ body {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
-/* Fixed image height */
+/* Adjusted image styling */
 .card-img-top {
     border-radius: 12px 12px 0 0;
-    height: 140px;
-    object-fit: cover;
+    max-height: 120px; /* Limit the max height */
+    width: auto;
+    object-fit: contain; /* Prevent stretching and maintain aspect ratio */
+    margin: 0 auto; /* Center the image */
+    padding: 10px; /* Add padding to ensure it's not too close to the edges */
 }
 
 /* Consistent height for card body */
@@ -83,25 +85,30 @@ body {
     text-align: justify;
 }
 
-/* Updated Button Styling */
+/* Updated Button Styling for Desktop */
 .btn-primary {
     background-color: #FFCC33;
     color: #003366;
     border: none;
     font-weight: 500;
-    font-size: 1rem; /* Slightly larger font for better readability */
-    padding: 10px 20px; /* Increased padding for a more balanced look */
-    border-radius: 8px; /* Slightly larger border radius for smoother edges */
+    font-size: 0.9rem; /* Slightly smaller font for a slimmer look */
+    padding: 8px 12px; /* Reduced padding for a balanced appearance */
+    border-radius: 6px;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.3s ease;
-    width: 100%; /* Makes the button full-width within its container */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 90%; /* Less than full width for better proportion on desktop */
+    max-width: 180px; /* Set a max width for better aesthetics */
+    margin: 0 auto; /* Center the button within the card */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .btn-primary:hover {
     background-color: #f2b20c;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* Row and Column Styling for Consistent Card Layout */
@@ -109,7 +116,7 @@ body {
     display: flex;
 }
 
-.card, .card-body, .btn-primary {
+.card, .card-body {
     height: 100%;
 }
 
@@ -151,7 +158,8 @@ body {
     }
 
     .card-img-top {
-        height: 120px;
+        max-height: 100px; /* Reduced height for mobile */
+        padding: 8px;
     }
 
     .card-body {
@@ -169,8 +177,11 @@ body {
     }
 
     .btn-primary {
-        font-size: 0.75rem;
-        padding: 4px 6px;
+        font-size: 0.85rem;
+        padding: 6px 12px; /* Compact padding for mobile */
+        width: 100%; /* Full-width button for mobile */
+        max-width: unset;
+        box-shadow: none; /* Cleaner look on mobile */
     }
 }
 
@@ -190,7 +201,8 @@ body {
     }
 
     .card-img-top {
-        height: 100px;
+        max-height: 80px; /* Smaller image height on very small screens */
+        padding: 6px;
     }
 
     .card-body {
@@ -206,7 +218,7 @@ body {
     }
 
     .btn-primary {
-        font-size: 0.7rem;
-        padding: 3px 5px;
+        font-size: 0.8rem;
+        padding: 5px 10px;
     }
 }

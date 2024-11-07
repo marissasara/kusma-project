@@ -38,7 +38,7 @@ import FooterPage from './views/pages/Content/footer';
 import AboutUs from './views/pages/Home/components/AboutUs/AboutUs';
 import SignIn from './views/pages/Guest/SignIn';
 import Register from './views/pages/Guest/Register';
-import ContactUs from './views/pages/Home/components/ContactUs/ContactUs';
+import ContactUs from './views/pages/Home/components/ContactUs/contactUs';
 import SignOut from './views/pages/Guest/SignOut';
 
 

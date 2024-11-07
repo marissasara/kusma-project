@@ -1,7 +1,7 @@
 /* Navbar Container */
 .navbar-header {
   display: flex;
-  justify-content: center; /* Center-align content */
+  justify-content: center;
   align-items: center;
   padding: 20px 40px;
   background-color: #FFFFFF;
@@ -9,7 +9,7 @@
   width: 100%;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-content {
@@ -18,7 +18,7 @@
   align-items: center;
   width: 100%;
   max-width: 1200px;
-  padding-right: 10px; /* Adjust padding for alignment */
+  padding-right: 10px;
 }
 
 /* Logo Styling */
@@ -40,15 +40,13 @@
   white-space: nowrap;
 }
 
-
 /* Additional styling for logo title */
 .title-no-wrap {
   white-space: nowrap;
-  font-size: 1.8em; /* Adjusted for improved appearance */
+  font-size: 1.8em;
   color: #1F3C88;
   margin: 0;
 }
-
 
 /* Menu Toggle (Mobile Only) */
 .menu-toggle {
@@ -60,12 +58,18 @@
   cursor: pointer;
 }
 
+/* Links and Auth Group */
+.links-and-auth {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Adjust gap between links and buttons */
+}
+
 /* Navbar Links Styling */
 .navbar-links {
   display: flex;
   align-items: center;
-  gap: 15px; /* Reduced gap to bring links closer */
-  margin-right: 20px; /* Adjust margin for spacing between links and auth buttons */
+  gap: 15px;
 }
 
 .navbar-links a {
@@ -82,19 +86,18 @@
 /* Auth Buttons Styling (Desktop) */
 .auth-buttons {
   display: flex;
-  gap: 15px;
-  margin-left: 30px;
+  gap: 10px;
 }
 
 .login-btn,
 .signup-btn {
-  padding: 15px 20px;
+  padding: 10px 15px;
   font-size: 0.85em;
   font-weight: bold;
   border: none;
   cursor: pointer;
-  border-radius: 8px; /* Rounded corners */
-  text-decoration: none; /* Remove underline */
+  border-radius: 8px;
+  text-decoration: none;
   transition: background-color 0.2s, box-shadow 0.2s;
 }
 
@@ -110,19 +113,15 @@
 
 .login-btn:hover,
 .signup-btn:hover {
-<<<<<<< Updated upstream
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
   transform: translateY(-2px);
 }
 
-
 /* Mobile Menu Styling */
-
-
 @media (max-width: 768px) {
   .logo h1 {
-    font-size: 1.2em; 
-    white-space: normal; 
+    font-size: 1.2em;
+    white-space: normal;
   }
 
   .menu-toggle {
@@ -162,7 +161,6 @@
     color: #FFCC33;
   }
 
-  /* Mobile Auth Buttons */
   .mobile-auth-buttons {
     display: flex;
     flex-direction: column;
@@ -191,15 +189,7 @@
 
   @media (max-width: 480px) {
     .logo h1 {
-      font-size: 1em; /* Further reduction for smaller screens */
+      font-size: 1em;
     }
   }
-
 }
-=======
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Subtle shadow effect on hover */
-  transform: translateY(-2px); /* Slight lift effect for interactivity */
-}
-
-
->>>>>>> Stashed changes
